@@ -89,3 +89,16 @@ deploy:
   type: git
   repo: git@github.com:huleski/huleski.github.io.git 
   branch: master
+  message: "add live2d character"
+
+live2d:
+  enable: true
+  pluginModelPath: assets/
+  model:
+    use: kesyoban  #模板目录，在node_modules里
+  display:
+    position: left
+    width: 150 
+    height: 300
+  mobile:
+    show: true  #是否在手机进行显示

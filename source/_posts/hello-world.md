@@ -2,7 +2,7 @@
 title: Hello World
 date: 2019-01-31 16:45:42
 toc: true #是否显示文章目录
-categories: "hexo" #分类
+categories: hexo #分类
 tags:   #标签
 	- hexo
 	- 入门

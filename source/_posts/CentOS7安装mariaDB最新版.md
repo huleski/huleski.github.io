@@ -6,10 +6,8 @@ tags:
     - CentOS7
 date: 2019-02-24 16:26:41
 ---
-安装Maria DB
-===========
 
-获取MariaDB包源
+安装Maria DB
 -------------
 
 来自[官网的包源](https://downloads.mariadb.org/mariadb/repositories/)
@@ -25,26 +23,24 @@ gpgcheck=1
 ```
 
 移除已安装的mariaDB/MySQL:
-----------------
 ```
 yum remove $(rpm -qa | grep -i mysql)
 yum remove $(rpm -qa | grep -i mari)
 ```
 
 安装
----
 ```
 yum install -y MariaDB-server MariaDB-client
 ```
 
 配置数据库
-=======
+--------
 
 运行以下命令：
 ```
-systemctl start mariadb         #启动mariaDB
-systemctl enable mariadb        #设置开机自启动
-mysql_secure_installation       #开始初始化数据库
+systemctl start mariadb         # 启动mariaDB
+systemctl enable mariadb        # 设置开机自启动
+mysql_secure_installation       # 开始初始化数据库
 ```
 首先是设置密码，会提示先输入密码，后面是一些其他配置
 ```
@@ -75,7 +71,6 @@ mysql> select version();
 ```
 
 配置MariaDB的字符集
-----------------
 
 编辑文件：vi /etc/my.cnf ，在[mysqld]标签下添加
 ```
@@ -86,12 +81,12 @@ collation-server=utf8_unicode_ci
 skip-character-set-client-handshake
 ```
 
-编辑文件：vi /etc/my.cnf.d/client.cnf ，在[client]中添加
+编辑文件：vi /etc/my.cnf.d/client.cnf ，在[client]下添加 ( 如果没有可以不加 )
 ```
 default-character-set=utf8
 ```
 
-编辑文件： vi /etc/my.cnf.d/mysql-clients.cnf ，在[mysql]中添加
+编辑文件： vi /etc/my.cnf.d/mysql-clients.cnf ，在[mysql]下添加
 ```
 default-character-set=utf8
 ```
@@ -134,37 +129,30 @@ mysql> show variables like "%character%";show variables like "%collation%";
 字符集配置完成。
 
 添加用户，设置权限
-----------------
 
 1. 创建用户命令
 
 ```
-mysql> create user username@localhost identified by 'password';
+mysql> create user username@'localhost' identified by 'password';
 ```
 
-2. 直接创建用户并授权的命令
-
-```
-mysql> grant all on *.* to username@localhost indentified by 'password';
-```
-
-3. 授予外网登陆权限 
+2. 授予外网登陆权限 
 
 ```
 mysql> grant all privileges on *.* to username@'%' identified by 'password';
 ```
 
-4. 授予权限并且可以授权
+3. 授予权限并且可以授权
 
 ```
 mysql> grant all privileges on *.* to username@'hostname' identified by 'password' with grant option;
 ```
 
-5. 刷新权限
+4. 刷新权限
 
 ```
 mysql> flush privileges;
 ```
 
 
-简单的用户和权限配置基本就这样了。
+安装成功。

@@ -52,7 +52,7 @@ wget -c https://nginx.org/download/nginx-1.14.2.tar.gz
 
 - 解压
 ```
-tar -zxvf nginx-1.10.1.tar.gz
+tar -zxvf nginx-1.14.2.tar.gz
 ```
 
 - 执行以下命令配置安装

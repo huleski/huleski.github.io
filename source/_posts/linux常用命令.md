@@ -95,4 +95,4 @@ chkconfig --list |	列出所有系统服务
 rpm -qa	                |    查看所有安装的软件包
 yum install <程序名>    |   yum安装
 yum search <程序名>     |   yum搜索安装包
-yum list | grep <程序名>|   搜索yum已安装程序
+yum list               |   搜索yum已安装程序

@@ -96,3 +96,4 @@ rpm -qa	                |    查看所有安装的软件包
 yum install <程序名>    |   yum安装
 yum search <程序名>     |   yum搜索安装包
 yum list               |   搜索yum已安装程序
+tar xzvf 

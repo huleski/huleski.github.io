@@ -5,15 +5,15 @@
 # Site
 title: Holeski的博客
 subtitle: 你为什么这么熟练啊！？
-description: java开发、javaWeb学习总结和个人日志记录
+description: 所有能用钱解决的事, 我都解决不了
 keywords: java javaWeb 服务器
 author: Holeski
-language: zh-Hans
+language: zh-CN
 timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://huleski.github.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: next6
 plugin:
 - hexo-generator-feed
 #Feed Atom
@@ -89,7 +89,12 @@ deploy:
   type: git
   repo: git@github.com:huleski/huleski.github.io.git 
   branch: master
-  message: "add live2d character"
+  message: "update "
+
+  #- type: git
+  #repo: https://git.coding.net/hoxis/hoxis.git
+  #branch: master
+
 
 live2d:
   enable: true

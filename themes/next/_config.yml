@@ -150,13 +150,14 @@ links_title: Links
 #links_layout: block
 links_layout: inline
 links:
-  Web前端导航: http://www.alloyteam.com/nav/
+  廖雪峰的博客: https://www.liaoxuefeng.com/
+  阮一峰的博客: http://www.ruanyifeng.com/blog/
   #Title: http://example.com/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-#avatar: /images/avatar.gif
+avatar: /images/avatar.jpg
 
 # Table Of Contents in the Sidebar
 toc:

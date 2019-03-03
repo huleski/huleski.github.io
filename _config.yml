@@ -101,7 +101,7 @@ live2d:
     use: kesyoban  #模板目录，在node_modules里
   display:
     position: left
-    width: 150 
+    width: 100 
     height: 200
   mobile:
     show: true  #是否在手机进行显示

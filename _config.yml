@@ -97,6 +97,7 @@ deploy:
 live2d:
   enable: true
   pluginModelPath: assets/
+  debug: false
   model:
     use: kesyoban  #模板目录，在node_modules里
   display:

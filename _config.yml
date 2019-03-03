@@ -86,14 +86,12 @@ feed:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repo: git@github.com:huleski/huleski.github.io.git 
   branch: master
-  message: "update "
-
-  #- type: git
-  #repo: https://git.coding.net/hoxis/hoxis.git
-  #branch: master
+- type: git
+  repo: git@gitee.com:holeski/holeski.git
+  branch: master
 
 
 live2d:

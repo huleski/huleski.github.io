@@ -108,4 +108,4 @@ OK
 "holeski"
 ```
 
-至此, redis已安装配置成功
+redis安装配置成功

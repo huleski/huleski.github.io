@@ -98,3 +98,5 @@ yum search <程序名>     |   yum搜索安装包
 yum list               |   搜索yum已安装程序
 tar -xcvf <包名> <文件> |   打包压缩文件
 tar -xzvf <包名>        |   解压缩
+find / -name nginx.conf |   在根目录下查找文件nginx.conf
+grep 'test' d*　　      |   显示所有以d开头的文件中包含`test`的行

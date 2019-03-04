@@ -64,14 +64,14 @@ netstat -lntp	    |   查看所有监听端口
 netstat -antp	    |   查看所有已经建立的连接
 netstat -s	        |   查看网络统计信息
 
-进程：
+进程
 ----
 命令|说明
 ----|----
 ps -ef  |	查看所有进程
 top	    |   实时显示进程状态
 
-用户：
+用户
 ----
 命令|说明
 ----|----
@@ -82,13 +82,13 @@ cut -d: -f1 /etc/passwd	    |   查看系统所有用户
 cut -d: -f1 /etc/group	    |   查看系统所有组
 crontab -l  	            |   查看当前用户的计划任务
 
-服务：
+服务
 ----
 命令|说明
 ----|----
 chkconfig --list |	列出所有系统服务
 
-程序：
+程序
 ----
 命令|说明
 ----|----
@@ -96,4 +96,5 @@ rpm -qa	                |    查看所有安装的软件包
 yum install <程序名>    |   yum安装
 yum search <程序名>     |   yum搜索安装包
 yum list               |   搜索yum已安装程序
-tar xzvf 
+tar -xcvf <包名> <文件> |   打包压缩文件
+tar -xzvf <包名>        |   解压缩

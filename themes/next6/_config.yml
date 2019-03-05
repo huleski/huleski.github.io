@@ -258,7 +258,7 @@ sidebar:
   # Back to top in sidebar.
   b2t: false
   # Scroll percent label in b2t button.
-  scrollpercent: true
+  scrollpercent: false
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
   # Click any blank part of the page to close sidebar (only for Muse | Mist).
@@ -737,7 +737,7 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: true
+  enable: false
   total_visitors: true
   total_visitors_icon: user
   total_views: true
@@ -881,7 +881,7 @@ lazyload: false
 
 # Progress bar in the top during page loading.
 # Dependencies: https://github.com/theme-next/theme-next-pace
-pace: true
+pace: false
 # Themes list:
 # pace-theme-big-counter | pace-theme-bounce | pace-theme-barber-shop | pace-theme-center-atom
 # pace-theme-center-circle | pace-theme-center-radar | pace-theme-center-simple | pace-theme-corner-indicator
@@ -891,7 +891,7 @@ pace_theme: pace-theme-minimal
 # Canvas-nest
 # Dependencies: https://github.com/theme-next/theme-next-canvas-nest
 canvas_nest:
-  enable: true
+  enable: false
   onmobile: true # display on mobile or not
   color: '0,0,255' # RGB values, use ',' to separate
   opacity: 0.5 # the opacity of line: 0~1
@@ -1103,6 +1103,6 @@ passage_end_tag:
   enabled: true
 
 # Online contact
-daovoice: true
+daovoice: false
 daovoice_app_id: 449c7ac4    # 这里填你刚才获得的 app_id
 

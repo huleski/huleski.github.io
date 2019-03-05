@@ -5,9 +5,9 @@
   <subtitle>你为什么这么熟练啊！？</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-03-01T08:21:47.363Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://huleski.github.com/"/>
+  <updated>2019-03-04T06:34:22.090Z</updated>
+  <id>http://huleski.github.com/</id>
   
   <author>
     <name>Holeski</name>
@@ -17,13 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>linux常用命令</title>
-    <link href="http://yoursite.com/2019/02/27/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2019/02/27/linux常用命令/</id>
-    <published>2019-02-27T07:44:18.000Z</published>
-    <updated>2019-03-01T08:21:47.363Z</updated>
+    <title>win10-你需要提供管理员权限才能删除此文件</title>
+    <link href="http://huleski.github.com/2019/03/02/win10-%E4%BD%A0%E9%9C%80%E8%A6%81%E6%8F%90%E4%BE%9B%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%89%8D%E8%83%BD%E5%88%A0%E9%99%A4%E6%AD%A4%E6%96%87%E4%BB%B6/"/>
+    <id>http://huleski.github.com/2019/03/02/win10-你需要提供管理员权限才能删除此文件/</id>
+    <published>2019-03-02T13:11:33.000Z</published>
+    <updated>2019-03-04T06:34:22.090Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h2><table><thead><tr><th>日志文件</th><th>说明</th></tr></thead><tbody><tr><td>/var/log/message</td><td>系统启动后的信息和错误日志，是Red Hat Linux中最常用的日志之一</td></tr><tr><td>/var/log/secure</td><td>与安全相关的日志信息</td></tr><tr><td>/var/log/maillog</td><td>与邮件相关的日志信息</td></tr><tr><td>/var/log/cron</td><td>与定时任务相关的日志信息</td></tr><tr><td>/var/log/spooler</td><td>与UUCP和news设备相关的日志信息</td></tr><tr><td>/var/log/boot.log</td><td>守护进程启动和停止相关的日志消息</td></tr></tbody></table><h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>uname -a</td><td>查看内核/操作系统/CPU信息</td></tr><tr><td>cat /etc/issue</td><td>登陆信息显示数据</td></tr><tr><td>cat /etc/redhat-release</td><td>查看操作系统版本</td></tr><tr><td>cat /proc/cpuinfo</td><td>查看CPU信息</td></tr><tr><td>hostname</td><td>查看计算机名</td></tr><tr><td>lspci -tv</td><td>列出所有PCI设备</td></tr><tr><td>lsusb -tv</td><td>列出所有USB设备</td></tr><tr><td>lsmod</td><td>列出加载的内核模块</td></tr><tr><td>env</td><td>查看环境变量</td></tr></tbody></table><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>free -m</td><td>查看内存使用量和交换区使用量</td></tr><tr><td>df -h</td><td>查看各分区使用情况</td></tr><tr><td>du -sh &lt;目录名&gt;</td><td>查看指定目录的大小</td></tr><tr><td>grep MemTotal /proc/meminfo</td><td>查看内存总量</td></tr><tr><td>grep MemFree /proc/meminfo</td><td>查看空闲内存量</td></tr><tr><td>uptime</td><td>查看系统运行时间、用户数、负载</td></tr><tr><td>cat /proc/loadavg</td><td>查看系统负载</td></tr></tbody></table><h2 id="磁盘和分区"><a href="#磁盘和分区" class="headerlink" title="磁盘和分区"></a>磁盘和分区</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>fdisk -l</td><td># 查看所有分区     </td></tr><tr><td>swapon -s</td><td># 查看所有交换分区     </td></tr><tr><td>fdisk /dev/vdb</td><td># 对磁盘/dev/edb进行分区</td></tr><tr><td>mount /dev/vdb1 /data</td><td># 将磁盘分区/dev/vdb1挂载到/data下</td></tr><tr><td>echo /dev/vdb1 /data ext4 defaults 0 0 &gt;&gt; /etc/fstab</td><td>启动时自动挂载分区</td></tr></tbody></table><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>ifconfig</td><td>查看所有网络接口的属性</td></tr><tr><td>iptables -L</td><td>查看防火墙设置</td></tr><tr><td>route -n</td><td>查看路由表</td></tr><tr><td>netstat -lntp</td><td>查看所有监听端口</td></tr><tr><td>netstat -antp</td><td>查看所有已经建立的连接</td></tr><tr><td>netstat -s</td><td>查看网络统计信息</td></tr></tbody></table><h2 id="进程："><a href="#进程：" class="headerlink" title="进程："></a>进程：</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>ps -ef</td><td>查看所有进程</td></tr><tr><td>top</td><td>实时显示进程状态</td></tr></tbody></table><h2 id="用户："><a href="#用户：" class="headerlink" title="用户："></a>用户：</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>w</td><td>查看活动用户</td></tr><tr><td>id &lt;用户名&gt;</td><td>查看指定用户信息</td></tr><tr><td>last</td><td>查看用户登录日志</td></tr><tr><td>cut -d: -f1 /etc/passwd</td><td>查看系统所有用户</td></tr><tr><td>cut -d: -f1 /etc/group</td><td>查看系统所有组</td></tr><tr><td>crontab -l</td><td>查看当前用户的计划任务</td></tr></tbody></table><h2 id="服务："><a href="#服务：" class="headerlink" title="服务："></a>服务：</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>chkconfig –list</td><td>列出所有系统服务</td></tr></tbody></table><h2 id="程序："><a href="#程序：" class="headerlink" title="程序："></a>程序：</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>rpm -qa</td><td>查看所有安装的软件包</td></tr><tr><td>yum install &lt;程序名&gt;</td><td>yum安装</td></tr><tr><td>yum search &lt;程序名&gt;</td><td>yum搜索安装包</td></tr><tr><td>yum list</td><td>搜索yum已安装程序</td></tr></tbody></table><p>tar xzvf </p>]]></content>
+    <content type="html"><![CDATA[<p>新买的电脑配置环境, 在系统盘新建/修改/删除文件的时候会弹框提示: <code>你需要提供管理员权限才能新建/修改/删除此文件</code></p><p>去网上搜索解决方法, 清一色的复制粘贴: 去修改文件夹权限!</p><p>这个智障答案是最多的, 难道我每操作一个文件就去修改一次文件夹权限?甚至还有用命令行操作、添加脚本的, 我的妈啊, 就一个权限问题还得把操作系统学一遍不成?</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol><li>按<code>WIN+R</code>，打开运行对话框</li><li>输入<code>gpedit.msc</code>，打开组策略</li><li>一步步地选择: <code>计算机配置-&gt;Windows 设置-&gt;安全设置-&gt;本地策略-&gt;安全选项</code></li><li>找到右侧的<code>用户账户控制：以管理员批准模式运行所有管理员</code>这个项，默认设置是启用的，把它设成禁用。</li><li>重启电脑</li></ol><p>完成! 试试新建/修改/删除文件看是否还会出现权限提示</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;新买的电脑配置环境, 在系统盘新建/修改/删除文件的时候会弹框提示: &lt;code&gt;你需要提供管理员权限才能新建/修改/删除此文件&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;去网上搜索解决方法, 清一色的复制粘贴: 去修改文件夹权限!&lt;/p&gt;
+&lt;p&gt;这个智障答案是最多的, 难道我每操作一个
+      
+    
+    </summary>
+    
+      <category term="win10" scheme="http://huleski.github.com/categories/win10/"/>
+    
+    
+      <category term="win10" scheme="http://huleski.github.com/tags/win10/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux常用命令</title>
+    <link href="http://huleski.github.com/2019/02/27/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://huleski.github.com/2019/02/27/linux常用命令/</id>
+    <published>2019-02-27T07:44:18.000Z</published>
+    <updated>2019-03-04T06:37:04.269Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h2><table><thead><tr><th>日志文件</th><th>说明</th></tr></thead><tbody><tr><td>/var/log/message</td><td>系统启动后的信息和错误日志，是Red Hat Linux中最常用的日志之一</td></tr><tr><td>/var/log/secure</td><td>与安全相关的日志信息</td></tr><tr><td>/var/log/maillog</td><td>与邮件相关的日志信息</td></tr><tr><td>/var/log/cron</td><td>与定时任务相关的日志信息</td></tr><tr><td>/var/log/spooler</td><td>与UUCP和news设备相关的日志信息</td></tr><tr><td>/var/log/boot.log</td><td>守护进程启动和停止相关的日志消息</td></tr></tbody></table><h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>uname -a</td><td>查看内核/操作系统/CPU信息</td></tr><tr><td>cat /etc/issue</td><td>登陆信息显示数据</td></tr><tr><td>cat /etc/redhat-release</td><td>查看操作系统版本</td></tr><tr><td>cat /proc/cpuinfo</td><td>查看CPU信息</td></tr><tr><td>hostname</td><td>查看计算机名</td></tr><tr><td>lspci -tv</td><td>列出所有PCI设备</td></tr><tr><td>lsusb -tv</td><td>列出所有USB设备</td></tr><tr><td>lsmod</td><td>列出加载的内核模块</td></tr><tr><td>env</td><td>查看环境变量</td></tr></tbody></table><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>free -m</td><td>查看内存使用量和交换区使用量</td></tr><tr><td>df -h</td><td>查看各分区使用情况</td></tr><tr><td>du -sh &lt;目录名&gt;</td><td>查看指定目录的大小</td></tr><tr><td>grep MemTotal /proc/meminfo</td><td>查看内存总量</td></tr><tr><td>grep MemFree /proc/meminfo</td><td>查看空闲内存量</td></tr><tr><td>uptime</td><td>查看系统运行时间、用户数、负载</td></tr><tr><td>cat /proc/loadavg</td><td>查看系统负载</td></tr></tbody></table><h2 id="磁盘和分区"><a href="#磁盘和分区" class="headerlink" title="磁盘和分区"></a>磁盘和分区</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>fdisk -l</td><td># 查看所有分区     </td></tr><tr><td>swapon -s</td><td># 查看所有交换分区     </td></tr><tr><td>fdisk /dev/vdb</td><td># 对磁盘/dev/edb进行分区</td></tr><tr><td>mount /dev/vdb1 /data</td><td># 将磁盘分区/dev/vdb1挂载到/data下</td></tr><tr><td>echo /dev/vdb1 /data ext4 defaults 0 0 &gt;&gt; /etc/fstab</td><td>启动时自动挂载分区</td></tr></tbody></table><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>ifconfig</td><td>查看所有网络接口的属性</td></tr><tr><td>iptables -L</td><td>查看防火墙设置</td></tr><tr><td>route -n</td><td>查看路由表</td></tr><tr><td>netstat -lntp</td><td>查看所有监听端口</td></tr><tr><td>netstat -antp</td><td>查看所有已经建立的连接</td></tr><tr><td>netstat -s</td><td>查看网络统计信息</td></tr></tbody></table><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>ps -ef</td><td>查看所有进程</td></tr><tr><td>top</td><td>实时显示进程状态</td></tr></tbody></table><h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>w</td><td>查看活动用户</td></tr><tr><td>id &lt;用户名&gt;</td><td>查看指定用户信息</td></tr><tr><td>last</td><td>查看用户登录日志</td></tr><tr><td>cut -d: -f1 /etc/passwd</td><td>查看系统所有用户</td></tr><tr><td>cut -d: -f1 /etc/group</td><td>查看系统所有组</td></tr><tr><td>crontab -l</td><td>查看当前用户的计划任务</td></tr></tbody></table><h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>chkconfig –list</td><td>列出所有系统服务</td></tr></tbody></table><h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>rpm -qa</td><td>查看所有安装的软件包</td></tr><tr><td>yum install &lt;程序名&gt;</td><td>yum安装</td></tr><tr><td>yum search &lt;程序名&gt;</td><td>yum搜索安装包</td></tr><tr><td>yum list</td><td>搜索yum已安装程序</td></tr><tr><td>tar -xcvf &lt;包名&gt; &lt;文件&gt;</td><td>打包压缩文件</td></tr><tr><td>tar -xzvf &lt;包名&gt;</td><td>解压缩</td></tr><tr><td>find / -name nginx.conf</td><td>在根目录下查找文件nginx.conf</td></tr><tr><td>grep ‘test’ d*　　</td><td>显示所有以d开头的文件中包含<code>test</code>的行</td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
@@ -41,17 +68,17 @@
     
     </summary>
     
-      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+      <category term="linux" scheme="http://huleski.github.com/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="linux" scheme="http://huleski.github.com/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>CentOS7安装maven</title>
-    <link href="http://yoursite.com/2019/02/26/CentOS7%E5%AE%89%E8%A3%85maven/"/>
-    <id>http://yoursite.com/2019/02/26/CentOS7安装maven/</id>
+    <link href="http://huleski.github.com/2019/02/26/CentOS7%E5%AE%89%E8%A3%85maven/"/>
+    <id>http://huleski.github.com/2019/02/26/CentOS7安装maven/</id>
     <published>2019-02-26T07:03:32.000Z</published>
     <updated>2019-02-26T08:00:45.831Z</updated>
     
@@ -66,19 +93,19 @@
     
     </summary>
     
-      <category term="maven" scheme="http://yoursite.com/categories/maven/"/>
+      <category term="maven" scheme="http://huleski.github.com/categories/maven/"/>
     
     
-      <category term="CentOS7" scheme="http://yoursite.com/tags/CentOS7/"/>
+      <category term="CentOS7" scheme="http://huleski.github.com/tags/CentOS7/"/>
     
-      <category term="maven" scheme="http://yoursite.com/tags/maven/"/>
+      <category term="maven" scheme="http://huleski.github.com/tags/maven/"/>
     
   </entry>
   
   <entry>
     <title>使用GitLab-Runner搭建GitLab持续集成/部署环境</title>
-    <link href="http://yoursite.com/2019/02/26/%E4%BD%BF%E7%94%A8GitLab-Runner%E6%90%AD%E5%BB%BAGitLab%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90-%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83/"/>
-    <id>http://yoursite.com/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/</id>
+    <link href="http://huleski.github.com/2019/02/26/%E4%BD%BF%E7%94%A8GitLab-Runner%E6%90%AD%E5%BB%BAGitLab%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90-%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83/"/>
+    <id>http://huleski.github.com/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/</id>
     <published>2019-02-26T03:22:47.000Z</published>
     <updated>2019-02-26T07:54:34.190Z</updated>
     
@@ -96,19 +123,19 @@
     
     </summary>
     
-      <category term="GitLab" scheme="http://yoursite.com/categories/GitLab/"/>
+      <category term="GitLab" scheme="http://huleski.github.com/categories/GitLab/"/>
     
     
-      <category term="GitLab-CI" scheme="http://yoursite.com/tags/GitLab-CI/"/>
+      <category term="GitLab-CI" scheme="http://huleski.github.com/tags/GitLab-CI/"/>
     
-      <category term="GitLab" scheme="http://yoursite.com/tags/GitLab/"/>
+      <category term="GitLab" scheme="http://huleski.github.com/tags/GitLab/"/>
     
   </entry>
   
   <entry>
     <title>centos7安装Nginx及配置详解</title>
-    <link href="http://yoursite.com/2019/02/25/centos7%E5%AE%89%E8%A3%85Nginx%E5%8F%8A%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://yoursite.com/2019/02/25/centos7安装Nginx及配置详解/</id>
+    <link href="http://huleski.github.com/2019/02/25/centos7%E5%AE%89%E8%A3%85Nginx%E5%8F%8A%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://huleski.github.com/2019/02/25/centos7安装Nginx及配置详解/</id>
     <published>2019-02-25T06:41:56.000Z</published>
     <updated>2019-03-01T11:37:11.309Z</updated>
     
@@ -124,23 +151,23 @@
     
     </summary>
     
-      <category term="Nginx" scheme="http://yoursite.com/categories/Nginx/"/>
+      <category term="Nginx" scheme="http://huleski.github.com/categories/Nginx/"/>
     
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="http://huleski.github.com/tags/centos7/"/>
     
-      <category term="Nginx" scheme="http://yoursite.com/tags/Nginx/"/>
+      <category term="Nginx" scheme="http://huleski.github.com/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>centos7安装redis及开机自启动</title>
-    <link href="http://yoursite.com/2019/02/25/centos7%E5%AE%89%E8%A3%85redis%E5%8F%8A%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/"/>
-    <id>http://yoursite.com/2019/02/25/centos7安装redis及开机自启动/</id>
+    <link href="http://huleski.github.com/2019/02/25/centos7%E5%AE%89%E8%A3%85redis%E5%8F%8A%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/"/>
+    <id>http://huleski.github.com/2019/02/25/centos7安装redis及开机自启动/</id>
     <published>2019-02-25T02:29:06.000Z</published>
-    <updated>2019-02-25T07:52:58.478Z</updated>
+    <updated>2019-03-04T08:22:46.703Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>首先确认是否具有root权限，因为vim、设定redis开机启动需要root权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su</span><br></pre></td></tr></table></figure></p><p>新建软件安装目录和配置文件存放目录(已有可以不用新建)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /home/software         # 存放redis</span><br><span class="line">mkdir -p /usr/local/redis       # 存放配置文件</span><br></pre></td></tr></table></figure></p><p>下载redis, 可以在<a href="http://download.redis.io/releases" target="_blank" rel="noopener">官网</a>获取指定版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/software   # 进入安装目录</span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.3.tar.gz   #下载</span><br></pre></td></tr></table></figure></p><p>依次执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xzf redis-5.0.3.tar.gz      # 解压缩</span><br><span class="line">cd redis-5.0.3                  # 进入解压后的文件目录</span><br><span class="line">make                            # 编译安装</span><br></pre></td></tr></table></figure></p><p>目前已经安装完毕</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>复制配置文件( 相当于备份 )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp /home/software/redis-5.0.3/src/redis-server /usr/local/redis/</span><br><span class="line">cp /home/software/redis-5.0.3/src/redis-cli /usr/local/redis/</span><br><span class="line">cp /home/software/redis-5.0.3/redis.conf /usr/local/redis/</span><br></pre></td></tr></table></figure></p><p>编辑配置文件 redis.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/redis/redis.conf</span><br></pre></td></tr></table></figure></p><p>daemonize 改为yes 后台运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># By default Redis does not run as a daemon. Use &apos;yes&apos; if you need it.</span><br><span class="line"># Note that Redis will write a pid file in /var/run/redis.pid when daemonized.</span><br><span class="line">daemonize yes</span><br></pre></td></tr></table></figure></p><p>把 <code>bind 127.0.0.1</code>注释掉, 放开ip限制 ( 可选 )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># bind 127.0.0.1</span><br></pre></td></tr></table></figure></p><p>把<code># requirepass foobared</code>注释放开并修改密码为123456( 可选 )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass 123456</span><br></pre></td></tr></table></figure></p><p>添加开机自启动服务文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/redis.service</span><br></pre></td></tr></table></figure></p><p>加入以下内容, 在vim中一定要检查是否一致<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=The redis-server Process Manager</span><br><span class="line">After=syslog.target network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">PIDFile=/var/run/redis_6379.pid</span><br><span class="line">ExecStart=/usr/local/redis/redis-server /usr/local/redis/redis.conf         </span><br><span class="line">ExecReload=/bin/kill -USR2 $MAINPID</span><br><span class="line">ExecStop=/bin/kill -SIGINT $MAINPID</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p><p>设置开机自启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload </span><br><span class="line">systemctl start redis.service </span><br><span class="line">systemctl enable redis.service</span><br></pre></td></tr></table></figure></p><p>测试redis, 启动redis客户端, 依次执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/redis-cli</span><br><span class="line">127.0.0.1:6379&gt; auth 123456</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set name Holeski</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">&quot;holeski&quot;</span><br></pre></td></tr></table></figure></p><p>至此, redis已安装配置成功</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>首先确认是否具有root权限，因为vim、设定redis开机启动需要root权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su</span><br></pre></td></tr></table></figure></p><p>新建软件安装目录和配置文件存放目录(已有可以不用新建)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /home/software         # 存放redis</span><br><span class="line">mkdir -p /usr/local/redis       # 存放配置文件</span><br></pre></td></tr></table></figure></p><p>下载redis, 可以在<a href="http://download.redis.io/releases" target="_blank" rel="noopener">官网</a>获取指定版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/software   # 进入安装目录</span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.3.tar.gz   #下载</span><br></pre></td></tr></table></figure></p><p>依次执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xzf redis-5.0.3.tar.gz      # 解压缩</span><br><span class="line">cd redis-5.0.3                  # 进入解压后的文件目录</span><br><span class="line">make                            # 编译安装</span><br></pre></td></tr></table></figure></p><p>目前已经安装完毕</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>复制配置文件( 相当于备份 )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp /home/software/redis-5.0.3/src/redis-server /usr/local/redis/</span><br><span class="line">cp /home/software/redis-5.0.3/src/redis-cli /usr/local/redis/</span><br><span class="line">cp /home/software/redis-5.0.3/redis.conf /usr/local/redis/</span><br></pre></td></tr></table></figure></p><p>编辑配置文件 redis.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/redis/redis.conf</span><br></pre></td></tr></table></figure></p><p>daemonize 改为yes 后台运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># By default Redis does not run as a daemon. Use &apos;yes&apos; if you need it.</span><br><span class="line"># Note that Redis will write a pid file in /var/run/redis.pid when daemonized.</span><br><span class="line">daemonize yes</span><br></pre></td></tr></table></figure></p><p>把 <code>bind 127.0.0.1</code>注释掉, 放开ip限制 ( 可选 )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># bind 127.0.0.1</span><br></pre></td></tr></table></figure></p><p>把<code># requirepass foobared</code>注释放开并修改密码为123456( 可选 )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass 123456</span><br></pre></td></tr></table></figure></p><p>添加开机自启动服务文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/redis.service</span><br></pre></td></tr></table></figure></p><p>加入以下内容, 在vim中一定要检查是否一致<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=The redis-server Process Manager</span><br><span class="line">After=syslog.target network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">PIDFile=/var/run/redis_6379.pid</span><br><span class="line">ExecStart=/usr/local/redis/redis-server /usr/local/redis/redis.conf         </span><br><span class="line">ExecReload=/bin/kill -USR2 $MAINPID</span><br><span class="line">ExecStop=/bin/kill -SIGINT $MAINPID</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p><p>设置开机自启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload </span><br><span class="line">systemctl start redis.service </span><br><span class="line">systemctl enable redis.service</span><br></pre></td></tr></table></figure></p><p>测试redis, 启动redis客户端, 依次执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/redis-cli</span><br><span class="line">127.0.0.1:6379&gt; auth 123456</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set name Holeski</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">&quot;holeski&quot;</span><br></pre></td></tr></table></figure></p><p>redis安装配置成功</p>]]></content>
     
     <summary type="html">
     
@@ -151,19 +178,19 @@
     
     </summary>
     
-      <category term="redis" scheme="http://yoursite.com/categories/redis/"/>
+      <category term="redis" scheme="http://huleski.github.com/categories/redis/"/>
     
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="http://huleski.github.com/tags/centos7/"/>
     
-      <category term="redis" scheme="http://yoursite.com/tags/redis/"/>
+      <category term="redis" scheme="http://huleski.github.com/tags/redis/"/>
     
   </entry>
   
   <entry>
     <title>CentOS7安装mariaDB最新版</title>
-    <link href="http://yoursite.com/2019/02/24/CentOS7%E5%AE%89%E8%A3%85mariaDB%E6%9C%80%E6%96%B0%E7%89%88/"/>
-    <id>http://yoursite.com/2019/02/24/CentOS7安装mariaDB最新版/</id>
+    <link href="http://huleski.github.com/2019/02/24/CentOS7%E5%AE%89%E8%A3%85mariaDB%E6%9C%80%E6%96%B0%E7%89%88/"/>
+    <id>http://huleski.github.com/2019/02/24/CentOS7安装mariaDB最新版/</id>
     <published>2019-02-24T08:26:41.000Z</published>
     <updated>2019-02-25T07:52:57.434Z</updated>
     
@@ -178,19 +205,19 @@
     
     </summary>
     
-      <category term="mariaDB" scheme="http://yoursite.com/categories/mariaDB/"/>
+      <category term="mariaDB" scheme="http://huleski.github.com/categories/mariaDB/"/>
     
     
-      <category term="mariaDB" scheme="http://yoursite.com/tags/mariaDB/"/>
+      <category term="mariaDB" scheme="http://huleski.github.com/tags/mariaDB/"/>
     
-      <category term="CentOS7" scheme="http://yoursite.com/tags/CentOS7/"/>
+      <category term="CentOS7" scheme="http://huleski.github.com/tags/CentOS7/"/>
     
   </entry>
   
   <entry>
     <title>springboot-maven</title>
-    <link href="http://yoursite.com/2019/02/01/springboot-maven/"/>
-    <id>http://yoursite.com/2019/02/01/springboot-maven/</id>
+    <link href="http://huleski.github.com/2019/02/01/springboot-maven/"/>
+    <id>http://huleski.github.com/2019/02/01/springboot-maven/</id>
     <published>2019-02-01T08:11:16.000Z</published>
     <updated>2019-02-01T08:21:44.563Z</updated>
     
@@ -205,46 +232,19 @@
     
     </summary>
     
-      <category term="springboot" scheme="http://yoursite.com/categories/springboot/"/>
+      <category term="springboot" scheme="http://huleski.github.com/categories/springboot/"/>
     
     
-      <category term="maven" scheme="http://yoursite.com/tags/maven/"/>
+      <category term="maven" scheme="http://huleski.github.com/tags/maven/"/>
     
-      <category term="springboot" scheme="http://yoursite.com/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2019/01/31/hello-world/"/>
-    <id>http://yoursite.com/2019/01/31/hello-world/</id>
-    <published>2019-01-31T08:45:42.000Z</published>
-    <updated>2019-02-25T00:44:45.292Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-      <category term="入门" scheme="http://yoursite.com/tags/%E5%85%A5%E9%97%A8/"/>
+      <category term="springboot" scheme="http://huleski.github.com/tags/springboot/"/>
     
   </entry>
   
   <entry>
     <title>springboot</title>
-    <link href="http://yoursite.com/2019/01/31/springboot/"/>
-    <id>http://yoursite.com/2019/01/31/springboot/</id>
+    <link href="http://huleski.github.com/2019/01/31/springboot/"/>
+    <id>http://huleski.github.com/2019/01/31/springboot/</id>
     <published>2019-01-31T08:45:42.000Z</published>
     <updated>2019-02-01T08:00:00.453Z</updated>
     
@@ -259,19 +259,19 @@
     
     </summary>
     
-      <category term="springboot" scheme="http://yoursite.com/categories/springboot/"/>
+      <category term="springboot" scheme="http://huleski.github.com/categories/springboot/"/>
     
     
-      <category term="springboot" scheme="http://yoursite.com/tags/springboot/"/>
+      <category term="springboot" scheme="http://huleski.github.com/tags/springboot/"/>
     
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+      <category term="教程" scheme="http://huleski.github.com/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>gitlab</title>
-    <link href="http://yoursite.com/2019/01/31/gitlab/"/>
-    <id>http://yoursite.com/2019/01/31/gitlab/</id>
+    <link href="http://huleski.github.com/2019/01/31/gitlab/"/>
+    <id>http://huleski.github.com/2019/01/31/gitlab/</id>
     <published>2019-01-31T08:44:57.000Z</published>
     <updated>2019-02-25T00:44:45.292Z</updated>
     
@@ -286,12 +286,12 @@
     
     </summary>
     
-      <category term="gitlab" scheme="http://yoursite.com/categories/gitlab/"/>
+      <category term="gitlab" scheme="http://huleski.github.com/categories/gitlab/"/>
     
     
-      <category term="gitlab" scheme="http://yoursite.com/tags/gitlab/"/>
+      <category term="gitlab" scheme="http://huleski.github.com/tags/gitlab/"/>
     
-      <category term="版本控制" scheme="http://yoursite.com/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
+      <category term="版本控制" scheme="http://huleski.github.com/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
     
   </entry>
   

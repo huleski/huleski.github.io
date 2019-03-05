@@ -81,6 +81,7 @@ last	                    |   查看用户登录日志
 cut -d: -f1 /etc/passwd	    |   查看系统所有用户
 cut -d: -f1 /etc/group	    |   查看系统所有组
 crontab -l  	            |   查看当前用户的计划任务
+useradd -s /sbin/nologin -M nginx   |   添加用户
 
 服务
 ----

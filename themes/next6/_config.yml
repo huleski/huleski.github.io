@@ -258,7 +258,7 @@ sidebar:
   # Back to top in sidebar.
   b2t: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
   # Click any blank part of the page to close sidebar (only for Muse | Mist).
@@ -737,7 +737,7 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: false
+  enable: true
   total_visitors: true
   total_visitors_icon: user
   total_views: true
@@ -1103,6 +1103,6 @@ passage_end_tag:
   enabled: true
 
 # Online contact
-daovoice: false
+daovoice: true
 daovoice_app_id: 449c7ac4    # 这里填你刚才获得的 app_id
 

@@ -303,9 +303,9 @@ post_meta:
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
-  separated_meta: true
-  item_text_post: true
-  item_text_total: true
+  separated_meta: false
+  item_text_post: false
+  item_text_total: false
   awl: 4
   wpm: 275
 
@@ -715,9 +715,9 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn to get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: #<app_id>
-  app_key: #<app_key>
+  enable: true
+  app_id: 2cQlDnnGUmwOlkJVR7K2whyr-gzGzoHsz    #<app_id>
+  app_key: 4vwOjCe9oulMgyi7RvtC9Fgy           #<app_key>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set `security` to `false`.

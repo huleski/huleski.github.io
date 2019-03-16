@@ -619,8 +619,21 @@ ThreadPoolExecutor提供了两个方法，用于线程池的关闭，分别是sh
 
 ThreadPoolExecutor提供了动态调整线程池容量大小的方法：setCorePoolSize()和setMaximumPoolSize()，
 
-setCorePoolSize：设置核心池大小
-setMaximumPoolSize：设置线程池最大能创建的线程数目大小
-　　当上述参数从小变大时，ThreadPoolExecutor进行线程赋值，还可能立即创建新的线程来执行任务。
+- setCorePoolSize：设置核心池大小
+- setMaximumPoolSize：设置线程池最大能创建的线程数目大小
+
+当上述参数从小变大时，ThreadPoolExecutor进行线程赋值，还可能立即创建新的线程来执行任务。
+
+
+如何合理配置线程池的大小
+--------------------
+
+一般需要根据任务的类型来配置线程池大小：
+
+如果是CPU密集型任务，就需要尽量压榨CPU，参考值可以设为 NCPU+1
+
+如果是IO密集型任务，参考值可以设置为2*NCPU
+
+当然，这只是一个参考值，具体的设置还需要根据实际情况进行调整，比如可以先将线程池大小设置为参考值，再观察任务运行情况和系统负载、资源利用率来进行适当调整。
 
 [原文链接](http://www.cnblogs.com/dolphin0520/p/3932921.html)

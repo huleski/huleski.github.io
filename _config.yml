@@ -6,7 +6,7 @@
 title: Holeski的博客
 subtitle: 你为什么这么熟练啊！？
 description: 所有能用钱解决的事, 我都解决不了
-keywords: java javaWeb 服务器
+keywords: java javaWeb
 author: Holeski
 language: zh-CN
 timezone: 
@@ -89,9 +89,11 @@ deploy:
 - type: git
   repo: git@github.com:huleski/huleski.github.io.git 
   branch: master
+  message: update
 - type: git
   repo: git@gitee.com:holeski/holeski.git
   branch: master
+  message: update
 
 
 live2d:

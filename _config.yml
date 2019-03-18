@@ -89,11 +89,11 @@ deploy:
 - type: git
   repo: git@github.com:huleski/huleski.github.io.git 
   branch: master
-  message: update
+  message: To Be Continue...
 - type: git
   repo: git@gitee.com:holeski/holeski.git
   branch: master
-  message: update
+  message: To Be Continue...
 
 
 live2d:
@@ -116,4 +116,3 @@ symbols_count_time:
  # 网页底部是否显示
   total_symbols: true
   total_time: true
-

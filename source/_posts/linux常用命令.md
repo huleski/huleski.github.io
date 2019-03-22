@@ -97,6 +97,7 @@ rpm -qa	                |    查看所有安装的软件包
 yum install <程序名>    |   yum安装
 yum search <程序名>     |   yum搜索安装包
 yum list               |   搜索yum已安装程序
+wget <文件地址>         |   Wget主要用于下载文件，在安装软件时会经常用到，
 tar -xcvf <包名> <文件> |   打包压缩文件
 tar -xzvf <包名>        |   解压缩
 find / -name nginx.conf |   在根目录下查找文件nginx.conf

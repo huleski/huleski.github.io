@@ -42,13 +42,15 @@ MySQL表级锁有两种模式：表共享锁（Table Read Lock）和表独占写
 MyISAM在执行查询语句（SELECT）前，会自动给涉及的所有表加读锁，在执行更新操作（UPDATE、DELETE、INSERT等）前，会自动给涉及的表加写锁，这个过程并不需要用户干预
 
 给MyISAM表显示加锁，一般是为了一定程度模拟事务操作，实现对某一时间点多个表的一致性读取。例如，有一个订单表orders，其中记录有订单的总金额total，同时还有一个订单明细表order_detail，其中记录有订单每一产品的金额小计subtotal，假设我们需要检查这两个表的金额合计是否相等，可能就需要执行如下两条SQL：
-```
+
+```sql
 SELECT SUM(total) FROM orders;
 SELECT SUM(subtotal) FROM order_detail;
 ```
 
 这时，如果不先给这两个表加锁，就可能产生错误的结果，因为第一条语句执行过程中，order_detail表可能已经发生了改变。因此，正确的方法应该是：
-```
+
+```sql
 LOCK tables orders read local,order_detail read local;
 SELECT SUM(total) FROM orders;
 SELECT SUM(subtotal) FROM order_detail;
@@ -138,7 +140,7 @@ InnoDB与MyISAM的最大不同有两点：一是支持事务（TRANSACTION）；
 
 可以通过检查InnoDB_row_lock状态变量来分析系统上的行锁的争夺情况：
 
-```
+```sql
 mysql> show status like 'innodb_row_lock%';
 +-------------------------------+-------+
 | Variable_name | Value |
@@ -183,5 +185,47 @@ IS	|冲突	|兼容	|兼容	|兼容
 - 排他锁（X）：SELECT * FROM table_name WHERE ... FOR UPDATE
 
 用SELECT .. IN SHARE MODE获得共享锁，主要用在需要数据依存关系时确认某行记录是否存在，并确保没有人对这个记录进行UPDATE或者DELETE操作。但是如果当前事务也需要对该记录进行更新操作，则很有可能造成死锁，对于锁定行记录后需要进行更新操作的应用，应该使用SELECT ... FOR UPDATE方式获取排他锁。
+
+**InnoDB行锁实现方式**
+
+ InnoDB行锁是通过索引上的索引项来实现的，这一点ＭySQL与Oracle不同，后者是通过在数据中对相应数据行加锁来实现的。InnoDB这种行锁实现特点意味者：只有通过索引条件检索数据，InnoDB才会使用行级锁，否则，InnoDB将使用表锁！在实际应用中，要特别注意InnoDB行锁的这一特性，不然的话，可能导致大量的锁冲突，从而影响并发性能。
+
+**间隙锁（Next-Key锁）**
+
+当我们用范围条件而不是相等条件检索数据，并请求共享或排他锁时，InnoDB会给符合条件的已有数据的索引项加锁；对于键值在条件范围内但并不存在的记录，叫做“间隙(GAP)”，InnoDB也会对这个“间隙”加锁，这种锁机制就是所谓的间隙锁（Next-Key锁）。
+
+举例来说，假如emp表中只有101条记录，其empid的值分别是1,2,...,100,101，下面的SQL：
+```sql
+SELECT * FROM emp WHERE empid > 100 FOR UPDATE
+```
+
+是一个范围条件的检索，InnoDB不仅会对符合条件的empid值为101的记录加锁，也会对empid大于101（这些记录并不存在）的“间隙”加锁。
+
+InnoDB使用间隙锁的目的，一方面是为了防止幻读，以满足相关隔离级别的要求，对于上面的例子，要是不使用间隙锁，如果其他事务插入了empid大于100的任何记录，那么本事务如果再次执行上述语句，就会发生幻读；另一方面，是为了满足其恢复和复制的需要。有关其恢复和复制对机制的影响，以及不同隔离级别下InnoDB使用间隙锁的情况。
+
+很显然，在使用范围条件检索并锁定记录时，InnoDB这种加锁机制会阻塞符合条件范围内键值的并发插入，这往往会造成严重的锁等待。因此，在实际开发中，尤其是并发插入比较多的应用，我们要尽量优化业务逻辑，尽量使用相等条件来访问更新数据，避免使用范围条件。
+
+**什么时候使用表锁**
+
+对于InnoDB表，在绝大部分情况下都应该使用行级锁，因为事务和行锁往往是我们之所以选择InnoDB表的理由。但在特殊事务中，也可以考虑使用表级锁。
+
+- 第一种情况是：事务需要更新大部分或全部数据，表又比较大，如果使用默认的行锁，不仅这个事务执行效率低，而且可能造成其他事务长时间锁等待和锁冲突，这种情况下可以考虑使用表锁来提高该事务的执行速度。
+- 第二种情况是：事务涉及多个表，比较复杂，很可能引起死锁，造成大量事务回滚。这种情况也可以考虑一次性锁定事务涉及的表，从而避免死锁、减少数据库因事务回滚带来的开销。
+
+当然，应用中这两种事务不能太多，否则，就应该考虑使用ＭyISAＭ表。在InnoDB下 ，使用表锁要注意以下两点。
+
+1. 使用LOCK TALBES虽然可以给InnoDB加表级锁，但必须说明的是，表锁不是由InnoDB存储引擎层管理的，而是由其上一层ＭySQL Server负责的，仅当autocommit=0、innodb_table_lock=1（默认设置）时，InnoDB层才能知道MySQL加的表锁，ＭySQL Server才能感知InnoDB加的行锁，这种情况下，InnoDB才能自动识别涉及表级锁的死锁；否则，InnoDB将无法自动检测并处理这种死锁。
+2. 在用LOCAK TABLES对InnoDB锁时要注意，要将AUTOCOMMIT设为0，否则ＭySQL不会给表加锁；事务结束前，不要用UNLOCAK TABLES释放表锁，因为UNLOCK TABLES会隐含地提交事务；COMMIT或ROLLBACK不能释放用LOCAK TABLES加的表级锁，必须用UNLOCK TABLES释放表锁，正确的方式见如下语句。
+
+```java
+SET AUTOCOMMIT=0;
+LOCAK TABLES t1 WRITE, t2 READ, ...;
+[do something with tables t1 and here];
+COMMIT;
+UNLOCK TABLES;
+```
+
+**关于死锁**
+
 
 

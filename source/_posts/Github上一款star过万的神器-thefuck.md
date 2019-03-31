@@ -90,21 +90,23 @@ vi /usr/bin/yum
 **安装pip并升级pip工具**
 
 1. 方法一: 直接安装
+
 ```
 yum install -y python-pip
 pip install --upgrade pip setuptools
 ```
 
-2. 方法二: .python3安装完成后默认已经带有pip, 你可以用以下命令,创建软链接
-```
-ln -s /usr/local/python3/bin/pip /usr/bin/pip
-```    
+2. 方法二: python3安装完成后默认已经带有pip, 你可以用以下命令,创建软链接
 
+```bash
+ln -s /usr/local/python3/bin/pip /usr/bin/pip
+```
 
 **安装python-dev**
 
 需要注意的是: 在centOS7中该模块叫 **python-devel**
-```
+
+```bash
 yum install -y python-devel
 ```
 
@@ -117,6 +119,7 @@ pip install thefuck
 修改文件 `vim /usr/bin/thefuck`, 把第一行的 `#!/usr/bin/python2` 改成 `#!/usr/bin/python`
 
 查看thefuck是否安装成功:
+
 ```
 fuck -v
 ```

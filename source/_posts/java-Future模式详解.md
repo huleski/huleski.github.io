@@ -65,7 +65,7 @@ public class CommonCook {
 
 运行结果：
 
-```
+```s
 第一步：下单
 第一步：等待送货
 第一步：快递送到
@@ -137,7 +137,7 @@ public class FutureCook {
 
 运行结果：
 
-```text
+```s
 第一步：下单
 第一步：等待送货
 第二步：食材到位

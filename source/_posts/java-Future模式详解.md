@@ -95,7 +95,6 @@ public class FutureCook {
         long startTime = System.currentTimeMillis();
         // 第一步 网购厨具
         Callable<Chuju> onlineShopping = new Callable<Chuju>() {
-
             @Override
             public Chuju call() throws Exception {
                 System.out.println("第一步：下单");
@@ -103,8 +102,7 @@ public class FutureCook {
                 Thread.sleep(5000);  // 模拟送货时间
                 System.out.println("第一步：快递送到");
                 return new Chuju();
-            }
-            
+            }  
         };
         FutureTask<Chuju> task = new FutureTask<Chuju>(onlineShopping);
         new Thread(task).start();
@@ -119,7 +117,6 @@ public class FutureCook {
         Chuju chuju = task.get();
         System.out.println("第三步：厨具到位，开始展现厨艺");
         cook(chuju, shicai);
-        
         System.out.println("总共用时" + (System.currentTimeMillis() - startTime) + "ms");
     }
     
@@ -148,3 +145,168 @@ public class FutureCook {
 ```
 
 可以看见，在快递员送厨具的期间，我们没有闲着，可以去买食材；而且我们知道厨具到没到，甚至可以在厨具没到的时候，取消订单不要了。
+
+具体分析一下第二段代码：
+
+1. 把耗时的网购厨具逻辑，封装到了一个Callable的call方法里面。
+
+```java
+public interface Callable<V> {
+    /**
+     * Computes a result, or throws an exception if unable to do so.
+     *
+     * @return computed result
+     * @throws Exception if unable to compute a result
+     */
+    V call() throws Exception;
+}
+```
+
+ Callable接口可以看作是Runnable接口的补充，call方法带有返回值，并且可以抛出异常。
+
+2. 把Callable实例当作参数，生成一个FutureTask的对象，然后把这个对象当作一个Runnable，作为参数另起线程。
+
+```java
+public class FutureTask<V> implements RunnableFuture<V>
+
+public interface RunnableFuture<V> extends Runnable, Future<V>
+
+public interface Future<V> {
+
+    boolean cancel(boolean mayInterruptIfRunning);
+
+    boolean isCancelled();
+
+    boolean isDone();
+
+    V get() throws InterruptedException, ExecutionException;
+
+    V get(long timeout, TimeUnit unit)
+        throws InterruptedException, ExecutionException, TimeoutException;
+}
+```
+
+这个继承体系中的核心接口是Future。Future的核心思想是：一个方法f，计算过程可能非常耗时，等待f返回，显然不明智。可以在调用f的时候，立马返回一个Future，可以通过Future这个数据结构去控制方法f的计算过程。
+
+这里的控制包括：
+
+- get方法：获取计算结果（如果还没计算完，也是必须等待的）
+- cancel方法：还没计算完，可以取消计算过程
+- isDone方法：判断是否计算完
+- isCancelled方法：判断计算是否被取消
+- 这些接口的设计很完美，FutureTask的实现注定不会简单，后面再说。
+
+
+3. 在第三步里面，调用了isDone方法查看状态，然后直接调用task.get方法获取厨具，不过这时还没送到，所以还是会等待3秒。对比第一段代码的执行结果，这里我们节省了2秒。这是因为在快递员送货期间，我们去超市购买食材，这两件事在同一时间段内异步执行。
+
+下面具体分析下FutureTask的实现(JDK8), FutureTask也是一个Runnable，那就看看它的run方法
+
+```java
+public void run() {
+    if (state != NEW || !UNSAFE.compareAndSwapObject(this, runnerOffset, null, Thread.currentThread()))
+        return;
+    try {
+        Callable<V> c = callable; // 这里的callable是从构造方法里面传人的
+        if (c != null && state == NEW) {
+            V result;
+            boolean ran;
+            try {
+                result = c.call();
+                ran = true;
+            } catch (Throwable ex) {
+                result = null;
+                ran = false;
+                setException(ex); // 保存call方法抛出的异常
+            }
+            if (ran)   set(result); // 保存call方法的执行结果
+        }
+    } finally {
+        // runner must be non-null until state is settled to
+        // prevent concurrent calls to run()
+        runner = null;
+        // state must be re-read after nulling runner to prevent
+        // leaked interrupts
+        int s = state;
+        if (s >= INTERRUPTING)     handlePossibleCancellationInterrupt(s);
+    }
+}
+```
+
+先看try语句块里面的逻辑，发现run方法的主要逻辑就是运行Callable的call方法，然后将保存结果或者异常（用的一个属性result）。这里比较难想到的是，将call方法抛出的异常也保存起来了。
+
+state属性有以下几个值:
+
+```java
+/* Possible state transitions:
+ * NEW -> COMPLETING -> NORMAL
+ * NEW -> COMPLETING -> EXCEPTIONAL
+ * NEW -> CANCELLED
+ * NEW -> INTERRUPTING -> INTERRUPTED
+*/
+private volatile int state;
+private static final int NEW          = 0;
+private static final int COMPLETING   = 1;
+private static final int NORMAL       = 2;
+private static final int EXCEPTIONAL  = 3;
+private static final int CANCELLED    = 4;
+private static final int INTERRUPTING = 5;
+private static final int INTERRUPTED  = 6;
+```
+
+把FutureTask看作一个Future，那么它的作用就是控制Callable的call方法的执行过程，在执行的过程中自然会有状态的转换：
+
+1. 一个FutureTask新建出来，state就是NEW状态；COMPETING和INTERRUPTING用的进行时，表示瞬时状态，存在时间极短；NORMAL代表顺利完成；EXCEPTIONAL代表执行过程出现异常；CANCELED代表执行过程被取消；INTERRUPTED被中断
+2. 执行过程顺利完成：NEW -> COMPLETING -> NORMAL
+3. 执行过程出现异常：NEW -> COMPLETING -> EXCEPTIONAL
+4. 执行过程被取消：NEW -> CANCELLED
+5. 执行过程中，线程中断：NEW -> INTERRUPTING -> INTERRUPTED
+
+get方法的实现：
+
+```java
+public V get() throws InterruptedException, ExecutionException {
+    int s = state;
+    if (s <= COMPLETING)
+        s = awaitDone(false, 0L);
+    return report(s);
+}
+
+private int awaitDone(boolean timed, long nanos) throws InterruptedException {
+    final long deadline = timed ? System.nanoTime() + nanos : 0L;
+    WaitNode q = null;
+    boolean queued = false;
+    for (;;) {
+        if (Thread.interrupted()) {
+            removeWaiter(q);
+            throw new InterruptedException();
+        }
+
+        int s = state;
+        if (s > COMPLETING) {
+            if (q != null)
+                q.thread = null;
+            return s;
+        }
+        else if (s == COMPLETING) // cannot time out yet
+            Thread.yield();
+        else if (q == null)
+            q = new WaitNode();
+        else if (!queued)
+            queued = UNSAFE.compareAndSwapObject(this, waitersOffset, q.next = waiters, q);
+        else if (timed) {
+            nanos = deadline - System.nanoTime();
+            if (nanos <= 0L) {
+                removeWaiter(q);
+                return state;
+            }
+            LockSupport.parkNanos(this, nanos);
+        }
+        else
+            LockSupport.park(this);
+    }
+}
+```
+
+get方法的逻辑很简单，如果call方法的执行过程已完成，就把结果给出去；如果未完成，就将当前线程挂起等待。awaitDone方法里面死循环的逻辑，推演几遍就能弄懂；它里面挂起线程的主要创新是定义了WaitNode类，来将多个等待线程组织成队列，这是与JDK6的实现最大的不同。
+
+

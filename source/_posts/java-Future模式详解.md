@@ -309,4 +309,68 @@ private int awaitDone(boolean timed, long nanos) throws InterruptedException {
 
 get方法的逻辑很简单，如果call方法的执行过程已完成，就把结果给出去；如果未完成，就将当前线程挂起等待。awaitDone方法里面死循环的逻辑，推演几遍就能弄懂；它里面挂起线程的主要创新是定义了WaitNode类，来将多个等待线程组织成队列，这是与JDK6的实现最大的不同。
 
+挂起的线程唤醒：
+
+```java
+private void finishCompletion() {
+    // assert state > COMPLETING;
+    for (WaitNode q; (q = waiters) != null;) {
+        if (UNSAFE.compareAndSwapObject(this, waitersOffset, q, null)) {
+            for (;;) {
+                Thread t = q.thread;
+                if (t != null) {
+                    q.thread = null;
+                    LockSupport.unpark(t); // 唤醒线程
+                }
+                WaitNode next = q.next;
+                if (next == null)
+                    break;
+                q.next = null; // unlink to help gc
+                q = next;
+            }
+            break;
+        }
+    }
+
+    done();
+
+    callable = null;        // to reduce footprint
+}
+```
+
+以上就是JDK8的大体实现逻辑
+
+JDK6的FutureTask的基本操作都是通过自己的内部类Sync来实现的，而Sync继承自AbstractQueuedSynchronizer这个出镜率极高的并发工具类
+
+```java
+/** State value representing that task is running */
+private static final int RUNNING   = 1;
+/** State value representing that task ran */
+private static final int RAN       = 2;
+/** State value representing that task was cancelled */
+private static final int CANCELLED = 4;
+
+/** The underlying callable */
+private final Callable<V> callable;
+/** The result to return from get() */
+private V result;
+/** The exception to throw from get() */
+private Throwable exception;
+```
+
+里面的状态只有基本的几个，而且计算结果和异常是分开保存的。
+
+```java
+V innerGet() throws InterruptedException, ExecutionException {
+    acquireSharedInterruptibly(0);
+    if (getState() == CANCELLED)
+        throw new CancellationException();
+    if (exception != null)
+        throw new ExecutionException(exception);
+    return result;
+}
+```
+
+这个get方法里面处理等待线程队列的方式是调用了acquireSharedInterruptibly方法，看过我之前几篇博客文章的读者应该非常熟悉了。其中的等待线程队列、线程挂起和唤醒等逻辑
+
 

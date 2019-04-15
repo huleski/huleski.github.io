@@ -340,7 +340,7 @@ private void finishCompletion() {
 
 以上就是JDK8的大体实现逻辑
 
-JDK6的FutureTask的基本操作都是通过自己的内部类Sync来实现的，而Sync继承自AbstractQueuedSynchronizer这个出镜率极高的并发工具类
+JDK6的FutureTask的基本操作都是通过自己的内部类Sync来实现的，而Sync继承自AbstractQueuedSynchronizer这个并发工具类
 
 ```java
 /** State value representing that task is running */
@@ -371,6 +371,86 @@ V innerGet() throws InterruptedException, ExecutionException {
 }
 ```
 
-这个get方法里面处理等待线程队列的方式是调用了acquireSharedInterruptibly方法，看过我之前几篇博客文章的读者应该非常熟悉了。其中的等待线程队列、线程挂起和唤醒等逻辑
+这个get方法里面处理等待线程队列的方式是调用了acquireSharedInterruptibly方法
 
+再上一个场景：我们自己写一个简单的数据库连接池，能够复用数据库连接，并且能在高并发情况下正常工作。
 
+```java
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConnectionPool {
+
+    private ConcurrentHashMap<String, Connection> pool = new ConcurrentHashMap<String, Connection>();
+    
+    public Connection getConnection(String key) {
+        Connection conn = null;
+        if (pool.containsKey(key)) {
+            conn = pool.get(key);
+        } else {
+            conn = createConnection();
+            pool.putIfAbsent(key, conn);
+        }
+        return conn;
+    }
+    
+    public Connection createConnection() {
+        return new Connection();
+    }
+    
+    class Connection {}
+}
+```
+
+我们用了ConcurrentHashMap，这样就不必把getConnection方法置为synchronized(当然也可以用Lock)，当多个线程同时调用getConnection方法时，性能大幅提升。
+
+貌似很完美了，但是有可能导致多余连接的创建，推演一遍：
+
+某一时刻，同时有3个线程进入getConnection方法，调用pool.containsKey(key)都返回false，然后3个线程各自都创建了连接。虽然ConcurrentHashMap的put方法只会加入其中一个，但还是生成了2个多余的连接。如果是真正的数据库连接，那会造成极大的资源浪费。
+
+所以，我们现在的难点是：如何在多线程访问getConnection方法时，只执行一次createConnection。
+
+结合之前Future模式的实现分析：当3个线程都要创建连接的时候，如果只有一个线程执行createConnection方法创建一个连接，其它2个线程只需要用这个连接就行了。再延伸，把createConnection方法放到一个Callable的call方法里面，然后生成FutureTask。我们只需要让一个线程执行FutureTask的run方法，其它的线程只执行get方法就好了。
+
+```java
+import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+
+public class ConnectionPool {
+
+    private ConcurrentHashMap<String, FutureTask<Connection>> pool = new ConcurrentHashMap<String, FutureTask<Connection>>();
+
+    public Connection getConnection(String key) throws InterruptedException, ExecutionException {
+        FutureTask<Connection> connectionTask = pool.get(key);
+        if (connectionTask != null) {
+            return connectionTask.get();
+        } else {
+            Callable<Connection> callable = new Callable<Connection>() {
+                @Override
+                public Connection call() throws Exception {
+                    return createConnection();
+                }
+            };
+            FutureTask<Connection> newTask = new FutureTask<Connection>(callable);
+            connectionTask = pool.putIfAbsent(key, newTask);
+            if (connectionTask == null) {
+                connectionTask = newTask;
+                connectionTask.run();
+            }
+            return connectionTask.get();
+        }
+    }
+
+    public Connection createConnection() {
+        return new Connection();
+    }
+
+    class Connection {
+    }
+}
+```
+
+当3个线程同时进入else语句块时，各自都创建了一个FutureTask，但是ConcurrentHashMap只会加入其中一个。第一个线程执行pool.putIfAbsent方法后返回null，然后connectionTask被赋值，接着就执行run方法去创建连接，最后get。后面的线程执行pool.putIfAbsent方法不会返回null，就只会执行get方法。
+
+在并发的环境下，通过FutureTask作为中间转换，成功实现了让某个方法只被一个线程执行。当然这个还是有缺陷: 多个线程同时调用get方法时，得到的是同一个数据库连接的多个引用，这会导致严重的问题。这是另外一个问题, 就不再多说.

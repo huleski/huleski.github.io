@@ -31,6 +31,7 @@ wget http://download.redis.io/releases/redis-5.0.3.tar.gz   #下载
 ```
 tar xzf redis-5.0.3.tar.gz      # 解压缩
 cd redis-5.0.3                  # 进入解压后的文件目录
+yum -y install gcc-c++          # 新安装的centos系统没有C++编译器, 需要安装, 有的就跳过
 make                            # 编译安装
 ```
 

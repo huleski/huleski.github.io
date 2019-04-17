@@ -95,8 +95,9 @@ chkconfig --list |	列出所有系统服务
 ----|----
 rpm -qa	                |    查看所有安装的软件包
 yum install <程序名>    |   yum安装
-yum search <程序名>     |   yum搜索安装包
-yum list               |   搜索yum已安装程序
+yum search <程序名>     |   搜索安装包
+yum list               |   显示所有已经安装和可以安装的程序包
+yum list installed      |   列出所有已安装的软件包
 wget <文件地址>         |   Wget主要用于下载文件，在安装软件时会经常用到，
 tar -xcvf <包名> <文件> |   打包压缩文件
 tar -xzvf <包名>        |   解压缩

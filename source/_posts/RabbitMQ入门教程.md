@@ -249,8 +249,8 @@ public class NewTask {
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("10.131.13.253");
-        factory.setUsername("root");
+        factory.setHost("localhost");
+        factory.setUsername("admin");
         factory.setPassword("123456");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
@@ -278,8 +278,8 @@ public class Worker {
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("10.131.13.253");
-        factory.setUsername("root");
+        factory.setHost("localhost");
+        factory.setUsername("admin");
         factory.setPassword("123456");
         final Connection connection = factory.newConnection();
         final Channel channel = connection.createChannel();

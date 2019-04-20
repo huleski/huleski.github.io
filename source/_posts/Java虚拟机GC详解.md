@@ -58,7 +58,7 @@ date: 2019-04-13 18:39:00
 由于引用计数算法的缺陷，所以JVM一般会采用一种新的算法，叫做根搜索算法。它的处理方式就是，设立若干种根对象，当任何一个根对象到某一个对象均不可达时，则认为这个对象是可以被回收的。
 ```
 
-![Logo](https://upload-images.jianshu.io/upload_images/3789193-db98b5d3a266c24d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/584/format/webp)
+![Logo](/images/jvm_gc/jvm_gc1.webp)
 
 #### 3-2-2 特点
 
@@ -248,7 +248,7 @@ JVM GC 垃圾回收器类型
 -------------------
 
 JVM的垃圾回收器大致分为四种类型：
-![jvm类型](https://img-blog.csdn.net/20141022140804407)
+![jvm类型](/images/jvm_gc/jvm_gc2.jpg)
 
 **1、串行垃圾回收器  Serial Garbage Collector**
 
@@ -257,14 +257,14 @@ JVM的垃圾回收器大致分为四种类型：
 使用方法：-XX:+UseSerialGC 
 Ps：在jdk client模式，不指定VM参数，默认是串行垃圾回收器
 
-![串行垃圾回收器](https://img-blog.csdn.net/20141022135730406)
+![串行垃圾回收器](/images/jvm_gc/jvm_gc3.jpg)
 
 **2、并行垃圾回收器  Parallel Garbage Collector**
 
 并行垃圾回收器在进行垃圾回收时，同样会持有所有应用程序的线程，并冻结所有应用程序线程，来进行垃圾回收工作。
 唯一和串行垃圾回收器不同的是，并行垃圾回收器是使用多线程来进行垃圾回收工作的。
 
-![并行垃圾回收器](https://img-blog.csdn.net/20141022140114828)
+![并行垃圾回收器](/images/jvm_gc/jvm_gc4.jpg)
 
 **3、并发标记扫描垃圾回收器 CMS Garbage Collector**
 
@@ -273,7 +273,7 @@ CMS垃圾回收器有时候会Hold所有的应用程序线程，但有时候只�
 
 如果能分配更多的CPU给垃圾回收器，那么CMS会是一个比并行垃圾回收更好的选择。XX:+USeParNewGC
 
-![并发标记扫描垃圾回收器](https://img-blog.csdn.net/20141022135739078)
+![并发标记扫描垃圾回收器](/images/jvm_gc/jvm_gc5.jpg)
 
 **4、G1垃圾回收器  G1 Garbage Collector**
 
@@ -286,7 +286,7 @@ G1垃圾回收器回收region的时候基本不会STW，而是基于 most garbag
 
 java8中，使用-XX:+UseStringDeduplication。这个优化会优化冗余的string为一个char数组。
 
-![G1垃圾回收器](https://img-blog.csdn.net/20141022140703832)
+![G1垃圾回收器](/images/jvm_gc/jvm_gc6.jpg)
 
 
 查看JVM使用的默认的垃圾收集器

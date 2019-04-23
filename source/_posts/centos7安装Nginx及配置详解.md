@@ -487,3 +487,56 @@ location / {
 - 访问 http://localhost/static/c.png 则优先匹配到规则 C
 - 访问 http://localhost/a.PNG 则匹配规则 E，而不会匹配规则 D，因为规则 E 不区分大小写。
 - 访问 http://localhost/category/id/1111 则最终匹配到规则 F，这个时候 nginx 可以作为反向代理服务器。
+
+server_name参数的配置
+-------------------------
+
+nginx中的server_name指令主要用于配置基于名称虚拟主机.
+
+如果server_name配置了多个参数, 在接到请求后的匹配顺序如下：
+
+1. 确切的server_name匹配：
+
+```yml
+server {
+    listen       80;
+    server_name  www.google.com google.com;
+    ...
+}
+```
+
+2. 以*通配符开始的最长字符串：
+
+```yml
+server {
+    listen       80;
+    server_name  *.google.com;
+    ...
+}
+```
+
+3. 以*通配符结束的最长字符串：
+
+```yml
+server {
+    listen       80;
+    server_name  www.*;
+    ...
+}
+```
+
+注意: 通配符名字只可以在名字的起始处或结尾处包含一个星号，并且星号与其他字符之间用点分隔。所以，`www.*.example.org` 和 `w*.example.org` 都是非法的。
+
+有一种形  如“.example.org”的特殊通配符，它可以既匹配确切的名字“example.org”，又可以匹配一般的通配符名字“*.example.org”。
+
+4. 匹配正则表达式：
+
+```yml
+server {
+    listen       80;
+    server_name  ~^(?<www>.+)\.google\.com$;
+    ...
+}
+```
+
+nginx将按照1,2,3,4顺序对server name进行匹配, 而与配置的排版先后顺序无关, 只要有一项匹配后就会停止搜索。

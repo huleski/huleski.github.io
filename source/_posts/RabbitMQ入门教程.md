@@ -258,7 +258,7 @@ public class Worker {
 执行一个任务需要花费几秒钟。你可能会担心当一个工作者在执行任务时发生中断。我们上面的代码，一旦RabbItMQ交付了一个信息给消费者，会马上从内存中移除这个信息。在这种情况下，如果杀死正在执行任务的某个工作者，我们会丢失它正在处理的信息。我们也会丢失已经转发给这个工作者且它还未执行的消息。如下:
 
 ```java
-boolean ack = false ; //打开应答机制  
+boolean ack = false ; //打开消息应答机制  
 channel.basicConsume(QUEUE_NAME, ack, consumer);  
 //另外需要在每次处理完成一个消息后，手动发送一次应答。  
 channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);  

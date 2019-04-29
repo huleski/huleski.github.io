@@ -295,3 +295,49 @@ channel.basicPublish("", "task_queue",MessageProperties.PERSISTENT_TEXT_PLAIN,me
 int prefetchCount = 1;  
 channel.basicQos(prefetchCount);  
 ```
+
+Exchange 的几种模式
+----------------
+
+RabbitMQ常用的Exchange Type有fanout、direct、topic、headers这四种，分别有以下一些属性:
+
+```s
+name：名称
+Durability：持久化标志，如果为true，则表明此exchange是持久化的。
+Auto-delete：删除标志，当所有队列在完成使用此exchange时，是否删除
+```
+
+**1、fanout类型**
+
+fanout类型的Exchange路由规则非常简单，它会把所有发送到fanout Exchange的消息都会被转发到与该Exchange 绑定(Binding)的所有Queue上。
+
+Fanout Exchange  不需要处理RouteKey 。只需要简单的将队列绑定到exchange 上。这样发送到exchange的消息都会被转发到与该交换机绑定的所有队列上。类似子网广播，每台子网内的主机都获得了一份复制的消息。所以，Fanout Exchange 转发消息是最快的。
+
+**2、direct类型**
+
+direct类型的Exchange路由规则也很简单，它会把消息路由到那些binding key与routing key完全匹配的Queue中。
+
+direct Exchange是RabbitMQ Broker的`默认Exchange`，它有一个特别的属性对一些简单的应用来说是非常有用的，在使用这个类型的Exchange时，可以不必指定routing key的名字，在此类型下创建的Queue有一个默认的routing key，这个routing key一般同Queue同名。
+
+direct模式,可以使用rabbitMQ自带的Exchange：default Exchange 。所以不需要将Exchange进行任何绑定(binding)操作 。消息传递时，RouteKey必须完全匹配，才会被队列接收，否则该消息会被抛弃。
+
+**3、topic类型**
+
+topic类型的Exchange在匹配规则上进行了扩展，它与direct类型的Exchage相似，也是将消息路由到binding key与routing key相匹配的Queue中，但这里的匹配规则有些不同，它约定：
+
+
+> routing key为一个句点号“. ”分隔的字符串（我们将被句点号“. ”分隔开的每一段独立的字符串称为一个单词），如“stock.usd.nyse”、“nyse.vmw”、“quick.orange.rabbit”
+> 
+> binding key与routing key一样也是句点号“. ”分隔的字符串
+> 
+> binding key中可以存在两种特殊字符“”与“#”，用于做模糊匹配，其中“”用于匹配一个单词，“#”用于匹配多个单词（可以是零个）
+
+
+所有发送到Topic Exchange的消息被转发到所有关心RouteKey中指定Topic的Queue上，Exchange 将RouteKey 和某Topic 进行模糊匹配。此时队列需要绑定一个Topic。可以使用通配符进行模糊匹配，符号“#”匹配一个或多个词，符号“”匹配不多不少一个词。因此“log.#”能够匹配到“log.info.oa”，但是“log.” 只会匹配到“log.error”。
+
+**4、headers类型**
+
+headers类型的Exchange不依赖于routing key与binding key的匹配规则来路由消息，而是根据发送的消息内容中的headers属性进行匹配。
+
+在绑定Queue与Exchange时指定一组键值对；当消息发送到Exchange时，RabbitMQ会取到该消息的headers（也是一个键值对的形式），对比其中的键值对是否完全匹配Queue与Exchange绑定时指定的键值对；如果完全匹配则消息会路由到该Queue，否则不会路由到该Queue。
+

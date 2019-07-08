@@ -22,6 +22,13 @@ gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
 
+加入上述内容，然后:wq!保存退出，接着要注意重新生成yum源缓存包：
+```
+yum clean all
+yum makecache
+```
+
+
 移除已安装的mariaDB/MySQL:
 ```
 yum remove $(rpm -qa | grep -i mysql)

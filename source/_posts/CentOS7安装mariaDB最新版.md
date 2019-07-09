@@ -22,7 +22,7 @@ gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
 
-加入上述内容，然后:wq!保存退出，接着要注意重新生成yum源缓存包：
+加入上述内容，然后:wq!保存退出，如果在后面安装的时候很慢可以换[镜像地址](http://mirrors.neusoft.edu.cn/mariadb//mariadb-10.3.15/yum/centos6-amd64/), 接着要注意重新生成yum源缓存包：
 ```
 yum clean all
 yum makecache
@@ -81,21 +81,21 @@ mysql> select version();
 
 编辑文件：vi /etc/my.cnf ，在[mysqld]标签下添加
 ```
-init_connect='SET collation_connection = utf8_unicode_ci' 
-init_connect='SET NAMES utf8' 
-character-set-server=utf8 
-collation-server=utf8_unicode_ci 
+init_connect='SET collation_connection = utf8mb4_unicode_ci' 
+init_connect='SET NAMES utf8mb4' 
+character-set-server=utf8mb4 
+collation-server=utf8mb4_unicode_ci 
 skip-character-set-client-handshake
 ```
 
 编辑文件：vi /etc/my.cnf.d/client.cnf ，在[client]下添加 ( 如果没有可以不加 )
 ```
-default-character-set=utf8
+default-character-set=utf8mb4
 ```
 
 编辑文件： vi /etc/my.cnf.d/mysql-clients.cnf ，在[mysql]下添加
 ```
-default-character-set=utf8
+default-character-set=utf8mb4
 ```
 
  全部配置完成，重启mariadb
@@ -113,24 +113,24 @@ mysql> show variables like "%character%";show variables like "%collation%";
 +--------------------------+----------------------------+
 | Variable_name            | Value                      |
 +--------------------------+----------------------------+
-| character_set_client     | utf8                       |
-| character_set_connection | utf8                       |
-| character_set_database   | utf8                       |
+| character_set_client     | utf8mb4                    |
+| character_set_connection | utf8mb4                    |
+| character_set_database   | utf8mb4                    |
 | character_set_filesystem | binary                     |
-| character_set_results    | utf8                       |
-| character_set_server     | utf8                       |
+| character_set_results    | utf8mb4                    |
+| character_set_server     | utf8mb4                    |
 | character_set_system     | utf8                       |
 | character_sets_dir       | /usr/share/mysql/charsets/ |
 +--------------------------+----------------------------+
 8 rows in set (0.00 sec)
 
-+----------------------+-----------------+
-| Variable_name        | Value           |
-+----------------------+-----------------+
-| collation_connection | utf8_unicode_ci |
-| collation_database   | utf8_unicode_ci |
-| collation_server     | utf8_unicode_ci |
-+----------------------+-----------------+
++----------------------+--------------------+
+| Variable_name        | Value              |
++----------------------+--------------------+
+| collation_connection | utf8mb4_unicode_ci |
+| collation_database   | utf8mb4_unicode_ci |
+| collation_server     | utf8mb4_unicode_ci |
++----------------------+--------------------+
 3 rows in set (0.00 sec)
 ```
 字符集配置完成。

@@ -114,7 +114,7 @@
 <meta property="og:site_name" content="Holeski的博客">
 <meta property="og:description" content="Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。它主要的用途是提供反向代理服务。 安装所需环境 gcc 安装  安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：1yum install gcc-c++  PCRE pcre-devel 安装  PCRE(Perl C">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-01T11:37:11.309Z">
+<meta property="og:updated_time" content="2019-04-23T11:14:28.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7安装Nginx及配置详解">
 <meta name="twitter:description" content="Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。它主要的用途是提供反向代理服务。 安装所需环境 gcc 安装  安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：1yum install gcc-c++  PCRE pcre-devel 安装  PCRE(Perl C">
@@ -257,7 +257,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">29</span></a>
 
   </li>
         
@@ -276,7 +276,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">11</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
 
   </li>
         
@@ -295,7 +295,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">27</span></a>
 
   </li>
         
@@ -455,7 +455,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-01 19:37:11" itemprop="dateModified" datetime="2019-03-01T19:37:11+08:00">2019-03-01</time>
+                <time title="修改时间：2019-04-23 19:14:28" itemprop="dateModified" datetime="2019-04-23T19:14:28+08:00">2019-04-23</time>
               
             
           </span>
@@ -519,7 +519,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">13k</span>
+                <span title="本文字数">14k</span>
               
 
               
@@ -711,6 +711,27 @@
 <li>访问 <a href="http://localhost/a.PNG" target="_blank" rel="noopener">http://localhost/a.PNG</a> 则匹配规则 E，而不会匹配规则 D，因为规则 E 不区分大小写。</li>
 <li>访问 <a href="http://localhost/category/id/1111" target="_blank" rel="noopener">http://localhost/category/id/1111</a> 则最终匹配到规则 F，这个时候 nginx 可以作为反向代理服务器。</li>
 </ul>
+<h2 id="server-name参数的配置"><a href="#server-name参数的配置" class="headerlink" title="server_name参数的配置"></a>server_name参数的配置</h2><p>nginx中的server_name指令主要用于配置基于名称虚拟主机.</p>
+<p>如果server_name配置了多个参数, 在接到请求后的匹配顺序如下：</p>
+<ol>
+<li>确切的server_name匹配：</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">server</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="string">listen</span>       <span class="number">80</span><span class="string">;</span></span><br><span class="line">    <span class="string">server_name</span>  <span class="string">www.google.com</span> <span class="string">google.com;</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>以*通配符开始的最长字符串：</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">server</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="string">listen</span>       <span class="number">80</span><span class="string">;</span></span><br><span class="line">    <span class="string">server_name</span>  <span class="string">*.google.com;</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>以*通配符结束的最长字符串：</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">server</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="string">listen</span>       <span class="number">80</span><span class="string">;</span></span><br><span class="line">    <span class="string">server_name</span>  <span class="string">www.*;</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>注意: 通配符名字只可以在名字的起始处或结尾处包含一个星号，并且星号与其他字符之间用点分隔。所以，<code>www.*.example.org</code> 和 <code>w*.example.org</code> 都是非法的。</p>
+<p>有一种形  如“.example.org”的特殊通配符，它可以既匹配确切的名字“example.org”，又可以匹配一般的通配符名字“*.example.org”。</p>
+<ol start="4">
+<li>匹配正则表达式：</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">server</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="string">listen</span>       <span class="number">80</span><span class="string">;</span></span><br><span class="line">    <span class="string">server_name</span>  <span class="string">~^(?&lt;www&gt;.+)\.google\.com$;</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>nginx将按照1,2,3,4顺序对server name进行匹配, 而与配置的排版先后顺序无关, 只要有一项匹配后就会停止搜索。</p>
 
       
     </div>
@@ -846,7 +867,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -885,7 +906,33 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -934,7 +981,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1021,7 +1090,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装所需环境"><span class="nav-number">1.</span> <span class="nav-text">安装所需环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nginx"><span class="nav-number">2.</span> <span class="nav-text">安装Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Nginx"><span class="nav-number">3.</span> <span class="nav-text">配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location匹配规则"><span class="nav-number">4.</span> <span class="nav-text">location匹配规则</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装所需环境"><span class="nav-number">1.</span> <span class="nav-text">安装所需环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nginx"><span class="nav-number">2.</span> <span class="nav-text">安装Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Nginx"><span class="nav-number">3.</span> <span class="nav-text">配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location匹配规则"><span class="nav-number">4.</span> <span class="nav-text">location匹配规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server-name参数的配置"><span class="nav-number">5.</span> <span class="nav-text">server_name参数的配置</span></a></li></ol></div>
             
 
           </div>
@@ -1054,7 +1123,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">59k</span>
+    <span title="站点总字数">143k</span>
   
 
   
@@ -1063,7 +1132,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">54 分钟</span>
+    <span title="站点阅读时长">2:10</span>
   
 </div>
 

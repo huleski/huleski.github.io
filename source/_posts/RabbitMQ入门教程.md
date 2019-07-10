@@ -55,7 +55,7 @@ RabbitMQ 应用场景
 - consumer：消息消费者，就是接受消息的程序。
 - channel：消息通道，在客户端的每个连接里，可建立多个channel，每个channel代表一个会话任务。
 
-![Rabbitmq](https://upload-images.jianshu.io/upload_images/683118-b22270d646a5aeef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/691/format/webp)
+![Rabbitmq](http://pubgmjp23.bkt.clouddn.com/683118-b22270d646a5aeef.jpg)
 
 RabbitMQ使用流程
 --------------
@@ -77,7 +77,7 @@ Java入门实例(Helloworld)
 
 一个producer发送消息，一个接收者接收消息，并在控制台打印出来。
 
-![mq消费过程](https://upload-images.jianshu.io/upload_images/683118-71798beda1e40579.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/392/format/webp)
+![mq消费过程](http://pubgmjp23.bkt.clouddn.com/683118-71798beda1e4057.jpg)
 
 **Java客户端配置**
 
@@ -173,7 +173,7 @@ RabbitMQ工作队列-Work Queues（Java实例）
 
 创建一个工作队列用来在工作者（consumer）间分发耗时任务。
 
-![RabbitMQ工作队列](https://upload-images.jianshu.io/upload_images/683118-1153d8d6c2a8d9a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/332/format/webp)
+![RabbitMQ工作队列](http://pubgmjp23.bkt.clouddn.com/683118-1153d8d6c2a8d9a3.jpg)
 
 工作队列的主要任务是：避免立刻执行资源密集型任务，然后必须等待其完成。相反地，我们进行任务调度：我们把任务封装为消息发送给队列。工作进行在后台运行并不断的从队列中取出任务然后执行。当你运行了多个工作进程时，任务队列中的任务将会被工作进程共享执行。
 

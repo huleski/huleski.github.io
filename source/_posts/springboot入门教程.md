@@ -1,11 +1,10 @@
 ---
-title: springboot
+title: springboot入门教程
 date: 2019-01-31 16:45:42
 toc: true #是否显示文章目录
-categories: "springboot" #分类
+categories: springboot #分类
 tags:   #标签
 	- springboot
-	- 教程
 ---
 
 构建微服务：Spring boot 入门篇

@@ -20,7 +20,7 @@ docker pull beginor/gitlab-ce:11.0.1-ce.0
 
 查看镜像, 有1.5G大小
 
-![查看gitlab镜像](https://upload-images.jianshu.io/upload_images/15856745-4bcae9df30615e9f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![查看gitlab镜像](http://pubgmjp23.bkt.clouddn.com/15856745-4bcae9df30615e9f.png)
 
 ## 2.运行镜像
 由于是docker镜像运行, 所以我们需要把gitlab的配置, 数据, 日志存到容器外面, 即将其挂载到宿主机。
@@ -50,11 +50,12 @@ docker run \
 
 这个时候已经搭建完了, 查看一下 ( 启动需要几分钟, 我大概启动了2分钟多 ) :
 
-![查看gitlab运行状态](https://upload-images.jianshu.io/upload_images/15856745-ffc482d0a6a1fb2d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![查看gitlab运行状态](http://pubgmjp23.bkt.clouddn.com/15856745-ffc482d0a6a1fb2d.png)
+
 看到状态显示为 `healthy` 就代表已经启动了, 这时候去访问 http://10.12.2.22:8090
 第一次访问时，将被重定向到密码重置屏幕, 默认帐户的用户名是root, 登录后, 您可以更改用户名
 
-![登录界面](https://upload-images.jianshu.io/upload_images/15856745-d70d7d9e3de6d8e9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![登录界面](http://pubgmjp23.bkt.clouddn.com/15856745-d70d7d9e3de6d8e9.png)
 
 ## 3.配置gitlab
 要能充分使用gitlab, 必须配置邮件发送功能, 修改配置文件 gitlab.rb (启动镜像后产生的文件), 这里我配置的是QQ邮箱 ( [查看其它邮箱配置](https://docs.gitlab.com/omnibus/settings/smtp.html#smtp-settings) )
@@ -91,16 +92,16 @@ gitlab-rails console   		# 进入邮件控制台, 稍等一会才能进入
 Notify.test_email('baka@qq.com', 'Message Subject', 'Message Body').deliver_now  	# 发送测试邮件
 ```
 
-![测试gitlab邮件发送](https://upload-images.jianshu.io/upload_images/15856745-8672d7423144b20a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![测试gitlab邮件发送](http://pubgmjp23.bkt.clouddn.com/15856745-8672d7423144b20a.png)
 
-![邮件已经成功收到](https://upload-images.jianshu.io/upload_images/15856745-c84daee944ffb48e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![邮件已经成功收到](http://pubgmjp23.bkt.clouddn.com/15856745-c84daee944ffb48e.png)
 
 邮件配置已经完成了, 现在需要配置项目路径 (如果你预留的gitlab映射端口是80的话, 你已经配置完了), 在宿主机中 (容器外面) 修改文件gitlab.yml, 如果port不对, 要改过来
 ```
 vim /home/software/gitlab/data/gitlab-rails/etc/gitlab.yml
 ```
 
-![修改ip端口](https://upload-images.jianshu.io/upload_images/15856745-1ede73a0e00ee5a3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![修改ip端口](http://pubgmjp23.bkt.clouddn.com/15856745-1ede73a0e00ee5a3.png)
 
 改完之后在容器中重启gitlab就配置完成了。 注意: 此时**不能**再重新配置(gitlab-ctl reconfigure), 否则可能会改变刚修改的gitlab.yml文件
 ```
@@ -137,5 +138,5 @@ gitlab-ctl tail
 - 搭建前, 内存只占用了500多M
 - 搭建后, 内存就占用了5G
 
-![搭建gitlab后内存使用飙升](https://upload-images.jianshu.io/upload_images/15856745-030a1594e4a710ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![搭建gitlab后内存使用飙升](http://pubgmjp23.bkt.clouddn.com/15856745-030a1594e4a710ac.png)
 

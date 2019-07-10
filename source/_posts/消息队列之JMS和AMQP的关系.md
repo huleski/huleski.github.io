@@ -25,7 +25,7 @@ JMS topic    |   一种提供多个订阅者消费消息的一种机制；在MQ�
 
 消息如何从producer端达到consumer端由message-routing来决定。在JMS中，消息路由非常简单，由producer和consumer链接到同一个queue（p2p）或者topic（pub/sub）来实现消息的路由。JMSconsumer同时支持message selector（消息选择器），通过消息选择器，consumer可以只消费那些通过了selector筛选的消息。在JMS兄中，消息路由机制的图示如下：
 
-![消息路由](https://img-blog.csdn.net/20140410230348859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaHB0dGxvb2s=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![消息路由](http://pubgmjp23.bkt.clouddn.com/20140410230348859.png)
 
 常见的消息队列，大部分都实现了JMS API，可以担任JMS provider的角色，如ActiveMQ，Redis以及RabbitMQ等。
 
@@ -36,7 +36,7 @@ AMQP（advanced message queuing protocol）在2003年时被提出，最早用于
 
 在AMQP中，消息路由（messagerouting）和JMS存在一些差别，在AMQP中增加了Exchange和binding的角色。producer将消息发送给Exchange，binding决定Exchange的消息应该发送到那个queue，而consumer直接从queue中消费消息。queue和exchange的bind有consumer来决定。AMQP的routing scheme图示过程如下：
 
-![AMQP](https://img-blog.csdn.net/20140410230404281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaHB0dGxvb2s=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![AMQP](http://pubgmjp23.bkt.clouddn.com/20140410230404281.png)
 
 目前AMQP逐渐成为消息队列的一个标准协议，当前比较流行的rabbitmq、stormmq都使用了AMQP实现。
 

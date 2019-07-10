@@ -108,7 +108,7 @@ Kibana 和 elasticsearch 同属于 elastic 公司。 Kibana是一个开源分析
 - 在编辑器中打开 `config/kibana.yml`。
 - 设置 `elasticsearch.url` 为您的Elasticsearch实例，如本地：elasticsearch.url: "http://localhost:9200"(与es装在同一机器可以不用设置)。
 - 运行bin/kibana.bat。
-- 浏览器输入 http：// localhost：5601。
+- 浏览器输入 http://localhost:5601。
 
 **CentOS**
 
@@ -117,3 +117,72 @@ docker pull kibana:5.6.16
 docker run --init -d --name kibana --restart unless-stopped --link elasticsearch -p 5601:5601 kibana:5.6.16
 ```
 
+## 碰到的问题:
+
+- 不能以root身份启动elasticsearch, 否则会报错, 执行以下命令:
+
+```bash
+# 创建一个非root用户, 比如创建新用户elasticsearch
+adduser elasticsearch
+# 授权
+chown -R elasticsearch /elasticsearch安装目录
+# 切换用户
+su elasticsearch
+# 后台启动
+./bin/elasticsearch -d
+```
+
+- elasticsearch默认开启9200端口作为接收http请求, 如果想要开启9300端口:
+
+```bash 
+ # 编辑elasticsearch配置文件
+ vi elasticsearch.yml
+ # 文件添加配置: 
+ network.host: 0.0.0.0
+```
+
+- `max virtual memory areas vm.max_map_count [65530] is too low`
+
+```bash
+# 编辑文件, 在最后添加一行  vm.max_map_count=655300
+vi /etc/sysctl.conf
+
+# 执行命令重新加载文件 
+sysctl -p
+
+# 重启elasticsearch: 
+./bin/elasticsearch
+```
+
+- `max number of threads [1024] for user [elsearch] is too low, increase to at least [4096]`
+
+```bash
+# 编辑文件
+vim /etc/security/limits.d/90-nproc.conf
+# 将下面
+* soft nproc 1024
+# 修改为
+* soft nproc 4096
+```
+
+- `max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]`
+
+```bash
+# 编辑配置文件
+vim /etc/security/limits.conf 
+
+# 在最下面添加以下内容
+* soft nofile 65536
+* hard nofile 131072
+* soft nproc 2048
+* hard nproc 4096
+```
+
+- 修改JVM参数(可选)
+
+```bash
+# 初始化内存分配2g
+-Xms2g
+# 最大分配内存2g
+-Xmx2g
+```

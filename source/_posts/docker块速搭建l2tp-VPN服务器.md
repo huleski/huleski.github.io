@@ -56,7 +56,7 @@ docker logs vpn-server
 
 有如下输出则表示已正常启动vpn服务器。
 
-![](https://img-blog.csdn.net/20180708143943177?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Vuc2VlbmJsYWRl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![启动vpn](http://pubgmjp23.bkt.clouddn.com/20180708143943177.png)
 
 **5. 关闭防火墙，先查看防火墙状态**
 
@@ -79,9 +79,9 @@ Windows10系统, 设置VPN:
 8. 返回 网络与共享中心。单击左侧的 更改适配器设置。 
 9. 右键单击新创建的 VPN 连接:
 
-![](https://img-blog.csdn.net/20180707181238162?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Vuc2VlbmJsYWRl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![](http://pubgmjp23.bkt.clouddn.com/20180707181238162.png)
 
-![](https://img-blog.csdn.net/20180707181543103?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Vuc2VlbmJsYWRl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![](http://pubgmjp23.bkt.clouddn.com/20180707181543103.png)
 
 10. 填写之前创建的vpn服务器ip, PSK, 用户名和密码, 点击保存. 注意VPN类型选择 [使用预共享秘钥的L2TP/IPSec PSK]
 11. 以管理员身份启用命令提示符：执行以下两条命令
@@ -98,7 +98,7 @@ REG ADD HKLM\SYSTEM\CurrentControlSet\Services\RasMan\Parameters /v ProhibitIpSe
     
 13.  至此, 设置完毕, 请关机重启, 再点击连接VPN, 成功! (下图为方便说明, 连接了两个VPN)
 
-![](https://img-blog.csdn.net/20180707182606548?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Vuc2VlbmJsYWRl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![](http://pubgmjp23.bkt.clouddn.com/20180707182606548.png)
 
 安卓手机不用设置可以直接连VPN, 但注意vpn类型选择 L2TP/IPSec PSK,** 建议先用安卓手机**（连WiFi，流量可能有意外）检测vpn是否搭建成功, 再尝试Windows10连接VPN
 

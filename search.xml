@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[升级到Hexo6碰到的问题]]></title>
+    <url>%2F2019%2F07%2F10%2F%E5%8D%87%E7%BA%A7%E5%88%B0Hexo6%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[字体样式失效, 图标也丢失, 启动还会报错 12localhost/:1 Refused to apply style from 'http://localhost:4000/lib/font-awesome/css/font-awesome.min.css?v=4.6.2' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled. 在hexo中有自带font-awesome字体的, 但是升级到hexo6时就没有了, 把next目录下（next -&gt; source -&gt; lib）的 font-awesome 文件夹复制到next6同样的目录下, 解决]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[解决MySQL数据库Too many connections问题]]></title>
     <url>%2F2019%2F07%2F09%2F%E8%A7%A3%E5%86%B3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93Too-many-connections%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[方法一:因为这种方法是临时修改, 连上MySQL后重启后会失效 连上MySQL后执行: 1mysql&gt; set GLOBAL max_connections=500; 方法二:123456# 修改mysql配置文件my.cnfvi /etc/my.cnf# 在[mysqld]段中添加或修改max_connections值max_connections=500# 重启 查看mysql的最大连接数： 1234567mysql&gt; show variables like '%max_connections%';+-----------------+-------+| Variable_name | Value |+-----------------+-------+| max_connections | 500 |+-----------------+-------+1 row in set (0.00 sec) 查询所有连接到这个服务器上的MySQL连接 1mysql&gt; show processlist; 获取到MySQL数据连接列表后，每一条记录都会有一个进程ID号（在上表的第一列）。执行以下命令关闭一条连接: 12# 其中1180421是进程列表里找到并且要杀掉的进程号mysql&gt; kill 1180421; 查看服务器响应的最大连接数 1mysql&gt; show global status like 'Max_used_connections';]]></content>
@@ -186,8 +197,8 @@
         <category>VPN</category>
       </categories>
       <tags>
-        <tag>docker</tag>
         <tag>VPN</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -198,8 +209,8 @@
         <category>gitlab</category>
       </categories>
       <tags>
-        <tag>gitlab</tag>
         <tag>docker</tag>
+        <tag>gitlab</tag>
       </tags>
   </entry>
   <entry>
@@ -313,8 +324,8 @@
         <category>mariaDB</category>
       </categories>
       <tags>
-        <tag>mariaDB</tag>
         <tag>CentOS7</tag>
+        <tag>mariaDB</tag>
       </tags>
   </entry>
   <entry>

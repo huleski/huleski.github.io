@@ -5,9 +5,9 @@
   <subtitle>你为什么这么熟练啊！？</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://huleski.github.com/"/>
+  <link href="https://huleski.github.io/"/>
   <updated>2019-07-10T07:31:28.299Z</updated>
-  <id>http://huleski.github.com/</id>
+  <id>https://huleski.github.io/</id>
   
   <author>
     <name>Holeski</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>一台机器启动多个tomcat</title>
-    <link href="http://huleski.github.com/2019/07/10/%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E5%90%AF%E5%8A%A8%E5%A4%9A%E4%B8%AAtomcat/"/>
-    <id>http://huleski.github.com/2019/07/10/一台机器启动多个tomcat/</id>
+    <link href="https://huleski.github.io/2019/07/10/%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E5%90%AF%E5%8A%A8%E5%A4%9A%E4%B8%AAtomcat/"/>
+    <id>https://huleski.github.io/2019/07/10/一台机器启动多个tomcat/</id>
     <published>2019-07-10T03:43:47.000Z</published>
     <updated>2019-07-10T07:31:28.299Z</updated>
     
@@ -34,19 +34,19 @@
     
     </summary>
     
-      <category term="tomcat" scheme="http://huleski.github.com/categories/tomcat/"/>
+      <category term="tomcat" scheme="https://huleski.github.io/categories/tomcat/"/>
     
     
-      <category term="tomcat" scheme="http://huleski.github.com/tags/tomcat/"/>
+      <category term="tomcat" scheme="https://huleski.github.io/tags/tomcat/"/>
     
   </entry>
   
   <entry>
     <title>从零搭建Hexo</title>
-    <link href="http://huleski.github.com/2019/07/10/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAHexo/"/>
-    <id>http://huleski.github.com/2019/07/10/从零搭建Hexo/</id>
+    <link href="https://huleski.github.io/2019/07/10/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAHexo/"/>
+    <id>https://huleski.github.io/2019/07/10/从零搭建Hexo/</id>
     <published>2019-07-10T03:15:12.000Z</published>
-    <updated>2019-07-11T02:13:08.642Z</updated>
+    <updated>2019-07-11T03:30:58.164Z</updated>
     
     <content type="html"><![CDATA[<h2 id="碰到的问题"><a href="#碰到的问题" class="headerlink" title="碰到的问题"></a>碰到的问题</h2><ul><li>升级主题到Next6, 字体样式失效, 图标也丢失, 启动还会报错 </li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localhost/:1 Refused to apply style from <span class="string">'http://localhost:4000/lib/font-awesome/css/font-awesome.min.css?v=4.6.2'</span> </span><br><span class="line">because its MIME <span class="built_in">type</span> (<span class="string">'text/html'</span>) is not a supported stylesheet MIME <span class="built_in">type</span>, and strict MIME checking is enabled.</span><br></pre></td></tr></table></figure><p>在hexo中有自带<code>font-awesome</code>字体的, 但是升级到hexo6时就没有了, 把next目录下（next -&gt; source -&gt; lib）的 <code>font-awesome</code> 文件夹复制到next6同样的目录下, 解决</p><p><img src="http://pubgmjp23.bkt.clouddn.com/%5BD60F5%7D%29IHOGB5%5BW9$T%29F8R.png" alt="font文件夹位置"></p>]]></content>
     
@@ -62,17 +62,17 @@
     
     </summary>
     
-      <category term="Hexo" scheme="http://huleski.github.com/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://huleski.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://huleski.github.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://huleski.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>解决MySQL数据库Too many connections问题</title>
-    <link href="http://huleski.github.com/2019/07/09/%E8%A7%A3%E5%86%B3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93Too-many-connections%E9%97%AE%E9%A2%98/"/>
-    <id>http://huleski.github.com/2019/07/09/解决MySQL数据库Too-many-connections问题/</id>
+    <link href="https://huleski.github.io/2019/07/09/%E8%A7%A3%E5%86%B3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93Too-many-connections%E9%97%AE%E9%A2%98/"/>
+    <id>https://huleski.github.io/2019/07/09/解决MySQL数据库Too-many-connections问题/</id>
     <published>2019-07-09T04:06:05.000Z</published>
     <updated>2019-07-10T01:33:57.737Z</updated>
     
@@ -89,17 +89,17 @@
     
     </summary>
     
-      <category term="MySQL" scheme="http://huleski.github.com/categories/MySQL/"/>
+      <category term="MySQL" scheme="https://huleski.github.io/categories/MySQL/"/>
     
     
-      <category term="MySQL" scheme="http://huleski.github.com/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://huleski.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>docker安装JIRA和Confluence（破解版）以及JIRA版本升级方案</title>
-    <link href="http://huleski.github.com/2019/07/08/docker%E5%AE%89%E8%A3%85JIRA%E5%92%8CConfluence%EF%BC%88%E7%A0%B4%E8%A7%A3%E7%89%88%EF%BC%89%E4%BB%A5%E5%8F%8AJIRA%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%E6%96%B9%E6%A1%88/"/>
-    <id>http://huleski.github.com/2019/07/08/docker安装JIRA和Confluence（破解版）以及JIRA版本升级方案/</id>
+    <link href="https://huleski.github.io/2019/07/08/docker%E5%AE%89%E8%A3%85JIRA%E5%92%8CConfluence%EF%BC%88%E7%A0%B4%E8%A7%A3%E7%89%88%EF%BC%89%E4%BB%A5%E5%8F%8AJIRA%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%E6%96%B9%E6%A1%88/"/>
+    <id>https://huleski.github.io/2019/07/08/docker安装JIRA和Confluence（破解版）以及JIRA版本升级方案/</id>
     <published>2019-07-08T08:41:58.000Z</published>
     <updated>2019-07-10T03:35:38.836Z</updated>
     
@@ -117,19 +117,19 @@
     
     </summary>
     
-      <category term="JIRA" scheme="http://huleski.github.com/categories/JIRA/"/>
+      <category term="JIRA" scheme="https://huleski.github.io/categories/JIRA/"/>
     
     
-      <category term="docker" scheme="http://huleski.github.com/tags/docker/"/>
+      <category term="docker" scheme="https://huleski.github.io/tags/docker/"/>
     
-      <category term="JIRA" scheme="http://huleski.github.com/tags/JIRA/"/>
+      <category term="JIRA" scheme="https://huleski.github.io/tags/JIRA/"/>
     
   </entry>
   
   <entry>
     <title>初识JMX</title>
-    <link href="http://huleski.github.com/2019/06/15/%E5%88%9D%E8%AF%86JMX/"/>
-    <id>http://huleski.github.com/2019/06/15/初识JMX/</id>
+    <link href="https://huleski.github.io/2019/06/15/%E5%88%9D%E8%AF%86JMX/"/>
+    <id>https://huleski.github.io/2019/06/15/初识JMX/</id>
     <published>2019-06-15T12:47:00.000Z</published>
     <updated>2019-06-18T12:50:00.786Z</updated>
     
@@ -145,17 +145,17 @@
     
     </summary>
     
-      <category term="JMX" scheme="http://huleski.github.com/categories/JMX/"/>
+      <category term="JMX" scheme="https://huleski.github.io/categories/JMX/"/>
     
     
-      <category term="JMX" scheme="http://huleski.github.com/tags/JMX/"/>
+      <category term="JMX" scheme="https://huleski.github.io/tags/JMX/"/>
     
   </entry>
   
   <entry>
     <title>java爬虫-webmagic入门</title>
-    <link href="http://huleski.github.com/2019/06/14/java%E7%88%AC%E8%99%AB-webmagic%E5%85%A5%E9%97%A8/"/>
-    <id>http://huleski.github.com/2019/06/14/java爬虫-webmagic入门/</id>
+    <link href="https://huleski.github.io/2019/06/14/java%E7%88%AC%E8%99%AB-webmagic%E5%85%A5%E9%97%A8/"/>
+    <id>https://huleski.github.io/2019/06/14/java爬虫-webmagic入门/</id>
     <published>2019-06-14T10:48:13.000Z</published>
     <updated>2019-07-06T03:18:34.870Z</updated>
     
@@ -170,17 +170,17 @@
     
     </summary>
     
-      <category term="爬虫" scheme="http://huleski.github.com/categories/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="https://huleski.github.io/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫" scheme="http://huleski.github.com/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="https://huleski.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>Linux系统下几个有趣的命令</title>
-    <link href="http://huleski.github.com/2019/05/20/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%87%A0%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%91%BD%E4%BB%A4/"/>
-    <id>http://huleski.github.com/2019/05/20/Linux系统下几个有趣的命令/</id>
+    <link href="https://huleski.github.io/2019/05/20/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%87%A0%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84%E5%91%BD%E4%BB%A4/"/>
+    <id>https://huleski.github.io/2019/05/20/Linux系统下几个有趣的命令/</id>
     <published>2019-05-20T11:51:12.000Z</published>
     <updated>2019-05-20T12:22:23.509Z</updated>
     
@@ -195,17 +195,17 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://huleski.github.com/categories/Linux/"/>
+      <category term="Linux" scheme="https://huleski.github.io/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://huleski.github.com/tags/Linux/"/>
+      <category term="Linux" scheme="https://huleski.github.io/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>QQ/微信机器人的安装使用</title>
-    <link href="http://huleski.github.com/2019/05/12/QQ-%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"/>
-    <id>http://huleski.github.com/2019/05/12/QQ-微信机器人的安装使用/</id>
+    <link href="https://huleski.github.io/2019/05/12/QQ-%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"/>
+    <id>https://huleski.github.io/2019/05/12/QQ-微信机器人的安装使用/</id>
     <published>2019-05-12T08:39:47.000Z</published>
     <updated>2019-05-14T12:33:43.448Z</updated>
     
@@ -221,17 +221,17 @@
     
     </summary>
     
-      <category term="机器人" scheme="http://huleski.github.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
+      <category term="机器人" scheme="https://huleski.github.io/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
     
     
-      <category term="机器人" scheme="http://huleski.github.com/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
+      <category term="机器人" scheme="https://huleski.github.io/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
     
   </entry>
   
   <entry>
     <title>CentOS7安装Elasticsearch</title>
-    <link href="http://huleski.github.com/2019/05/06/CentOS7%E5%AE%89%E8%A3%85Elasticsearch/"/>
-    <id>http://huleski.github.com/2019/05/06/CentOS7安装Elasticsearch/</id>
+    <link href="https://huleski.github.io/2019/05/06/CentOS7%E5%AE%89%E8%A3%85Elasticsearch/"/>
+    <id>https://huleski.github.io/2019/05/06/CentOS7安装Elasticsearch/</id>
     <published>2019-05-06T03:37:41.000Z</published>
     <updated>2019-07-11T02:12:55.234Z</updated>
     
@@ -247,17 +247,17 @@
     
     </summary>
     
-      <category term="Elasticsearch" scheme="http://huleski.github.com/categories/Elasticsearch/"/>
+      <category term="Elasticsearch" scheme="https://huleski.github.io/categories/Elasticsearch/"/>
     
     
-      <category term="Elasticsearch" scheme="http://huleski.github.com/tags/Elasticsearch/"/>
+      <category term="Elasticsearch" scheme="https://huleski.github.io/tags/Elasticsearch/"/>
     
   </entry>
   
   <entry>
     <title>Elasticsearch入门教程</title>
-    <link href="http://huleski.github.com/2019/04/30/Elasticsearch%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
-    <id>http://huleski.github.com/2019/04/30/Elasticsearch入门教程/</id>
+    <link href="https://huleski.github.io/2019/04/30/Elasticsearch%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
+    <id>https://huleski.github.io/2019/04/30/Elasticsearch入门教程/</id>
     <published>2019-04-30T09:49:33.000Z</published>
     <updated>2019-07-09T07:17:01.155Z</updated>
     
@@ -272,17 +272,17 @@
     
     </summary>
     
-      <category term="Elasticsearch" scheme="http://huleski.github.com/categories/Elasticsearch/"/>
+      <category term="Elasticsearch" scheme="https://huleski.github.io/categories/Elasticsearch/"/>
     
     
-      <category term="Elasticsearch" scheme="http://huleski.github.com/tags/Elasticsearch/"/>
+      <category term="Elasticsearch" scheme="https://huleski.github.io/tags/Elasticsearch/"/>
     
   </entry>
   
   <entry>
     <title>CentOS7安装RabbitMQ</title>
-    <link href="http://huleski.github.com/2019/04/22/CentOS7%E5%AE%89%E8%A3%85RabbitMQ/"/>
-    <id>http://huleski.github.com/2019/04/22/CentOS7安装RabbitMQ/</id>
+    <link href="https://huleski.github.io/2019/04/22/CentOS7%E5%AE%89%E8%A3%85RabbitMQ/"/>
+    <id>https://huleski.github.io/2019/04/22/CentOS7安装RabbitMQ/</id>
     <published>2019-04-22T01:26:36.000Z</published>
     <updated>2019-04-22T01:32:18.114Z</updated>
     
@@ -297,19 +297,19 @@
     
     </summary>
     
-      <category term="CentOS7" scheme="http://huleski.github.com/categories/CentOS7/"/>
+      <category term="CentOS7" scheme="https://huleski.github.io/categories/CentOS7/"/>
     
     
-      <category term="CentOS7" scheme="http://huleski.github.com/tags/CentOS7/"/>
+      <category term="CentOS7" scheme="https://huleski.github.io/tags/CentOS7/"/>
     
-      <category term="RabbitMQ" scheme="http://huleski.github.com/tags/RabbitMQ/"/>
+      <category term="RabbitMQ" scheme="https://huleski.github.io/tags/RabbitMQ/"/>
     
   </entry>
   
   <entry>
     <title>RabbitMQ入门教程</title>
-    <link href="http://huleski.github.com/2019/04/19/RabbitMQ%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
-    <id>http://huleski.github.com/2019/04/19/RabbitMQ入门教程/</id>
+    <link href="https://huleski.github.io/2019/04/19/RabbitMQ%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
+    <id>https://huleski.github.io/2019/04/19/RabbitMQ入门教程/</id>
     <published>2019-04-19T02:25:59.000Z</published>
     <updated>2019-07-09T07:36:45.496Z</updated>
     
@@ -324,17 +324,17 @@
     
     </summary>
     
-      <category term="RabbitMQ" scheme="http://huleski.github.com/categories/RabbitMQ/"/>
+      <category term="RabbitMQ" scheme="https://huleski.github.io/categories/RabbitMQ/"/>
     
     
-      <category term="RabbitMQ" scheme="http://huleski.github.com/tags/RabbitMQ/"/>
+      <category term="RabbitMQ" scheme="https://huleski.github.io/tags/RabbitMQ/"/>
     
   </entry>
   
   <entry>
     <title>消息队列之JMS和AMQP的关系</title>
-    <link href="http://huleski.github.com/2019/04/19/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B9%8BJMS%E5%92%8CAMQP%E7%9A%84%E5%85%B3%E7%B3%BB/"/>
-    <id>http://huleski.github.com/2019/04/19/消息队列之JMS和AMQP的关系/</id>
+    <link href="https://huleski.github.io/2019/04/19/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B9%8BJMS%E5%92%8CAMQP%E7%9A%84%E5%85%B3%E7%B3%BB/"/>
+    <id>https://huleski.github.io/2019/04/19/消息队列之JMS和AMQP的关系/</id>
     <published>2019-04-19T01:41:16.000Z</published>
     <updated>2019-07-09T07:41:09.952Z</updated>
     
@@ -349,17 +349,17 @@
     
     </summary>
     
-      <category term="消息队列" scheme="http://huleski.github.com/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+      <category term="消息队列" scheme="https://huleski.github.io/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
     
     
-      <category term="消息队列" scheme="http://huleski.github.com/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+      <category term="消息队列" scheme="https://huleski.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
   <entry>
     <title>CentOS7安装JDK1.8</title>
-    <link href="http://huleski.github.com/2019/04/17/CentOS7%E5%AE%89%E8%A3%85JDK1-8/"/>
-    <id>http://huleski.github.com/2019/04/17/CentOS7安装JDK1-8/</id>
+    <link href="https://huleski.github.io/2019/04/17/CentOS7%E5%AE%89%E8%A3%85JDK1-8/"/>
+    <id>https://huleski.github.io/2019/04/17/CentOS7安装JDK1-8/</id>
     <published>2019-04-17T02:07:07.000Z</published>
     <updated>2019-04-17T02:33:33.467Z</updated>
     
@@ -374,17 +374,17 @@
     
     </summary>
     
-      <category term="CentOS7" scheme="http://huleski.github.com/categories/CentOS7/"/>
+      <category term="CentOS7" scheme="https://huleski.github.io/categories/CentOS7/"/>
     
     
-      <category term="CentOS7" scheme="http://huleski.github.com/tags/CentOS7/"/>
+      <category term="CentOS7" scheme="https://huleski.github.io/tags/CentOS7/"/>
     
   </entry>
   
   <entry>
     <title>Java虚拟机GC详解</title>
-    <link href="http://huleski.github.com/2019/04/13/Java%E8%99%9A%E6%8B%9F%E6%9C%BAGC%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://huleski.github.com/2019/04/13/Java虚拟机GC详解/</id>
+    <link href="https://huleski.github.io/2019/04/13/Java%E8%99%9A%E6%8B%9F%E6%9C%BAGC%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://huleski.github.io/2019/04/13/Java虚拟机GC详解/</id>
     <published>2019-04-13T10:39:00.000Z</published>
     <updated>2019-04-22T01:24:20.804Z</updated>
     
@@ -399,17 +399,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://huleski.github.com/categories/java/"/>
+      <category term="java" scheme="https://huleski.github.io/categories/java/"/>
     
     
-      <category term="java" scheme="http://huleski.github.com/tags/java/"/>
+      <category term="java" scheme="https://huleski.github.io/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>java Future模式详解</title>
-    <link href="http://huleski.github.com/2019/04/04/java-Future%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://huleski.github.com/2019/04/04/java-Future模式详解/</id>
+    <link href="https://huleski.github.io/2019/04/04/java-Future%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://huleski.github.io/2019/04/04/java-Future模式详解/</id>
     <published>2019-04-04T01:22:02.000Z</published>
     <updated>2019-04-15T12:39:34.397Z</updated>
     
@@ -426,17 +426,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://huleski.github.com/categories/java/"/>
+      <category term="java" scheme="https://huleski.github.io/categories/java/"/>
     
     
-      <category term="java" scheme="http://huleski.github.com/tags/java/"/>
+      <category term="java" scheme="https://huleski.github.io/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>Github上一款star过万的神器-thefuck</title>
-    <link href="http://huleski.github.com/2019/03/25/Github%E4%B8%8A%E4%B8%80%E6%AC%BEstar%E8%BF%87%E4%B8%87%E7%9A%84%E7%A5%9E%E5%99%A8-thefuck/"/>
-    <id>http://huleski.github.com/2019/03/25/Github上一款star过万的神器-thefuck/</id>
+    <link href="https://huleski.github.io/2019/03/25/Github%E4%B8%8A%E4%B8%80%E6%AC%BEstar%E8%BF%87%E4%B8%87%E7%9A%84%E7%A5%9E%E5%99%A8-thefuck/"/>
+    <id>https://huleski.github.io/2019/03/25/Github上一款star过万的神器-thefuck/</id>
     <published>2019-03-25T11:41:43.000Z</published>
     <updated>2019-04-01T12:09:27.325Z</updated>
     
@@ -452,17 +452,17 @@
     
     </summary>
     
-      <category term="Github" scheme="http://huleski.github.com/categories/Github/"/>
+      <category term="Github" scheme="https://huleski.github.io/categories/Github/"/>
     
     
-      <category term="Github" scheme="http://huleski.github.com/tags/Github/"/>
+      <category term="Github" scheme="https://huleski.github.io/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>mysql锁机制</title>
-    <link href="http://huleski.github.com/2019/03/24/mysql%E9%94%81%E6%9C%BA%E5%88%B6/"/>
-    <id>http://huleski.github.com/2019/03/24/mysql锁机制/</id>
+    <link href="https://huleski.github.io/2019/03/24/mysql%E9%94%81%E6%9C%BA%E5%88%B6/"/>
+    <id>https://huleski.github.io/2019/03/24/mysql锁机制/</id>
     <published>2019-03-24T15:23:39.000Z</published>
     <updated>2019-04-03T01:26:23.098Z</updated>
     
@@ -477,17 +477,17 @@
     
     </summary>
     
-      <category term="mysql" scheme="http://huleski.github.com/categories/mysql/"/>
+      <category term="mysql" scheme="https://huleski.github.io/categories/mysql/"/>
     
     
-      <category term="mysql" scheme="http://huleski.github.com/tags/mysql/"/>
+      <category term="mysql" scheme="https://huleski.github.io/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>docker块速搭建l2tp VPN服务器</title>
-    <link href="http://huleski.github.com/2019/03/20/docker%E5%9D%97%E9%80%9F%E6%90%AD%E5%BB%BAl2tp-VPN%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://huleski.github.com/2019/03/20/docker块速搭建l2tp-VPN服务器/</id>
+    <link href="https://huleski.github.io/2019/03/20/docker%E5%9D%97%E9%80%9F%E6%90%AD%E5%BB%BAl2tp-VPN%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://huleski.github.io/2019/03/20/docker块速搭建l2tp-VPN服务器/</id>
     <published>2019-03-20T10:57:23.000Z</published>
     <updated>2019-07-09T07:16:59.115Z</updated>
     
@@ -503,19 +503,19 @@
     
     </summary>
     
-      <category term="VPN" scheme="http://huleski.github.com/categories/VPN/"/>
+      <category term="VPN" scheme="https://huleski.github.io/categories/VPN/"/>
     
     
-      <category term="VPN" scheme="http://huleski.github.com/tags/VPN/"/>
+      <category term="VPN" scheme="https://huleski.github.io/tags/VPN/"/>
     
-      <category term="docker" scheme="http://huleski.github.com/tags/docker/"/>
+      <category term="docker" scheme="https://huleski.github.io/tags/docker/"/>
     
   </entry>
   
   <entry>
     <title>docker搭建gitlab-ce中文版详细教程</title>
-    <link href="http://huleski.github.com/2019/03/19/docker%E6%90%AD%E5%BB%BAgitlab-ce%E4%B8%AD%E6%96%87%E7%89%88%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/"/>
-    <id>http://huleski.github.com/2019/03/19/docker搭建gitlab-ce中文版详细教程/</id>
+    <link href="https://huleski.github.io/2019/03/19/docker%E6%90%AD%E5%BB%BAgitlab-ce%E4%B8%AD%E6%96%87%E7%89%88%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/"/>
+    <id>https://huleski.github.io/2019/03/19/docker搭建gitlab-ce中文版详细教程/</id>
     <published>2019-03-19T11:56:29.000Z</published>
     <updated>2019-07-09T07:17:02.344Z</updated>
     
@@ -533,12 +533,12 @@
     
     </summary>
     
-      <category term="gitlab" scheme="http://huleski.github.com/categories/gitlab/"/>
+      <category term="gitlab" scheme="https://huleski.github.io/categories/gitlab/"/>
     
     
-      <category term="docker" scheme="http://huleski.github.com/tags/docker/"/>
+      <category term="docker" scheme="https://huleski.github.io/tags/docker/"/>
     
-      <category term="gitlab" scheme="http://huleski.github.com/tags/gitlab/"/>
+      <category term="gitlab" scheme="https://huleski.github.io/tags/gitlab/"/>
     
   </entry>
   

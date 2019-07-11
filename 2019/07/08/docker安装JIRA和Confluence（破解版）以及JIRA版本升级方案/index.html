@@ -30,6 +30,8 @@
 
 
 
+  <meta name="google-site-verification" content="K0zE8zqa8LXBZ8tlT9dnqbWlEr2WLtfN4xWQFJLzNXw">
+
 
 
   <script>
@@ -106,23 +108,23 @@
 
 
 
-  <meta name="description" content="本文将演示通过Docker安装JIRA和Confluence，并破解过程。本文只做个人学习研究之用，不得用于商业用途！  安装JIRA1. 获取资源 Docker镜像 Github链接 补丁工具(atlassian-agent.jar) Github链接  原链接已失效, 附百度云:   百度网盘地址： 链接：https://pan.baidu.com/s/17zNwlp3sd1PLSCxPVj">
+  <meta name="description" content="本文将演示通过Docker安装JIRA和Confluence，并破解过程。本文只做个人学习研究之用，不得用于商业用途！  安装JIRA (7.12.3)1. 获取资源 Docker镜像 Github链接 补丁工具(atlassian-agent.jar) Github链接  原链接已失效, 附百度云:   百度网盘地址： 链接：https://pan.baidu.com/s/17zNwlp3sd">
 <meta name="keywords" content="docker,JIRA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker安装JIRA和Confluence（破解版）以及JIRA版本升级方案">
 <meta property="og:url" content="http://huleski.github.com/2019/07/08/docker安装JIRA和Confluence（破解版）以及JIRA版本升级方案/index.html">
 <meta property="og:site_name" content="Holeski的博客">
-<meta property="og:description" content="本文将演示通过Docker安装JIRA和Confluence，并破解过程。本文只做个人学习研究之用，不得用于商业用途！  安装JIRA1. 获取资源 Docker镜像 Github链接 补丁工具(atlassian-agent.jar) Github链接  原链接已失效, 附百度云:   百度网盘地址： 链接：https://pan.baidu.com/s/17zNwlp3sd1PLSCxPVj">
+<meta property="og:description" content="本文将演示通过Docker安装JIRA和Confluence，并破解过程。本文只做个人学习研究之用，不得用于商业用途！  安装JIRA (7.12.3)1. 获取资源 Docker镜像 Github链接 补丁工具(atlassian-agent.jar) Github链接  原链接已失效, 附百度云:   百度网盘地址： 链接：https://pan.baidu.com/s/17zNwlp3sd">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pubgmjp23.bkt.clouddn.com/10973635-4168e67779acb0b2_%E7%9C%8B%E5%9B%BE%E7%8E%8B.web.jpg">
 <meta property="og:image" content="http://pubgmjp23.bkt.clouddn.com/xukezheng.jpg">
 <meta property="og:image" content="http://pubgmjp23.bkt.clouddn.com/jira.png">
 <meta property="og:image" content="http://pubgmjp23.bkt.clouddn.com/2E6%7D47Y%29@KMCUP3%25%295B%29%60%7BO.png">
 <meta property="og:image" content="http://pubgmjp23.bkt.clouddn.com/ertysdysdrtysert.png">
-<meta property="og:updated_time" content="2019-07-08T12:44:28.675Z">
+<meta property="og:updated_time" content="2019-07-10T03:35:38.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker安装JIRA和Confluence（破解版）以及JIRA版本升级方案">
-<meta name="twitter:description" content="本文将演示通过Docker安装JIRA和Confluence，并破解过程。本文只做个人学习研究之用，不得用于商业用途！  安装JIRA1. 获取资源 Docker镜像 Github链接 补丁工具(atlassian-agent.jar) Github链接  原链接已失效, 附百度云:   百度网盘地址： 链接：https://pan.baidu.com/s/17zNwlp3sd1PLSCxPVj">
+<meta name="twitter:description" content="本文将演示通过Docker安装JIRA和Confluence，并破解过程。本文只做个人学习研究之用，不得用于商业用途！  安装JIRA (7.12.3)1. 获取资源 Docker镜像 Github链接 补丁工具(atlassian-agent.jar) Github链接  原链接已失效, 附百度云:   百度网盘地址： 链接：https://pan.baidu.com/s/17zNwlp3sd">
 <meta name="twitter:image" content="http://pubgmjp23.bkt.clouddn.com/10973635-4168e67779acb0b2_%E7%9C%8B%E5%9B%BE%E7%8E%8B.web.jpg">
 
 
@@ -263,7 +265,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">30</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">31</span></a>
 
   </li>
         
@@ -282,7 +284,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">25</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">26</span></a>
 
   </li>
         
@@ -301,7 +303,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">28</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">29</span></a>
 
   </li>
         
@@ -444,12 +446,24 @@
                 
               
 
-              <time title="创建时间：2019-07-08 16:41:58 / 修改时间：20:44:28" itemprop="dateCreated datePublished" datetime="2019-07-08T16:41:58+08:00">2019-07-08</time>
+              <time title="创建时间：2019-07-08 16:41:58" itemprop="dateCreated datePublished" datetime="2019-07-08T16:41:58+08:00">2019-07-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-10 11:35:38" itemprop="dateModified" datetime="2019-07-10T11:35:38+08:00">2019-07-10</time>
               
             
           </span>
@@ -548,7 +562,7 @@
         <blockquote>
 <p>本文将演示通过Docker安装JIRA和Confluence，并破解过程。<br>本文只做个人学习研究之用，不得用于商业用途！</p>
 </blockquote>
-<h2 id="安装JIRA"><a href="#安装JIRA" class="headerlink" title="安装JIRA"></a>安装JIRA</h2><h3 id="1-获取资源"><a href="#1-获取资源" class="headerlink" title="1. 获取资源"></a>1. 获取资源</h3><ul>
+<h2 id="安装JIRA-7-12-3"><a href="#安装JIRA-7-12-3" class="headerlink" title="安装JIRA (7.12.3)"></a>安装JIRA (7.12.3)</h2><h3 id="1-获取资源"><a href="#1-获取资源" class="headerlink" title="1. 获取资源"></a>1. 获取资源</h3><ul>
 <li>Docker镜像 <a href="https://github.com/cptactionhank" target="_blank" rel="noopener">Github链接</a></li>
 <li>补丁工具(atlassian-agent.jar) <a href="https://github.com/pengzhile/atlassian-agent/releases/download/v1.2/atlassian-agent-v1.2.zip" target="_blank" rel="noopener">Github链接</a>  原链接已失效, 附百度云:</li>
 </ul>
@@ -738,7 +752,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -805,7 +819,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">25</span>
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -878,7 +894,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -965,7 +983,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装JIRA"><span class="nav-number">1.</span> <span class="nav-text">安装JIRA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-获取资源"><span class="nav-number">1.1.</span> <span class="nav-text">1. 获取资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-制作Docker破解容器"><span class="nav-number">1.2.</span> <span class="nav-text">2. 制作Docker破解容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-破解"><span class="nav-number">1.3.</span> <span class="nav-text">3. 破解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Confluence（6-13-0"><span class="nav-number">2.</span> <span class="nav-text">安装 Confluence（6.13.0)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-编写Dockerfile文件"><span class="nav-number">2.1.</span> <span class="nav-text">1. 编写Dockerfile文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-构建镜像"><span class="nav-number">2.2.</span> <span class="nav-text">2. 构建镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JIRA版本升级"><span class="nav-number">3.</span> <span class="nav-text">JIRA版本升级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-备份数据"><span class="nav-number">3.1.</span> <span class="nav-text">1. 备份数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-升级过渡版"><span class="nav-number">3.2.</span> <span class="nav-text">2. 升级过渡版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-升级最终版"><span class="nav-number">3.3.</span> <span class="nav-text">3. 升级最终版</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装JIRA-7-12-3"><span class="nav-number">1.</span> <span class="nav-text">安装JIRA (7.12.3)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-获取资源"><span class="nav-number">1.1.</span> <span class="nav-text">1. 获取资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-制作Docker破解容器"><span class="nav-number">1.2.</span> <span class="nav-text">2. 制作Docker破解容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-破解"><span class="nav-number">1.3.</span> <span class="nav-text">3. 破解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Confluence（6-13-0"><span class="nav-number">2.</span> <span class="nav-text">安装 Confluence（6.13.0)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-编写Dockerfile文件"><span class="nav-number">2.1.</span> <span class="nav-text">1. 编写Dockerfile文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-构建镜像"><span class="nav-number">2.2.</span> <span class="nav-text">2. 构建镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JIRA版本升级"><span class="nav-number">3.</span> <span class="nav-text">JIRA版本升级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-备份数据"><span class="nav-number">3.1.</span> <span class="nav-text">1. 备份数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-升级过渡版"><span class="nav-number">3.2.</span> <span class="nav-text">2. 升级过渡版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-升级最终版"><span class="nav-number">3.3.</span> <span class="nav-text">3. 升级最终版</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -998,7 +1016,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">144k</span>
+    <span title="站点总字数">146k</span>
   
 
   
@@ -1007,7 +1025,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:11</span>
+    <span title="站点阅读时长">2:12</span>
   
 </div>
 

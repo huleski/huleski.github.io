@@ -98,6 +98,66 @@ public interface NewsRepository extends ElasticsearchRepository<News, Long> {
 }
 ```
 
+Controller类
+-----------
+
+```java
+@RestController
+@RequestMapping("/es")
+public class NewsController {
+ 
+    @Autowired
+    private NewsRepository newsRepository;
+ 
+    /**
+     * 添加
+     * @return
+     */
+    @RequestMapping("add")
+    public String add() {
+        News news = new News();
+        news.setId("1");
+        news.setTitle("this is a title");
+        news.summary("China No.1 !!!");
+        news.setCreateTime(new Date());
+        newsRepository.save(news);
+        return "success";
+    }
+ 
+    /**
+     * 删除
+     * @return
+     */
+    @RequestMapping("delete")
+    public String delete() {
+        News news = newsRepository.queryById("1");
+        newsRepository.delete(news);
+        return "success";
+    }
+ 
+    /**
+     * 局部更新
+     * @return
+     */
+    @RequestMapping("update")
+    public String update() {
+        News news = newsRepository.queryById("1");
+        news.setTitle("哈哈");
+        newsRepository.save(news);
+        return "success";
+    }
+    /**
+     * 查询
+     * @return
+     */
+    @RequestMapping("query")
+    public News query() {
+        News news = newsRepository.getById("1");
+        return news;
+    }
+}
+```
+
 NewsRepository已经封装好了基本的增删改查:
 
 ```java

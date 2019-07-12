@@ -186,3 +186,40 @@ vim /etc/security/limits.conf
 # 最大分配内存2g
 -Xmx2g
 ```
+
+- elasticsearch版本升级
+
+详情参考: [官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-upgrade.html)
+
+升级需要考虑到数据迁移, 不过也不难
+
+安装好新版elasticsearch后, 修改新ES中的配置`elasticsearch.yml`文件,在里面添加一行:
+
+```bash
+# 多个ip以逗号','隔开, 或者 127.0.10.*:9200
+reindex.remote.whitelist: oldhost:9200
+```
+
+然后向新ES执行下面请求即可
+
+```json
+POST _reindex
+{
+  "source": {   // 获取来源的索引库
+    "remote": {
+      "host": "http://oldhost:9200",
+      "username": "user",
+      "password": "password"
+    },
+    "index": "indexName",
+    "query": {
+      "match": {
+        "test": "data"
+      }
+    }
+  },
+  "dest": {    // 生成的目标索引库
+    "index": "indexName"
+  }
+}
+```

@@ -86,7 +86,7 @@ docker pull coolq/wine-coolq
 然后运行 酷Q 镜像：
 
 ```bash
-docker run --name=coolq --rm -p 9000:9000 -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=123456 coolq/wine-coolq
+docker run --name=coolq --rm -p 9000:9000 -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=123456 -e COOLQ_ACCOUNT=123456 coolq/wine-coolq
 ```
 
 运行后，会看到控制台中输出一系列日志。当你看到 `[CQDaemon] Started CoolQ`  时，说明已启动成功。
@@ -96,7 +96,7 @@ docker run --name=coolq --rm -p 9000:9000 -v /root/coolq-data:/home/user/coolq -
 这时候如果关闭linux界面酷Q就会停了, 所以我们需要后台运行酷Q:
 
 ```bash
-docker run --name=coolq -d -p 9000:9000 -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=123456 coolq/wine-coolq
+docker run --name=coolq -d -p 9000:9000 --restart always -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=123456 -e COOLQ_ACCOUNT=123456 coolq/wine-coolq
 ```
 
 查看运行状态:

@@ -1,9 +1,12 @@
 ---
-title: 搭建Hexo碰到的问题
+title: 从零搭建Hexo
 categories: Hexo
 tags: Hexo
 date: 2019-07-10 11:15:12
 ---
+
+碰到的问题
+---------
 
 - 升级主题到Next6, 字体样式失效, 图标也丢失, 启动还会报错 
 

@@ -89,12 +89,12 @@ java -jar atlassian-agent.jar -d -m test@test.com -n JIRA -p jira -o http://192.
 
 复制下面生成的一长串许可证填写到页面中, 完成破解
 
-## 安装 Confluence（6.13.0)
+## 安装 Confluence（6.14.1)
 
 ### 1. 编写Dockerfile文件
 
 ```bash
-FROM cptactionhank/atlassian-confluence:6.13.0
+FROM cptactionhank/atlassian-confluence:6.14.1
 
 USER root
 
@@ -118,13 +118,17 @@ RUN echo 'export CATALINA_OPTS="-javaagent:/opt/atlassian/confluence/atlassian-a
 构建镜像, 执行命令(注意后面有一个点)
 
 ```bash
-docker build -f Dockerfile -t confluence/confluence:6.13.0 .
+docker build -t confluence/confluence:v6.14.1 .
 ```
 
 启动容器，执行命令：
 
 ```bash
-docker run -d -p 8090:8090 confluence/confluence:6.13.0
+docker run -d -p 10087:8080 \
+  -v /home/confluence/data:/var/atlassian/confluence \
+  --restart always --name=confluence \
+  --health-cmd="curl --silent --fail localhost:8080 || exit 1" \
+  confluence/confluence:v6.14.1
 ```
 
 访问`http://127.0.0.1:8090`,参照JIRA的安装流程，进行操作。

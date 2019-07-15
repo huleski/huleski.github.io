@@ -110,11 +110,19 @@ Kibana 和 elasticsearch 同属于 elastic 公司。 Kibana是一个开源分析
 - 运行bin/kibana.bat。
 - 浏览器输入 http://localhost:5601。
 
-**CentOS**
+**[CentOS](https://www.elastic.co/guide/cn/kibana/current/docker.html)**
 
 ```bash
+#  --link可以用来链接2个容器，使得源容器（被链接的容器）和接收容器（主动去链接的容器）之间可以互相通信，并且接收容器可以获取源容器的一些数据，如源容器的环境变量。
 docker pull kibana:5.6.16
 docker run --init -d --name kibana --restart unless-stopped --link elasticsearch -p 5601:5601 kibana:5.6.16
+```
+
+如果elasticsearch没有用docker运行:
+
+```bash
+# ELASTICSEARCH_URL指定elasticsearch的ip
+docker run -it -d -e ELASTICSEARCH_URL=http://172.17.0.1:9200 -p 5601:5601 --name kibana kibana:5.6.16
 ```
 
 ## 碰到的问题:

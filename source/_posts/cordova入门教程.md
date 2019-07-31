@@ -107,15 +107,15 @@ source /etc/profile
 下载nodejs并解压:
 
 ```bash
-wget http://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x64.tar.gz
-tar -zxvf node-v8.9.4-linux-x64.tar.gz
+wget http://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.gz
+tar -zxf node-v10.16.0-linux-x64.tar.gz
 ```
 
 编辑配置文件 `vim /etc/profile` 在文件最后添加:
 
 ```bash
 ### nodejs environment
-export NODE_HOME=/data/cordova/node-v8.9.4-linux-x64
+export NODE_HOME=/data/cordova/node-v10.16.0-linux-x64
 export PATH=$NODE_HOME/bin:$PATH  
 ```
 

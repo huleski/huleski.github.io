@@ -155,7 +155,13 @@ mysql> grant all privileges on *.* to username@'%' identified by 'password';
 mysql> grant all privileges on *.* to username@'hostname' identified by 'password' with grant option;
 ```
 
-4. 刷新权限
+4. 创建只读用户
+
+```bash
+GRANT SELECT ON dbname.* TO 'username'@'%' IDENTIFIED BY "password";
+```
+
+5. 刷新权限
 
 ```
 mysql> flush privileges;

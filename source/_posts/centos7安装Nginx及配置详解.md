@@ -540,3 +540,29 @@ server {
 ```
 
 nginx将按照1,2,3,4顺序对server name进行匹配, 而与配置的排版先后顺序无关, 只要有一项匹配后就会停止搜索。
+
+return用法
+-------
+
+该指令将结束执行直接返回http状态码到客户端.
+
+- 屏蔽某个服务端口, 直接返回404
+
+```conf
+server {
+    listen 80;
+    server_name mydomain.com;
+    return 404;
+}
+```
+
+- 重定向所有请求到特定网址
+
+```conf
+server {
+    listen 80;
+    server_name mydomain.com;
+    return 302 $scheme://anotherdomain.com$request_uri;
+}
+```
+

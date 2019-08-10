@@ -105,6 +105,21 @@ npm config set unsafe-perm true
 所以我们需要使用pm2来保证进程永远都活着
 
 ```bash
+# 安装pm2
 npm install pm2 -g
-pm2 start vendors/server/app.js
+# pm2启动项目
+pm2 start vendors/server/app.js --name YApi
+# 显示所有进程状态
+pm2 list
+# 停止指定的进程
+pm2 stop 0
+# 杀死指定的进程
+pm2 delete 0
+
+# pm2开机自启动项目 (在此之前先启动项目)
+pm2 save   # 保存当前状态
+pm2 startup   # 开启自启动
+
+# 禁用开机自启动
+pm2 unstartup
 ```

@@ -48,13 +48,13 @@ date: 2019-07-10 11:43:47
 - 在Windows中, 需要在`setclasspath.bat`文件的开头处加入以下内容
 
 ```bat
-set JAVA_HOME=C:\Program Files\Java\jdk1.7.0_79
-set JRE_HOME=C:\Program Files\Java\jdk1.7.0_79\jre
+set JAVA_HOME=C://Program Files/Java/jdk1.7.0_79
+set JRE_HOME=C://Program Files/Java/jdk1.7.0_79/jre
 ```
 
 - 在Linux中, 则需要在`setclasspath.sh`文件的开头处加入以下内容
 
 ```bash
-export JAVA_HOME=C:\Program Files\Java\jdk1.7.0_79
-export JRE_HOME=C:\Program Files\Java\jdk1.7.0_79\jre
+export JAVA_HOME=/usr/local/java/jdk1.7.0_79
+export JRE_HOME=/usr/local/java/jdk1.7.0_79/jre
 ```

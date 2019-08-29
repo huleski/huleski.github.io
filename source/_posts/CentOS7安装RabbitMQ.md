@@ -33,6 +33,13 @@ yum -y install rabbitmq-server-3.7.14-1.el7.noarch.rpm
 systemctl start rabbitmq-server             # 启动RabbitMQ
 systemctl enable rabbitmq-server            # 开机自启动RabbitMQ
 systemctl status rabbitmq-server            # 查看状态
+
+# 其他启动方式
+rabbitmq-server                             # 启动 RabbitMQ服务
+rabbitmqctl stop                            # 停止RabbitMQ服务
+rabbitmqctl start_app                       # 启动application
+rabbitmqctl stop_app                        # 停止application
+rabbitmq-server -detached                   # 后台启动 RabbitMQ服务
 ```
 
 访问web控制台

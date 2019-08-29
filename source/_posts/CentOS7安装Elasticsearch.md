@@ -158,8 +158,8 @@ vi /etc/sysctl.conf
 # 执行命令重新加载文件 
 sysctl -p
 
-# 重启elasticsearch: 
-./bin/elasticsearch
+# 重启elasticsearch: 先kill es进程再启动
+./bin/elasticsearch 
 ```
 
 - `max number of threads [1024] for user [elsearch] is too low, increase to at least [4096]`

@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Holeski的博客">
 <meta property="og:description" content="安装Tomcat从Apache官网下载好Tomcat, 解压两份到不同的文件夹下即可 配置第一个tomcat不做任何修改，使用默认端口和配置 第二个tomcat需要编辑tomcat/conf目录下server.xml文件, 修改3个端口, 使其与前面的tomcat端口不同: 1234567891011121314&amp;lt;!-- 修改关闭端口为8015, 第22行左右 --&amp;gt;&amp;lt;Serve">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-10T07:31:28.299Z">
+<meta property="og:updated_time" content="2019-08-12T01:09:11.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一台机器启动多个tomcat">
 <meta name="twitter:description" content="安装Tomcat从Apache官网下载好Tomcat, 解压两份到不同的文件夹下即可 配置第一个tomcat不做任何修改，使用默认端口和配置 第二个tomcat需要编辑tomcat/conf目录下server.xml文件, 修改3个端口, 使其与前面的tomcat端口不同: 1234567891011121314&amp;lt;!-- 修改关闭端口为8015, 第22行左右 --&amp;gt;&amp;lt;Serve">
@@ -259,7 +259,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -278,7 +278,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">26</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">29</span></a>
 
   </li>
         
@@ -297,7 +297,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">29</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">33</span></a>
 
   </li>
         
@@ -440,12 +440,24 @@
                 
               
 
-              <time title="创建时间：2019-07-10 11:43:47 / 修改时间：15:31:28" itemprop="dateCreated datePublished" datetime="2019-07-10T11:43:47+08:00">2019-07-10</time>
+              <time title="创建时间：2019-07-10 11:43:47" itemprop="dateCreated datePublished" datetime="2019-07-10T11:43:47+08:00">2019-07-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-12 09:09:11" itemprop="dateModified" datetime="2019-08-12T09:09:11+08:00">2019-08-12</time>
               
             
           </span>
@@ -554,11 +566,11 @@
 <ul>
 <li>在Windows中, 需要在<code>setclasspath.bat</code>文件的开头处加入以下内容</li>
 </ul>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> JAVA_HOME=C:\Program Files\Java\jdk1.<span class="number">7</span>.<span class="number">0</span>_79</span><br><span class="line"><span class="built_in">set</span> JRE_HOME=C:\Program Files\Java\jdk1.<span class="number">7</span>.<span class="number">0</span>_79\jre</span><br></pre></td></tr></table></figure>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> JAVA_HOME=C://Program Files/Java/jdk1.<span class="number">7</span>.<span class="number">0</span>_79</span><br><span class="line"><span class="built_in">set</span> JRE_HOME=C://Program Files/Java/jdk1.<span class="number">7</span>.<span class="number">0</span>_79/jre</span><br></pre></td></tr></table></figure>
 <ul>
 <li>在Linux中, 则需要在<code>setclasspath.sh</code>文件的开头处加入以下内容</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=C:\Program Files\Java\jdk1.7.0_79</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=C:\Program Files\Java\jdk1.7.0_79\jre</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.7.0_79</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=/usr/<span class="built_in">local</span>/java/jdk1.7.0_79/jre</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -614,6 +626,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/11/Springboot整合Elasticsearch/" rel="prev" title="Springboot整合Elasticsearch">
+                Springboot整合Elasticsearch <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -688,7 +704,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -757,7 +773,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -832,7 +854,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -952,7 +982,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">146k</span>
+    <span title="站点总字数">162k</span>
   
 
   
@@ -961,7 +991,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:12</span>
+    <span title="站点阅读时长">2:28</span>
   
 </div>
 

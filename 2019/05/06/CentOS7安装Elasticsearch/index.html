@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Holeski的博客">
 <meta property="og:description" content="版本选择Elasticsearch 目前有三个常用的稳定的主版本：2.x，5.x，6.x, 目前最新是7.0.0  中间没有3.x和4.x是为了ELK（ElasticSearch, logstash, kibana）技术栈的版本统一，免的给用户带来混乱。  版本选择可以从以下几个方面考虑： 123456789101112131415版本问题2.x 版本较老，无法体验新功能，且性能不如 5.x。6.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-11T02:12:55.234Z">
+<meta property="og:updated_time" content="2019-08-29T00:32:29.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7安装Elasticsearch">
 <meta name="twitter:description" content="版本选择Elasticsearch 目前有三个常用的稳定的主版本：2.x，5.x，6.x, 目前最新是7.0.0  中间没有3.x和4.x是为了ELK（ElasticSearch, logstash, kibana）技术栈的版本统一，免的给用户带来混乱。  版本选择可以从以下几个方面考虑： 123456789101112131415版本问题2.x 版本较老，无法体验新功能，且性能不如 5.x。6.">
@@ -259,7 +259,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -278,7 +278,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">26</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">29</span></a>
 
   </li>
         
@@ -297,7 +297,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">29</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">33</span></a>
 
   </li>
         
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-11 10:12:55" itemprop="dateModified" datetime="2019-07-11T10:12:55+08:00">2019-07-11</time>
+                <time title="修改时间：2019-08-29 08:32:29" itemprop="dateModified" datetime="2019-08-29T08:32:29+08:00">2019-08-29</time>
               
             
           </span>
@@ -521,7 +521,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">3.9k</span>
+                <span title="本文字数">4.2k</span>
               
 
               
@@ -585,8 +585,10 @@
 <li>运行bin/kibana.bat。</li>
 <li>浏览器输入 <a href="http://localhost:5601。" target="_blank" rel="noopener">http://localhost:5601。</a></li>
 </ul>
-<p><strong>CentOS</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull kibana:5.6.16</span><br><span class="line">docker run --init -d --name kibana --restart unless-stopped --link elasticsearch -p 5601:5601 kibana:5.6.16</span><br></pre></td></tr></table></figure>
+<p><strong><a href="https://www.elastic.co/guide/cn/kibana/current/docker.html" target="_blank" rel="noopener">CentOS</a></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  --link可以用来链接2个容器，使得源容器（被链接的容器）和接收容器（主动去链接的容器）之间可以互相通信，并且接收容器可以获取源容器的一些数据，如源容器的环境变量。</span></span><br><span class="line">docker pull kibana:5.6.16</span><br><span class="line">docker run --init -d --name kibana --restart unless-stopped --link elasticsearch -p 5601:5601 kibana:5.6.16</span><br></pre></td></tr></table></figure>
+<p>如果elasticsearch没有用docker运行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ELASTICSEARCH_URL指定elasticsearch的ip</span></span><br><span class="line">docker run -it -d -e ELASTICSEARCH_URL=http://172.17.0.1:9200 -p 5601:5601 --name kibana kibana:5.6.16</span><br></pre></td></tr></table></figure>
 <h2 id="碰到的问题"><a href="#碰到的问题" class="headerlink" title="碰到的问题:"></a>碰到的问题:</h2><ul>
 <li>不能以root身份启动elasticsearch, 否则会报错, 执行以下命令:</li>
 </ul>
@@ -598,7 +600,7 @@
 <ul>
 <li><code>max virtual memory areas vm.max_map_count [65530] is too low</code></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑文件, 在最后添加一行  vm.max_map_count=655300</span></span><br><span class="line">vi /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行命令重新加载文件 </span></span><br><span class="line">sysctl -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启elasticsearch: </span></span><br><span class="line">./bin/elasticsearch</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑文件, 在最后添加一行  vm.max_map_count=655300</span></span><br><span class="line">vi /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行命令重新加载文件 </span></span><br><span class="line">sysctl -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启elasticsearch: 先kill es进程再启动</span></span><br><span class="line">./bin/elasticsearch</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>max number of threads [1024] for user [elsearch] is too low, increase to at least [4096]</code></li>
 </ul>
@@ -753,7 +755,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -822,7 +824,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -897,7 +905,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1017,7 +1033,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">146k</span>
+    <span title="站点总字数">162k</span>
   
 
   
@@ -1026,7 +1042,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:12</span>
+    <span title="站点阅读时长">2:28</span>
   
 </div>
 

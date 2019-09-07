@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Holeski的博客">
 <meta property="og:description" content="安装ErLangrabbitmq依赖于erlang, 因此要先安装erlang 123wget  http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpmrpm -Uvh erlang-solutions-1.0-1.noarch.rpmyum install erlang 安装RabbitMQ12wget htt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-22T01:32:18.114Z">
+<meta property="og:updated_time" content="2019-08-29T00:32:38.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7安装RabbitMQ">
 <meta name="twitter:description" content="安装ErLangrabbitmq依赖于erlang, 因此要先安装erlang 123wget  http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpmrpm -Uvh erlang-solutions-1.0-1.noarch.rpmyum install erlang 安装RabbitMQ12wget htt">
@@ -259,7 +259,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -278,7 +278,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">26</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">29</span></a>
 
   </li>
         
@@ -297,7 +297,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">29</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">33</span></a>
 
   </li>
         
@@ -440,12 +440,24 @@
                 
               
 
-              <time title="创建时间：2019-04-22 09:26:36 / 修改时间：09:32:18" itemprop="dateCreated datePublished" datetime="2019-04-22T09:26:36+08:00">2019-04-22</time>
+              <time title="创建时间：2019-04-22 09:26:36" itemprop="dateCreated datePublished" datetime="2019-04-22T09:26:36+08:00">2019-04-22</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-29 08:32:38" itemprop="dateModified" datetime="2019-08-29T08:32:38+08:00">2019-08-29</time>
               
             
           </span>
@@ -509,7 +521,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">1.4k</span>
+                <span title="本文字数">1.7k</span>
               
 
               
@@ -521,7 +533,7 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -544,7 +556,7 @@
         <h2 id="安装ErLang"><a href="#安装ErLang" class="headerlink" title="安装ErLang"></a>安装ErLang</h2><p>rabbitmq依赖于erlang, 因此要<strong>先安装erlang</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget  http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm</span><br><span class="line">rpm -Uvh erlang-solutions-1.0-1.noarch.rpm</span><br><span class="line">yum install erlang</span><br></pre></td></tr></table></figure>
 <h2 id="安装RabbitMQ"><a href="#安装RabbitMQ" class="headerlink" title="安装RabbitMQ"></a>安装RabbitMQ</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.7.14/rabbitmq-server-3.7.14-1.el7.noarch.rpm</span><br><span class="line">yum -y install rabbitmq-server-3.7.14-1.el7.noarch.rpm</span><br></pre></td></tr></table></figure>
-<h2 id="启动RabbitMQ"><a href="#启动RabbitMQ" class="headerlink" title="启动RabbitMQ"></a>启动RabbitMQ</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rabbitmq-server             <span class="comment"># 启动RabbitMQ</span></span><br><span class="line">systemctl <span class="built_in">enable</span> rabbitmq-server            <span class="comment"># 开机自启动RabbitMQ</span></span><br><span class="line">systemctl status rabbitmq-server            <span class="comment"># 查看状态</span></span><br></pre></td></tr></table></figure>
+<h2 id="启动RabbitMQ"><a href="#启动RabbitMQ" class="headerlink" title="启动RabbitMQ"></a>启动RabbitMQ</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rabbitmq-server             <span class="comment"># 启动RabbitMQ</span></span><br><span class="line">systemctl <span class="built_in">enable</span> rabbitmq-server            <span class="comment"># 开机自启动RabbitMQ</span></span><br><span class="line">systemctl status rabbitmq-server            <span class="comment"># 查看状态</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他启动方式</span></span><br><span class="line">rabbitmq-server                             <span class="comment"># 启动 RabbitMQ服务</span></span><br><span class="line">rabbitmqctl stop                            <span class="comment"># 停止RabbitMQ服务</span></span><br><span class="line">rabbitmqctl start_app                       <span class="comment"># 启动application</span></span><br><span class="line">rabbitmqctl stop_app                        <span class="comment"># 停止application</span></span><br><span class="line">rabbitmq-server -detached                   <span class="comment"># 后台启动 RabbitMQ服务</span></span><br></pre></td></tr></table></figure>
 <h2 id="访问web控制台"><a href="#访问web控制台" class="headerlink" title="访问web控制台"></a>访问web控制台</h2><p>初始帐号和密码都为：guest, 但是只能本地登录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-plugins <span class="built_in">enable</span> rabbitmq-management                 <span class="comment"># 启动RabbitMQ Web管理控制台</span></span><br><span class="line">chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/               <span class="comment"># 将RabbitMQ文件的所有权提供给RabbitMQ用户</span></span><br><span class="line"></span><br><span class="line">rabbitmqctl add_user admin 123456                           <span class="comment"># 为RabbitMQ Web管理控制台创建管理用户</span></span><br><span class="line">rabbitmqctl set_user_tags admin administrator               <span class="comment"># 为admin设置管理员角色</span></span><br><span class="line">rabbitmqctl set_permissions -p / admin <span class="string">".*"</span> <span class="string">".*"</span> <span class="string">".*"</span>       <span class="comment"># 为admin设置默认vhost（“/”）配置、写、读全部权限</span></span><br></pre></td></tr></table></figure>
 <p>访问: <code>http://RabbitMQ_IP:15672/</code> 就能看到RabbitMQ管理页面</p>
@@ -700,7 +712,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -769,7 +781,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -844,7 +862,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -964,7 +990,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">146k</span>
+    <span title="站点总字数">162k</span>
   
 
   
@@ -973,7 +999,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:12</span>
+    <span title="站点阅读时长">2:28</span>
   
 </div>
 

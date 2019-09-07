@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Holeski的博客">
 <meta property="og:description" content="前言经常在微信/QQ上看到可以自动聊天的机器人, 感觉很有趣, 今天我们就可以来创建这样一个机器人.  前期准备:   在图灵机器人网站上注册一个账号, 注册成功后在网站上创建一个机器人, 勾选qq/微信即可, 创建完成后会有一个apikey, 记住这个apikey, 后面会用到.   图灵机器人的作用:   在聊天机器人中, 当我们发送消息给机器人账号时, 机器人账号会将获取到的消息通过apik">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-14T12:33:43.448Z">
+<meta property="og:updated_time" content="2019-07-11T12:33:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QQ&#x2F;微信机器人的安装使用">
 <meta name="twitter:description" content="前言经常在微信/QQ上看到可以自动聊天的机器人, 感觉很有趣, 今天我们就可以来创建这样一个机器人.  前期准备:   在图灵机器人网站上注册一个账号, 注册成功后在网站上创建一个机器人, 勾选qq/微信即可, 创建完成后会有一个apikey, 记住这个apikey, 后面会用到.   图灵机器人的作用:   在聊天机器人中, 当我们发送消息给机器人账号时, 机器人账号会将获取到的消息通过apik">
@@ -259,7 +259,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -278,7 +278,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">26</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">29</span></a>
 
   </li>
         
@@ -297,7 +297,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">29</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">33</span></a>
 
   </li>
         
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-14 20:33:43" itemprop="dateModified" datetime="2019-05-14T20:33:43+08:00">2019-05-14</time>
+                <time title="修改时间：2019-07-11 20:33:06" itemprop="dateModified" datetime="2019-07-11T20:33:06+08:00">2019-07-11</time>
               
             
           </span>
@@ -589,10 +589,10 @@
 <p>首先确保Linux已经装好Docker了，接下来拉取镜像运行就可以了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull coolq/wine-coolq</span><br></pre></td></tr></table></figure>
 <p>然后运行 酷Q 镜像：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=coolq --rm -p 9000:9000 -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=123456 coolq/wine-coolq</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=coolq --rm -p 9000:9000 -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=123456 -e COOLQ_ACCOUNT=123456 coolq/wine-coolq</span><br></pre></td></tr></table></figure>
 <p>运行后，会看到控制台中输出一系列日志。当你看到 <code>[CQDaemon] Started CoolQ</code>  时，说明已启动成功。<br>此时，在浏览器中访问 <code>http://你的服务器IP:9000</code> 即可看到远程操作登录页面，输入密码123456，即可看到 酷Q Air 的登录界面啦。<br>在登录后，右键点击悬浮窗 -&gt; 昵称 -&gt; 勾选「自动登录」，即可保证 酷Q 能自动登录。</p>
 <p>这时候如果关闭linux界面酷Q就会停了, 所以我们需要后台运行酷Q:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=coolq -d -p 9000:9000 -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=123456 coolq/wine-coolq</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=coolq -d -p 9000:9000 --restart always -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=123456 -e COOLQ_ACCOUNT=123456 coolq/wine-coolq</span><br></pre></td></tr></table></figure>
 <p>查看运行状态:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs coolq</span><br></pre></td></tr></table></figure>
 <p>启动/停止服务</p>
@@ -731,7 +731,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -800,7 +800,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -875,7 +881,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -995,7 +1009,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">146k</span>
+    <span title="站点总字数">162k</span>
   
 
   
@@ -1004,7 +1018,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:12</span>
+    <span title="站点阅读时长">2:28</span>
   
 </div>
 

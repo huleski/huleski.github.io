@@ -96,6 +96,9 @@ check_interval = 0
     password = "123456"
     host = "10.12.2.22"
     port = "22"
+    builds_dir = "/home/runner/builds"
+    cache_dir = "/home/runner/caches"
+
   [runners.cache]
     [runners.cache.s3]
     [runners.cache.gcs]

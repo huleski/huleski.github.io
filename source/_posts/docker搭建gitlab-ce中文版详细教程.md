@@ -1,8 +1,8 @@
 ---
-title: docker搭建gitlab-ce中文版详细教程
-categories: gitlab
+title: docker搭建GitLab-CE中文版详细教程
+categories: GitLab
 tags: 
-  - gitlab
+  - GitLab
   - docker
 date: 2019-03-19 19:56:29
 ---

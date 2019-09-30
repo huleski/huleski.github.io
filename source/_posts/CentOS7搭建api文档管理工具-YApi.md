@@ -75,7 +75,7 @@ mongo --version
 vim /etc/mongod.conf
 ```
 
-```conf
+```yml
 net:
   port: 27017
   # 将下面127.0.0.1换成 0.0.0.0就可以远程访问mongodb了

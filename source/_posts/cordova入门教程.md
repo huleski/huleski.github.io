@@ -49,7 +49,7 @@ source /etc/profile
 
 ### 2. 安装Android SDK
 
-下载 Android SDK并解压
+下载 Android SDK并解压 (可以在[这里](https://www.androiddevtools.cn/)下载)
 
 ```bash
 wget http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz

@@ -64,7 +64,7 @@ vim /etc/profile
 ```bash
 JAVA_HOME=/data/jdk1.8.0_191
 JRE_HOME=/data/jdk1.8.0_191/jre
-PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
 export JAVA_HOME JRE_HOME PATH CLASSPATH
 ```

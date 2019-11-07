@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Holeski的博客">
 <meta property="og:description" content="查看已安装的jdk并卸载查询jdk ( 新装的centos会默认安装openjre ) 1234whereis javawhich java （java执行路径）echo $JAVA_HOMEecho $PATH 确定JDK的版本： 1rpm -qa | grep jdk 可能的结果是： 12java-1.7.0-openjdk-1.7.0.191-2.6.15.5.el7.x86_64java-">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-17T02:33:33.467Z">
+<meta property="og:updated_time" content="2019-11-07T02:52:08.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7安装JDK1.8">
 <meta name="twitter:description" content="查看已安装的jdk并卸载查询jdk ( 新装的centos会默认安装openjre ) 1234whereis javawhich java （java执行路径）echo $JAVA_HOMEecho $PATH 确定JDK的版本： 1rpm -qa | grep jdk 可能的结果是： 12java-1.7.0-openjdk-1.7.0.191-2.6.15.5.el7.x86_64java-">
@@ -259,7 +259,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">38</span></a>
 
   </li>
         
@@ -278,7 +278,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">29</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">30</span></a>
 
   </li>
         
@@ -297,7 +297,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">33</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">34</span></a>
 
   </li>
         
@@ -440,12 +440,24 @@
                 
               
 
-              <time title="创建时间：2019-04-17 10:07:07 / 修改时间：10:33:33" itemprop="dateCreated datePublished" datetime="2019-04-17T10:07:07+08:00">2019-04-17</time>
+              <time title="创建时间：2019-04-17 10:07:07" itemprop="dateCreated datePublished" datetime="2019-04-17T10:07:07+08:00">2019-04-17</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-07 10:52:08" itemprop="dateModified" datetime="2019-11-07T10:52:08+08:00">2019-11-07</time>
               
             
           </span>
@@ -556,7 +568,7 @@
 <h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>打开配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
 <p>在配置文件末尾添加一下内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/data/jdk1.8.0_191</span><br><span class="line">JRE_HOME=/data/jdk1.8.0_191/jre</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$JRE_HOME</span>/bin</span><br><span class="line">CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JRE_HOME</span>/lib</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME JRE_HOME PATH CLASSPATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/data/jdk1.8.0_191</span><br><span class="line">JRE_HOME=/data/jdk1.8.0_191/jre</span><br><span class="line">PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$JRE_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line">CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JRE_HOME</span>/lib</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME JRE_HOME PATH CLASSPATH</span><br></pre></td></tr></table></figure>
 <p>保存退出, 是配置文件立即生效</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profie</span><br></pre></td></tr></table></figure>
 <p>查看java是否安装成功</p>
@@ -694,7 +706,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -769,7 +781,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -852,7 +866,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -972,7 +988,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">162k</span>
+    <span title="站点总字数">167k</span>
   
 
   
@@ -981,7 +997,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:28</span>
+    <span title="站点阅读时长">2:32</span>
   
 </div>
 

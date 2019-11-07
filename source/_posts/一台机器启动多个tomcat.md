@@ -1,17 +1,14 @@
 ---
-title: 一台机器启动多个tomcat
+title: Tomcat配置
 categories: tomcat
 tags: tomcat
 date: 2019-07-10 11:43:47
 ---
 
-安装Tomcat
+一台机器启动多个tomcat
 ---------
 
 从[Apache官网](https://tomcat.apache.org/download-80.cgi)下载好Tomcat, 解压两份到不同的文件夹下即可
-
-配置
-----
 
 第一个tomcat不做任何修改，使用默认端口和配置
 
@@ -57,4 +54,23 @@ set JRE_HOME=C://Program Files/Java/jdk1.7.0_79/jre
 ```bash
 export JAVA_HOME=/usr/local/java/jdk1.7.0_79
 export JRE_HOME=/usr/local/java/jdk1.7.0_79/jre
+```
+
+修改session默认的cookie名字
+----------
+
+在tomcat的conf目录下, 修改`server.xml`文件, 在<Host>节点中加入<Context>配置:
+
+```xml
+<Context path="/" sessionCookiePath="/" sessionCookieName="MY-SESSION"/>
+```
+
+console控制台输出有乱码
+--------------------
+
+在tomcat安装路径`conf/logging.properties`文件中注释掉其中一行
+
+```property
+## 将下面这行注释掉
+# java.util.logging.ConsoleHandler.encoding = UTF-8
 ```

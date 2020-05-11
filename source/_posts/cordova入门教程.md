@@ -202,3 +202,35 @@ cordova build android
 若打包过程中下载依赖时timeout, 则需要番蔷
 
 打包成功会出现 `BUILD SUCCESSFUL` , 打包后的文件为: `platforms/android/app/build/outputs/apk/debug/app-debug.apk`
+
+Cordova打包release版本
+
+```bash
+## 打包未签名的apk包
+cordova build android --release
+```
+
+```bash
+## 生成秘钥
+keytool -genkey -v -keystore ~/myKey.keystore -alias myKey -keyalg RSA -validity 20000 
+```
+> keytool 秘钥工具
+> 
+> -keystore D:/myKey.keystore 表示生成的证书及其存放路径，如果直接写文件名则默认生成在用户当前目录下；
+> 
+> -alias myKey 表示证书的别名是 `myKey`,不写这一项的话证书名字默认是mykey；
+> 
+> -keyalg RSA 表示采用的RSA算法；
+> 
+> -validity 20000表示证书的有效期是20000天。
+
+
+```bash
+## 签名
+jarsigner -verbose -keystore ~/myKey.keystore -signedjar name.apk app-release-unsigned.apk ~/myKey.keystore
+```
+> jarsigner 签名工具
+> 
+> name.apk 需要生成的apk名字
+> 
+> app-release-unsigned.apk 待签名的apk

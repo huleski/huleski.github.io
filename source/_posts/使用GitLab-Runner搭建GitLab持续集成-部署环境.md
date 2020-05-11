@@ -96,8 +96,8 @@ check_interval = 0
     password = "123456"
     host = "10.12.2.22"
     port = "22"
-    builds_dir = "/home/runner/builds"
-    cache_dir = "/home/runner/caches"
+    builds_dir = "/home/runner/builds"   # 设置构建路径
+    cache_dir = "/home/runner/caches"    # 设置构建缓存路径
 
   [runners.cache]
     [runners.cache.s3]

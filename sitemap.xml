@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://huleski.github.io/2020/10/12/docker%E5%AE%89%E8%A3%85rabbitmq/</loc>
+    
+    <lastmod>2020-10-13T11:52:11.446Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://huleski.github.io/2019/07/29/cordova%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</loc>
+    
+    <lastmod>2020-05-11T07:08:37.441Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://huleski.github.io/2019/02/26/%E4%BD%BF%E7%94%A8GitLab-Runner%E6%90%AD%E5%BB%BAGitLab%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90-%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83/</loc>
+    
+    <lastmod>2020-04-21T03:05:19.739Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://huleski.github.io/2019/11/12/java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
+    
+    <lastmod>2019-11-12T12:48:43.585Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://huleski.github.io/2019/07/10/%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E5%90%AF%E5%8A%A8%E5%A4%9A%E4%B8%AAtomcat/</loc>
     
     <lastmod>2019-11-07T03:23:53.737Z</lastmod>
@@ -30,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://huleski.github.io/2019/07/29/cordova%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</loc>
-    
-    <lastmod>2019-10-10T12:58:08.746Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://huleski.github.io/2019/03/16/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</loc>
     
     <lastmod>2019-10-08T03:47:51.580Z</lastmod>
@@ -61,13 +82,6 @@
     <loc>https://huleski.github.io/2019/03/19/docker%E6%90%AD%E5%BB%BAgitlab-ce%E4%B8%AD%E6%96%87%E7%89%88%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/</loc>
     
     <lastmod>2019-09-19T09:47:39.864Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://huleski.github.io/2019/02/26/%E4%BD%BF%E7%94%A8GitLab-Runner%E6%90%AD%E5%BB%BAGitLab%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90-%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83/</loc>
-    
-    <lastmod>2019-09-19T04:22:01.487Z</lastmod>
     
   </url>
   

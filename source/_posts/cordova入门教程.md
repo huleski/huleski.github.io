@@ -227,7 +227,7 @@ keytool -genkey -v -keystore ~/myKey.keystore -alias myKey -keyalg RSA -validity
 
 ```bash
 ## 签名
-jarsigner -verbose -keystore ~/myKey.keystore -signedjar name.apk app-release-unsigned.apk ~/myKey.keystore
+jarsigner -verbose -keystore myKey.keystore -signedjar name.apk app-release-unsigned.apk myKey
 ```
 > jarsigner 签名工具
 > 

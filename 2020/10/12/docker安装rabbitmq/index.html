@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Holeski的博客">
 <meta property="og:description" content="下载镜像进入docker hub官方镜像仓库 搜索rabbitMq，进入官方的镜像，可以看到以下几种类型的镜像；我们选择带有“mangement”的版本（包含web管理页面） 编写docker-compose文件 docker-compose.yml 123456789101112131415version: &apos;3&apos;services:  rabbitmq:    container_name: r">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-13T11:52:11.446Z">
+<meta property="og:updated_time" content="2020-11-25T10:52:27.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker安装rabbitmq">
 <meta name="twitter:description" content="下载镜像进入docker hub官方镜像仓库 搜索rabbitMq，进入官方的镜像，可以看到以下几种类型的镜像；我们选择带有“mangement”的版本（包含web管理页面） 编写docker-compose文件 docker-compose.yml 123456789101112131415version: &apos;3&apos;services:  rabbitmq:    container_name: r">
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-10-13 19:52:11" itemprop="dateModified" datetime="2020-10-13T19:52:11+08:00">2020-10-13</time>
+                <time title="修改时间：2020-11-25 18:52:27" itemprop="dateModified" datetime="2020-11-25T18:52:27+08:00">2020-11-25</time>
               
             
           </span>
@@ -521,7 +521,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">704</span>
+                <span title="本文字数">1.6k</span>
               
 
               
@@ -556,14 +556,26 @@
         <h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><p>进入<a href="https://hub.docker.com/" target="_blank" rel="noopener">docker hub官方镜像仓库</a></p>
 <p>搜索rabbitMq，进入官方的镜像，可以看到以下几种类型的镜像；我们选择带有“mangement”的版本（包含web管理页面）</p>
 <p>编写docker-compose文件 docker-compose.yml</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  rabbitmq:</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">rabbitmq</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">rabbitmq:management-alpine</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">RABBITMQ_DEFAULT_USER=root</span> </span><br><span class="line"><span class="bullet">      -</span> <span class="string">RABBITMQ_DEFAULT_PASS=123456</span> </span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">5672</span><span class="string">:5672</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">15672</span><span class="string">:15672</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/root/middleware/rabbitmq/data:/var/lib/rabbitmq</span></span><br><span class="line"><span class="attr">    privileged:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  rabbitmq:</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">rabbitmq</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">rabbitmq:management-alpine:3.8.9</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">RABBITMQ_DEFAULT_USER=root</span> </span><br><span class="line"><span class="bullet">      -</span> <span class="string">RABBITMQ_DEFAULT_PASS=123456</span> </span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">5672</span><span class="string">:5672</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">15672</span><span class="string">:15672</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/root/middleware/rabbitmq/data:/var/lib/rabbitmq</span></span><br><span class="line"><span class="attr">    privileged:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
 <p>启动容器(在<code>docker-compose.yml</code>文件同级目录执行)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
 <p>启动rabbitmq_management</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it rabbit rabbitmq-plugins <span class="built_in">enable</span> rabbitmq_management</span><br></pre></td></tr></table></figure>
 <p>现在已经启动完成了, 浏览器打开web管理端：<a href="http://ip:15672" target="_blank" rel="noopener">http://ip:15672</a></p>
 <p>输入前面docker-compose里面设置的用户名密码登录即可</p>
-
+<p>官方安装的默认是不带延迟队列插件的, 需要自己安装</p>
+<h2 id="docker构建延迟队列插件rabbitmq"><a href="#docker构建延迟队列插件rabbitmq" class="headerlink" title="docker构建延迟队列插件rabbitmq"></a>docker构建延迟队列插件rabbitmq</h2><p>前面已经下载好镜像了, 另外需要下载插件</p>
+<p>官方插件下载地址：<a href="https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/" target="_blank" rel="noopener">github下载</a>, 选择对应版本, 这里我们同样选3.8.9版本下载, 放到服务器上</p>
+<p>创建DockerFile文件(在插件同级目录, 插件名为<code>rabbitmq_delayed_message_exchange-3.8.9.ez</code>), 内容如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM rabbitmq:3-management</span><br><span class="line">COPY [<span class="string">"rabbitmq_delayed_message_exchange-3.8.9.ez"</span> , <span class="string">"/plugins/"</span>]</span><br><span class="line">RUN rabbitmq-plugins <span class="built_in">enable</span> rabbitmq_delayed_message_exchange rabbitmq_management</span><br></pre></td></tr></table></figure>
+<p>开始打包构建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t holeski/rabbitmq-delay:3.8.9 .</span><br></pre></td></tr></table></figure>
+<p>修改<code>docker-compose.yml</code>文件:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  rabbitmq:</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">rabbitmq</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">holeski/rabbitmq-delay:3.8.9</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">RABBITMQ_DEFAULT_USER=root</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">RABBITMQ_DEFAULT_PASS=123456</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">5672</span><span class="string">:5672</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">15672</span><span class="string">:15672</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/root/middleware/rabbitmq/data:/var/lib/rabbitmq</span></span><br><span class="line"><span class="attr">    privileged:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
+<p>现在可以一个命令启动就行了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<p>镜像已上传到dockerhub, 可以直接拉取使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull holeski/rabbitmq-delay:3.8.9</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -943,7 +955,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载镜像"><span class="nav-number">1.</span> <span class="nav-text">下载镜像</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载镜像"><span class="nav-number">1.</span> <span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker构建延迟队列插件rabbitmq"><span class="nav-number">2.</span> <span class="nav-text">docker构建延迟队列插件rabbitmq</span></a></li></ol></div>
             
 
           </div>
@@ -976,7 +988,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">169k</span>
+    <span title="站点总字数">170k</span>
   
 
   
@@ -985,7 +997,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:33</span>
+    <span title="站点阅读时长">2:34</span>
   
 </div>
 

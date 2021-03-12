@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[docker-compose安装redis]]></title>
+    <url>%2F2021%2F03%2F12%2Fdocker-compose%E5%AE%89%E8%A3%85redis%2F</url>
+    <content type="text"><![CDATA[编写yml文件 123456789101112version: '3'services: redis: image: redis:latest restart: always container_name: redis-server command: redis-server /etc/redis/redis.conf volumes: - /root/middleware/redis/data:/data - /root/middleware/redis/redis.conf:/etc/redis/redis.conf ports: - "6379:6379" 同级目录中创建配置文件 reids.conf 12requirepass 123456appendonly yes 启动镜像 1docker-compose up -d]]></content>
+      <categories>
+        <category>docker-compose</category>
+      </categories>
+      <tags>
+        <tag>docker-compose</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker-compose安装MariaDB]]></title>
+    <url>%2F2021%2F03%2F12%2Fdocker-compose%E5%AE%89%E8%A3%85MariaDB%2F</url>
+    <content type="text"><![CDATA[创建docker-compose.yml文件 1234567891011121314151617181920212223version: '3'services: mariadb: container_name: mariadb image: mariadb environment: # root 密码 - MYSQL_ROOT_PASSWORD=root123 # root 允许登录的host - MYSQL_ROOT_HOST=% # 时区 - TIME_ZONE=Asia/Shanghai ports: - 3306:3306 volumes: # 容器与宿主机时间同步 - /etc/localtime:/etc/localtime # 数据库目录映射 - /data/mariadb/data/:/var/lib/mysql # 数据库配置文件 - /data/mariadb/config:/etc/mysql/conf.d privileged: true restart: always 在宿主机的配置目录/data/mariadb/config中创建自定义配置文件: 1vim my.cnf 配置文件内容: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788[client]port = 3306socket = /var/run/mysqld/mysqld.sockdefault-character-set = utf8mb4# Here is entries for some specific programs# The following values assume you have at least 32M ram# This was formally known as [safe_mysqld]. Both versions are currently parsed.[mysqld_safe]socket = /var/run/mysqld/mysqld.socknice = 0[mysqld]character-set-server=utf8mb4collation-server=utf8mb4_unicode_cilower_case_table_names = 1pid-file = /var/run/mysqld/mysqld.pidsocket = /var/run/mysqld/mysqld.sockport = 3306basedir = /usrdatadir = /var/lib/mysqltmpdir = /tmplc_messages_dir = /usr/share/mysqllc_messages = en_USskip-external-lockingmax_connections = 1000connect_timeout = 5wait_timeout = 600max_allowed_packet = 16Mthread_cache_size = 128sort_buffer_size = 4Mbulk_insert_buffer_size = 16Mtmp_table_size = 32Mmax_heap_table_size = 32M# This replaces the startup script and checks MyISAM tables if needed# the first time they are touched. On error, make copy and try a repair.myisam_recover_options = BACKUPkey_buffer_size = 128M#open-files-limit = 2000table_open_cache = 400myisam_sort_buffer_size = 512Mconcurrent_insert = 2read_buffer_size = 2Mread_rnd_buffer_size = 1Mquery_cache_limit = 128Kquery_cache_size = 64Mslow_query_log_file = /var/log/mysql/mariadb-slow.loglong_query_time = 10#log_slow_rate_limit = 1000#log_slow_verbosity = query_plan#sync_binlog = 1expire_logs_days = 10max_binlog_size = 100M# InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.# Read the manual for more InnoDB related options. There are many!default_storage_engine = InnoDB# you can&apos;t just change log file size, requires special procedure#innodb_log_file_size = 50Minnodb_buffer_pool_size = 256Minnodb_log_buffer_size = 8Minnodb_file_per_table = 1innodb_open_files = 400innodb_io_capacity = 400innodb_flush_method = O_DIRECT[galera][mysqldump]quickquote-namesmax_allowed_packet = 16M[mysql]default-character-set = utf8mb4[isamchk]key_buffer = 16M!include /etc/mysql/mariadb.cnf!includedir /etc/mysql/conf.d/ 保存后启动镜像: docker-compose up -d 启动成功后可进入镜像查看myql运行情况 123456# 进入镜像$ docker exec -it mariadb /bin/bash# 登录mariadb&gt; mysql -uroot -pWTAherui@20## 查看编码&gt; show variables like '%character%' 创建数据库时指定编码 1CREATE DATABASE `user` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;]]></content>
+      <categories>
+        <category>docker-compose</category>
+      </categories>
+      <tags>
+        <tag>docker-compose</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker镜像的导入导出]]></title>
+    <url>%2F2021%2F03%2F12%2Fdocker%E9%95%9C%E5%83%8F%E7%9A%84%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%2F</url>
+    <content type="text"><![CDATA[docker镜像导入导出的主要命令: export、import、save、load save命令 docker save [options] images [images…] 示例 docker save -o nginx.tar nginx:latest 或 docker save &gt; nginx.tar nginx:latest 其中-o和&gt;表示输出到文件，nginx.tar为目标文件，nginx:latest是源镜像名（name:tag） load命令 docker load [options] 示例 docker load -i nginx.tar 或 docker load &lt; nginx.tar 其中-i和&lt;表示从文件输入。会成功导入镜像及相关元数据，包括tag信息 export命令 docker export [options] container 示例 docker export -o nginx-test.tar nginx-test 其中-o表示输出到文件，nginx-test.tar为目标文件，nginx-test是源容器名（name） import命令 docker import [options] file|URL|- [REPOSITORY[:TAG]] 示例 docker import nginx-test.tar nginx:imp 或 cat nginx-test.tar | docker import - nginx:imp 区别 export命令导出的tar文件略小于save命令导出的 export命令是从容器（container）中导出tar文件，而save命令则是从镜像（images）中导出 基于第二点，export导出的文件再import回去时，无法保留镜像所有历史（即每一层layer信息，不熟悉的可以去看Dockerfile），不能进行回滚操作；而save是依据镜像来的，所以导入时可以完整保留下每一层layer信息。 若是只想备份images，使用save、load即可 若是在启动容器后，容器内容有变化，需要备份，则使用export、import]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo基本命令]]></title>
+    <url>%2F2021%2F03%2F12%2FHexo%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[由于不是经常使用hexo写笔记, 偶尔会有忘记的时候, 所以就记下来常用的基本命令 1234# 创建新文件$ hexo new [layout] &lt;title&gt;# 生成文件并部署$ hexo g -d 预知详情如何, 请看 Hexo官网文档]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[docker安装rabbitmq]]></title>
     <url>%2F2020%2F10%2F12%2Fdocker%E5%AE%89%E8%A3%85rabbitmq%2F</url>
     <content type="text"><![CDATA[下载镜像进入docker hub官方镜像仓库 搜索rabbitMq，进入官方的镜像，可以看到以下几种类型的镜像；我们选择带有“mangement”的版本（包含web管理页面） 编写docker-compose文件 docker-compose.yml 123456789101112131415version: '3'services: rabbitmq: container_name: rabbitmq image: rabbitmq:management-alpine:3.8.9 environment: - RABBITMQ_DEFAULT_USER=root - RABBITMQ_DEFAULT_PASS=123456 ports: - 5672:5672 - 15672:15672 volumes: - /root/middleware/rabbitmq/data:/var/lib/rabbitmq privileged: true restart: always 启动容器(在docker-compose.yml文件同级目录执行) 1docker-compose up -d 启动rabbitmq_management 1docker exec -it rabbit rabbitmq-plugins enable rabbitmq_management 现在已经启动完成了, 浏览器打开web管理端：http://ip:15672 输入前面docker-compose里面设置的用户名密码登录即可 官方安装的默认是不带延迟队列插件的, 需要自己安装 docker构建延迟队列插件rabbitmq前面已经下载好镜像了, 另外需要下载插件 官方插件下载地址：github下载, 选择对应版本, 这里我们同样选3.8.9版本下载, 放到服务器上 创建DockerFile文件(在插件同级目录, 插件名为rabbitmq_delayed_message_exchange-3.8.9.ez), 内容如下 123FROM rabbitmq:3-managementCOPY ["rabbitmq_delayed_message_exchange-3.8.9.ez" , "/plugins/"]RUN rabbitmq-plugins enable rabbitmq_delayed_message_exchange rabbitmq_management 开始打包构建 1docker build -t holeski/rabbitmq-delay:3.8.9 . 修改docker-compose.yml文件: 123456789101112131415version: '3'services: rabbitmq: container_name: rabbitmq image: holeski/rabbitmq-delay:3.8.9 environment: - RABBITMQ_DEFAULT_USER=root - RABBITMQ_DEFAULT_PASS=123456 ports: - 5672:5672 - 15672:15672 volumes: - /root/middleware/rabbitmq/data:/var/lib/rabbitmq privileged: true restart: always 现在可以一个命令启动就行了 1docker-compose up -d 镜像已上传到dockerhub, 可以直接拉取使用 1docker pull holeski/rabbitmq-delay:3.8.9]]></content>
@@ -411,8 +455,8 @@
         <category>Nginx</category>
       </categories>
       <tags>
-        <tag>Nginx</tag>
         <tag>centos7</tag>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>

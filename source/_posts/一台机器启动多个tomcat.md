@@ -74,3 +74,26 @@ console控制台输出有乱码
 ## 将下面这行注释掉
 # java.util.logging.ConsoleHandler.encoding = UTF-8
 ```
+
+Tomcat部署项目的3种方式
+----------------------
+
+- 常规的webapps下
+
+> 直接部署到${TOMCAT_HOME}/webapps下
+
+- 外部部署
+
+> 修改${TOMCAT_HOME}/conf/server.xml 在<Host>标签下添加web所在的目录指定path，如:
+
+```xml
+<Context path="/xx" docBase="D:\\workspace\\xx\\target\\xx" reloadable="true" sessionCookiePath="/xx"sessionCookieName="yoursessionname"> </Context>
+```
+
+- ${TOMCAT_HOME}/conf下建工程目录镜像
+
+> 在conf目录中，新建 Catalina＼localhost目录，在该目录中新建一个xml文件，名字可以随意取，只要和当前文件中的文件名不重复就行了，该xml文件的内容为：
+
+```xml
+<Context path="/xx" docBase="D:\\workspace\\xx\\target\\xx" debug="0" privileged="true"> </Context>
+```

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用frp实现内网穿透]]></title>
+    <url>%2F2021%2F05%2F24%2F%E4%BD%BF%E7%94%A8frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%2F</url>
+    <content type="text"><![CDATA[FRP作用 FRP是一个内网穿透工具FRP让本地局域网的机器可以暴露到公网，简单的说就是在世界的任何地方，你可以访问家里开着的那台电脑!FRP 支持 TCP、UDP、HTTP、HTTPS， 就是说不仅仅限于本地web服务器可以暴露，整台机器都可以暴露。 1.在办公室访问家里的电脑，反之亦然（可以使用NAS+FRP实现私有云盘） 2.自己电脑上的项目，方便发给客户朋友演示。比如我做了个小网站，发给朋友看看未上线版本，发个url给他就好了。 3.调试一些需要远程调用的程序，远程调用比如微信的API 回调接口。 因为我有了外网地址就不需要部署在公网服务器，直接进行本地调试。 下载安装下载地址获取压缩包 https://github.com/fatedier/frp/releases/download/v0.33.0/frp_0.33.0_linux_amd64.tar.gz 在安装的时候注意一下, 我们需要在公网服务器上安装服务端, 然后在本地电脑安装客户端, 这个压缩包里面已经同时包含了服务端和客户端, 安装都是一样的(都是Linux环境), 解压即可 123tar -zxvf frp_0.33.0_linux_amd64.tar.gzmv frp_0.33.0_linux_amd64 /usr/local/frpcd /usr/local/frp 文件介绍123456frpc # 客户端二进制文件frpc_full.ini # 客户端配置文件完整示例frpc.ini # 客户端配置文件frps # 服务端二进制文件frps_full.ini # 服务端配置文件完整示例frps.in1 # 服务端配置文件 配置服务端需要在安装在有公网的服务器上(例如公网ip:233.233.233.233), 配置文件在安装目录下的frps.ini, 编辑为以下内容 123bind_port = 7001vhost_http_port = 7002vhost_https_port = 7003 启动服务端 1nohup ./frps -c ./frps.ini &amp; 或者将frps注册为系统服务, 编辑文件 vim /usr/lib/systemd/system/frps.service 12345678910111213[Unit]Description=frp serverAfter=network.target[Service]Type=simpleExecStart=/usr/local/frp/frps -c /usr/local/frp/frps.iniExecReload=/bin/kill -s HUP $MAINPIDExecStop=/bin/kill -s QUIT $MAINPID[Install]WantedBy=multi-user.target 然后就可以用系统命令管理服务了 123systemctl enable frpssystemctl start frpssystemctl status frps 客户端需要安装在本地需要映射服务的电脑上, 配置文件在安装目录下的frpc.ini, 编辑为以下内容 123456789[common]server_addr = 233.233.233.233server_port = 7001[abc]type = tcplocal_ip = 127.0.0.1local_port = 2000remote_port = 2000 启动客户端 1nohup ./frpc -c ./frpc.ini &amp; 现在本地服务就能在外网通过233.233.233.233:2000访问到了。 如果有独立域名, 可以在服务端配置nginx反向代理转发域名到localhost:2000即可通过域名访问。]]></content>
+      <categories>
+        <category>frp</category>
+      </categories>
+      <tags>
+        <tag>frp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[docker-compose安装redis]]></title>
     <url>%2F2021%2F03%2F12%2Fdocker-compose%E5%AE%89%E8%A3%85redis%2F</url>
     <content type="text"><![CDATA[编写yml文件 123456789101112version: '3'services: redis: image: redis:latest restart: always container_name: redis-server command: redis-server /etc/redis/redis.conf volumes: - /root/middleware/redis/data:/data - /root/middleware/redis/redis.conf:/etc/redis/redis.conf ports: - "6379:6379" 同级目录中创建配置文件 reids.conf 12requirepass 123456appendonly yes 启动镜像 1docker-compose up -d]]></content>
@@ -147,7 +158,7 @@
   <entry>
     <title><![CDATA[Tomcat配置]]></title>
     <url>%2F2019%2F07%2F10%2F%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E5%90%AF%E5%8A%A8%E5%A4%9A%E4%B8%AAtomcat%2F</url>
-    <content type="text"><![CDATA[一台机器启动多个tomcat从Apache官网下载好Tomcat, 解压两份到不同的文件夹下即可 第一个tomcat不做任何修改，使用默认端口和配置 第二个tomcat需要编辑tomcat/conf目录下server.xml文件, 修改3个端口, 使其与前面的tomcat端口不同: 1234567891011121314&lt;!-- 修改关闭端口为8015, 第22行左右 --&gt;&lt;Server port="8015" shutdown="SHUTDOWN"&gt;......&lt;!-- 修改服务端口为8081, 第70行左右 --&gt;&lt;Connector port="8081" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /&gt;......&lt;!-- 修改连接端口为8019, 第91行左右 --&gt;&lt;Connector port="8019" protocol="AJP/1.3" redirectPort="8443" /&gt; 配置完成, 可以去启动两个tomcat了 看网上有些说还需要改redirectPort, 设置啥CATALINA_HOME等等, 都是多余的步骤, 完全不用 指定JDK版本启动tomcat有些复杂环境中有多个JDK, 默认会使用系统环境中的JAVA_HOME来启动tomcat, 如需要指定不同JDK版本启动tomcat, 这就需要修改tomcat的启动配置了 在Windows中启动Tomcat时，双击startup.bat然后会调用catalina.bat文件，而catalina.bat会调用setclasspath.bat文件来获取JAVA_HOME和JRE_HOME这两个环境变量的值，因此只要在tomcat启动时指向特定的JDK即可 在Windows中, 需要在setclasspath.bat文件的开头处加入以下内容 12set JAVA_HOME=C://Program Files/Java/jdk1.7.0_79set JRE_HOME=C://Program Files/Java/jdk1.7.0_79/jre 在Linux中, 则需要在setclasspath.sh文件的开头处加入以下内容 12export JAVA_HOME=/usr/local/java/jdk1.7.0_79export JRE_HOME=/usr/local/java/jdk1.7.0_79/jre 修改session默认的cookie名字在tomcat的conf目录下, 修改server.xml文件, 在节点中加入配置: 1&lt;Context path="/" sessionCookiePath="/" sessionCookieName="MY-SESSION"/&gt; console控制台输出有乱码在tomcat安装路径conf/logging.properties文件中注释掉其中一行 12## 将下面这行注释掉# java.util.logging.ConsoleHandler.encoding = UTF-8]]></content>
+    <content type="text"><![CDATA[一台机器启动多个tomcat从Apache官网下载好Tomcat, 解压两份到不同的文件夹下即可 第一个tomcat不做任何修改，使用默认端口和配置 第二个tomcat需要编辑tomcat/conf目录下server.xml文件, 修改3个端口, 使其与前面的tomcat端口不同: 1234567891011121314&lt;!-- 修改关闭端口为8015, 第22行左右 --&gt;&lt;Server port="8015" shutdown="SHUTDOWN"&gt;......&lt;!-- 修改服务端口为8081, 第70行左右 --&gt;&lt;Connector port="8081" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /&gt;......&lt;!-- 修改连接端口为8019, 第91行左右 --&gt;&lt;Connector port="8019" protocol="AJP/1.3" redirectPort="8443" /&gt; 配置完成, 可以去启动两个tomcat了 看网上有些说还需要改redirectPort, 设置啥CATALINA_HOME等等, 都是多余的步骤, 完全不用 指定JDK版本启动tomcat有些复杂环境中有多个JDK, 默认会使用系统环境中的JAVA_HOME来启动tomcat, 如需要指定不同JDK版本启动tomcat, 这就需要修改tomcat的启动配置了 在Windows中启动Tomcat时，双击startup.bat然后会调用catalina.bat文件，而catalina.bat会调用setclasspath.bat文件来获取JAVA_HOME和JRE_HOME这两个环境变量的值，因此只要在tomcat启动时指向特定的JDK即可 在Windows中, 需要在setclasspath.bat文件的开头处加入以下内容 12set JAVA_HOME=C://Program Files/Java/jdk1.7.0_79set JRE_HOME=C://Program Files/Java/jdk1.7.0_79/jre 在Linux中, 则需要在setclasspath.sh文件的开头处加入以下内容 12export JAVA_HOME=/usr/local/java/jdk1.7.0_79export JRE_HOME=/usr/local/java/jdk1.7.0_79/jre 修改session默认的cookie名字在tomcat的conf目录下, 修改server.xml文件, 在节点中加入配置: 1&lt;Context path="/" sessionCookiePath="/" sessionCookieName="MY-SESSION"/&gt; console控制台输出有乱码在tomcat安装路径conf/logging.properties文件中注释掉其中一行 12## 将下面这行注释掉# java.util.logging.ConsoleHandler.encoding = UTF-8 Tomcat部署项目的3种方式 常规的webapps下 直接部署到${TOMCAT_HOME}/webapps下 外部部署 修改${TOMCAT_HOME}/conf/server.xml 在标签下添加web所在的目录指定path，如: 1&lt;Context path="/xx" docBase="D:\\workspace\\xx\\target\\xx" reloadable="true" sessionCookiePath="/xx"sessionCookieName="yoursessionname"&gt; &lt;/Context&gt; ${TOMCAT_HOME}/conf下建工程目录镜像 在conf目录中，新建 Catalina＼localhost目录，在该目录中新建一个xml文件，名字可以随意取，只要和当前文件中的文件名不重复就行了，该xml文件的内容为： 1&lt;Context path="/xx" docBase="D:\\workspace\\xx\\target\\xx" debug="0" privileged="true"&gt; &lt;/Context&gt;]]></content>
       <categories>
         <category>tomcat</category>
       </categories>
@@ -185,8 +196,8 @@
         <category>JIRA</category>
       </categories>
       <tags>
-        <tag>docker</tag>
         <tag>JIRA</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -455,8 +466,8 @@
         <category>Nginx</category>
       </categories>
       <tags>
-        <tag>centos7</tag>
         <tag>Nginx</tag>
+        <tag>centos7</tag>
       </tags>
   </entry>
   <entry>

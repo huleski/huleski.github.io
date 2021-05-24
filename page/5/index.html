@@ -259,7 +259,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">44</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">45</span></a>
 
   </li>
         
@@ -278,7 +278,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">32</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">33</span></a>
 
   </li>
         
@@ -297,7 +297,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">35</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">36</span></a>
 
   </li>
         
@@ -381,6 +381,238 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://huleski.github.io/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Holeski">
+      <meta itemprop="description" content="所有能用钱解决的事, 我都解决不了">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Holeski的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/" class="post-title-link" itemprop="url">使用GitLab-Runner搭建GitLab持续集成/部署环境</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-26 11:22:47" itemprop="dateCreated datePublished" datetime="2019-02-26T11:22:47+08:00">2019-02-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-04-21 11:05:19" itemprop="dateModified" datetime="2020-04-21T11:05:19+08:00">2020-04-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/GitLab/" itemprop="url" rel="index"><span itemprop="name">GitLab</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/" class="leancloud_visitors" data-flag-title="使用GitLab-Runner搭建GitLab持续集成/部署环境">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                <span title="本文字数">5.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              相关背景
+GitLab
+
+是一套基于Ruby开发的开源Git项目管理应用，其提供的功能和Github类似，不同的是GitLab提供一个GitLab CE社区版本，用户可以将其部署在自己的服务器上，这样就可以用于团队内部的项目代码托管仓库。
+
+
+GitLab CI
+
+是GitLab 提供的持续集成服务(从8.0版本之后，GitLab CI已经集成在GitLab中了)，只要在你的仓库根目录下创建一个.
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1338,7 +1570,7 @@ PCRE(Perl Co
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1419,7 +1651,9 @@ PCRE(Perl Co
                     
                       
                     
-                    <span class="site-state-item-count">32</span>
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1506,7 +1740,9 @@ PCRE(Perl Co
                     
                       
                     
-                    <span class="site-state-item-count">35</span>
+                      
+                    
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1609,7 +1845,7 @@ PCRE(Perl Co
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">175k</span>
+    <span title="站点总字数">177k</span>
   
 
   
@@ -1618,7 +1854,7 @@ PCRE(Perl Co
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:39</span>
+    <span title="站点阅读时长">2:41</span>
   
 </div>
 

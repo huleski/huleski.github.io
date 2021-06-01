@@ -69,7 +69,6 @@ After=network.target
 
 [Service]
 Type=simple
-
 ExecStart=/usr/local/frp/frps -c /usr/local/frp/frps.ini
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
@@ -110,3 +109,22 @@ nohup ./frpc -c ./frpc.ini &
 现在本地服务就能在外网通过`233.233.233.233:2000`访问到了。
 
 如果有独立域名, 可以在服务端配置nginx反向代理转发域名到`localhost:2000`即可通过域名访问。
+
+将frpc注册为系统服务, 编辑文件 `vim /usr/lib/systemd/system/frpc.service`, 内容: 
+
+```bash
+[Unit]
+Description=Frp Client Service
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/local/frp/frpc -c /usr/local/frp/frpc.ini
+ExecReload=/usr/local/frp/frpc reload -c /usr/local/frp/frpc.ini
+
+[Install]
+WantedBy=multi-user.target
+```

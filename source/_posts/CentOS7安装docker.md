@@ -52,6 +52,9 @@ systemctl start docker
 
 # 让docker开机自启动
 systemctl enable docker
+
+# 查看docker版本
+docker -v
 ```
 
 ### 修改容器默认存储路径
@@ -69,10 +72,26 @@ systemctl stop docker
 rsync -avz /var/lib/docker/ /home/data/docker/
 ```
 
-编辑docker配置文件 `/etc/docker/daemon.json`, 指定存储路劲
+编辑docker配置文件 `vim /etc/docker/daemon.json`, 指定存储路劲
 
 ```json
-"graph":"/var/lib/docker"
+"graph":"/home/data/docker"
+```
+
+### 镜像加速
+
+鉴于国内网络问题，后续拉取 Docker 镜像十分缓慢，我们可以需要配置加速器来解决。
+
+Docker国内镜像：
+
+- 网易加速器：http://hub-mirror.c.163.com
+- 官方中国加速器：https://registry.docker-cn.com
+- ustc的镜像：https://docker.mirrors.ustc.edu.cn
+
+编辑docker配置文件 `vim /etc/docker/daemon.json`, 加入以下配置
+
+```json
+"registry-mirrors": ["https://hub-mirror.c.163.com"]
 ```
 
 ### 开启docker API

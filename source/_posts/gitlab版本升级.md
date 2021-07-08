@@ -44,25 +44,3 @@ gitlab-rake gitlab:backup:restore BACKUP=备份版本号
 
 升级过程就是启动不同的docker版本, 由低到高逐步升级成功
 
-### 附
-
-在开启docker API 的时候, 在 `/etc/docker/daemon.json` 文件中添加 
-
-```json
-"hosts":["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"]
-```
-
-配置好后docker却异常报错了, 这里需要修改启动文件 `/usr/lib/systemd/system/docker.service`
-
-```bash
-# ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 注释掉改为下面这样
-ExecStart=/usr/bin/dockerd
-```
-
-然后执行以下步骤即可
-
-```bash
-systemctl daemon-reload
-systemctl reset-failed docker.service
-systemctl restart docker
-```

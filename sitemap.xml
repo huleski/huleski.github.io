@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://huleski.github.io/2021/07/09/CentOS7%E8%B0%83%E6%95%B4%E6%A0%B9%E7%9B%AE%E5%BD%95%E5%92%8Chome%E7%9B%AE%E5%BD%95%E7%9A%84%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F/</loc>
+    
+    <lastmod>2021-07-09T06:47:33.655Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://huleski.github.io/2021/07/08/gitlab%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/</loc>
+    
+    <lastmod>2021-07-09T03:05:23.440Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://huleski.github.io/2021/07/08/CentOS7%E5%AE%89%E8%A3%85docker/</loc>
+    
+    <lastmod>2021-07-09T02:28:11.454Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://huleski.github.io/2019/11/12/java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
+    
+    <lastmod>2021-06-01T06:51:23.186Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://huleski.github.io/2021/05/24/%E4%BD%BF%E7%94%A8frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
     
-    <lastmod>2021-05-24T12:01:45.967Z</lastmod>
+    <lastmod>2021-06-01T02:15:30.009Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://huleski.github.io/2019/02/27/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2021-05-28T01:51:48.768Z</lastmod>
     
   </url>
   
@@ -61,13 +96,6 @@
     <loc>https://huleski.github.io/2019/02/26/%E4%BD%BF%E7%94%A8GitLab-Runner%E6%90%AD%E5%BB%BAGitLab%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90-%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83/</loc>
     
     <lastmod>2020-04-21T03:05:19.739Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://huleski.github.io/2019/11/12/java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
-    
-    <lastmod>2019-11-12T12:48:43.585Z</lastmod>
     
   </url>
   
@@ -264,13 +292,6 @@
     <loc>https://huleski.github.io/2019/02/25/centos7%E5%AE%89%E8%A3%85redis%E5%8F%8A%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/</loc>
     
     <lastmod>2019-04-17T03:07:55.077Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://huleski.github.io/2019/02/27/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2019-04-17T01:52:28.452Z</lastmod>
     
   </url>
   

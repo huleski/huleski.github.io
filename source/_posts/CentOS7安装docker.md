@@ -115,3 +115,13 @@ systemctl daemon-reload
 systemctl reset-failed docker.service
 systemctl restart docker
 ```
+
+## 安装docker-compose
+
+```bash
+# 获取脚本
+curl -L "https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+# 添加可执行权限
+chmod +x /usr/local/bin/docker-compose
+```

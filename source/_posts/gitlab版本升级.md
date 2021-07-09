@@ -36,7 +36,7 @@ gitlab-rake gitlab:backup:restore BACKUP=备份版本号
 
 还原备份，这里实际执行：`gitlab-rake gitlab:backup:restore BACKUP=1572606813` 
 
-### 版本升级
+## 版本升级
 
 由于不同版本之间的差异导致不能直接升级到指定版本, 必须经过中间版本过渡升级到指定版本, 下面是升级版本路线:
 

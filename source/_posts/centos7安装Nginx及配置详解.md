@@ -7,10 +7,58 @@ tags:
 date: 2019-02-25 14:41:56
 ---
 
-Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。**它主要的用途是提供反向代理服务**。
+Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。**它主要的用途是提供反向代理服务**。下面有两种安装方式
 
-安装所需环境
-----
+
+## 方法一: yum在线安装
+--------------
+### 添加 yum 源 (可省, 最近yum中有nginx了)
+
+Nginx 不在默认的 yum 源中，可以使用 epel 或者官网的 yum 源，本例使用官网的 yum 源。
+
+```bash
+$ sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+# 查看一下
+$ sudo yum repolist
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+repo id                          repo name                          status
+base/7/x86_64                    CentOS-7 - Base                    9,911
+extras/7/x86_64                  CentOS-7 - Extras                    368
+nginx/x86_64                     nginx repo                           108
+updates/7/x86_64                 CentOS-7 - Updates                 1,041
+repolist: 11,428
+```
+
+可以发现 `nginx repo` 已经安装到本机了。
+
+### 安装
+
+yum 安装 Nginx，非常简单，一条命令。
+
+```bash
+# 安装
+$ sudo yum install -y nginx
+
+# 设置开机启动
+$ sudo systemctl enable nginx
+
+# 启动服务
+$ sudo systemctl start nginx
+
+# 停止服务
+$ sudo systemctl restart nginx
+
+# 重新加载，因为一般重新配置之后，不希望重启服务，这时可以使用重新加载。
+$ sudo systemctl reload nginx
+```
+
+## 方法二: 压缩包安装
+-------------
+### 安装所需环境
 
 1. gcc 安装
 
@@ -41,8 +89,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
 yum install -y openssl openssl-devel
 ```
 
-安装Nginx
------
+### 安装Nginx
 
 - 直接下载.tar.gz安装包，地址：https://nginx.org/en/download.html
 - 使用wget命令下载（推荐）:
@@ -111,7 +158,7 @@ chmod 755 /etc/rc.local
 ```
 Nginx安装完毕, 打开浏览器访问 `http://localhost`查看是否安装成功
 
-配置Nginx
+## 配置Nginx
 --------
 
 Nginx配置文件nginx.conf大致分为以下几块:
@@ -434,7 +481,7 @@ upstream backend{
 **注意** 当负载调度算法为ip_hash时，后端服务器在负载均衡调度中的状态不能是weight和backup。
 
 location匹配规则
---------------
+-------------
 语法:
 ```
 location [=|~|~*|^~] /uri/ {...}

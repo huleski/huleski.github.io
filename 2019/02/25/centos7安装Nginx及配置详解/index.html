@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。它主要的用途是提供反向代理服务。 安装所需环境 gcc 安装  安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：1yum install gcc-c++  PCRE pcre-devel 安装  PCRE(Perl C">
+  <meta name="description" content="Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。它主要的用途是提供反向代理服务。下面有两种安装方式 方法一: yum在线安装 添加 yum 源 (可省, 最近yum中有nginx了)Nginx 不在默认的 yum 源中，可以使用 epel 或者官网的 yum 源，本例使用官网的 yum 源。 12345678910111213">
 <meta name="keywords" content="centos7,Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7安装Nginx及配置详解">
 <meta property="og:url" content="https://huleski.github.io/2019/02/25/centos7安装Nginx及配置详解/index.html">
 <meta property="og:site_name" content="Holeski的博客">
-<meta property="og:description" content="Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。它主要的用途是提供反向代理服务。 安装所需环境 gcc 安装  安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：1yum install gcc-c++  PCRE pcre-devel 安装  PCRE(Perl C">
+<meta property="og:description" content="Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。它主要的用途是提供反向代理服务。下面有两种安装方式 方法一: yum在线安装 添加 yum 源 (可省, 最近yum中有nginx了)Nginx 不在默认的 yum 源中，可以使用 epel 或者官网的 yum 源，本例使用官网的 yum 源。 12345678910111213">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-17T01:13:32.327Z">
+<meta property="og:updated_time" content="2021-08-02T02:31:44.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7安装Nginx及配置详解">
-<meta name="twitter:description" content="Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。它主要的用途是提供反向代理服务。 安装所需环境 gcc 安装  安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：1yum install gcc-c++  PCRE pcre-devel 安装  PCRE(Perl C">
+<meta name="twitter:description" content="Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。它主要的用途是提供反向代理服务。下面有两种安装方式 方法一: yum在线安装 添加 yum 源 (可省, 最近yum中有nginx了)Nginx 不在默认的 yum 源中，可以使用 epel 或者官网的 yum 源，本例使用官网的 yum 源。 12345678910111213">
 
 
 
@@ -259,7 +259,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">48</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">49</span></a>
 
   </li>
         
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-17 09:13:32" itemprop="dateModified" datetime="2019-09-17T09:13:32+08:00">2019-09-17</time>
+                <time title="修改时间：2021-08-02 10:31:44" itemprop="dateModified" datetime="2021-08-02T10:31:44+08:00">2021-08-02</time>
               
             
           </span>
@@ -521,7 +521,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">15k</span>
+                <span title="本文字数">16k</span>
               
 
               
@@ -533,7 +533,7 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                <span title="阅读时长">14 分钟</span>
+                <span title="阅读时长">15 分钟</span>
               
             </div>
           
@@ -553,8 +553,15 @@
       
 
       
-        <p>Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。<strong>它主要的用途是提供反向代理服务</strong>。</p>
-<h2 id="安装所需环境"><a href="#安装所需环境" class="headerlink" title="安装所需环境"></a>安装所需环境</h2><ol>
+        <p>Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。<strong>它主要的用途是提供反向代理服务</strong>。下面有两种安装方式</p>
+<h2 id="方法一-yum在线安装"><a href="#方法一-yum在线安装" class="headerlink" title="方法一: yum在线安装"></a>方法一: yum在线安装</h2><hr>
+<h3 id="添加-yum-源-可省-最近yum中有nginx了"><a href="#添加-yum-源-可省-最近yum中有nginx了" class="headerlink" title="添加 yum 源 (可省, 最近yum中有nginx了)"></a>添加 yum 源 (可省, 最近yum中有nginx了)</h3><p>Nginx 不在默认的 yum 源中，可以使用 epel 或者官网的 yum 源，本例使用官网的 yum 源。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br><span class="line"><span class="comment"># 查看一下</span></span><br><span class="line">$ sudo yum repolist</span><br><span class="line">Loaded plugins: fastestmirror, langpacks</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">repo id                          repo name                          status</span><br><span class="line">base/7/x86_64                    CentOS-7 - Base                    9,911</span><br><span class="line">extras/7/x86_64                  CentOS-7 - Extras                    368</span><br><span class="line">nginx/x86_64                     nginx repo                           108</span><br><span class="line">updates/7/x86_64                 CentOS-7 - Updates                 1,041</span><br><span class="line">repolist: 11,428</span><br></pre></td></tr></table></figure>
+<p>可以发现 <code>nginx repo</code> 已经安装到本机了。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>yum 安装 Nginx，非常简单，一条命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">$ sudo yum install -y nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">$ sudo systemctl <span class="built_in">enable</span> nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line">$ sudo systemctl start nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止服务</span></span><br><span class="line">$ sudo systemctl restart nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载，因为一般重新配置之后，不希望重启服务，这时可以使用重新加载。</span></span><br><span class="line">$ sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
+<h2 id="方法二-压缩包安装"><a href="#方法二-压缩包安装" class="headerlink" title="方法二: 压缩包安装"></a>方法二: 压缩包安装</h2><hr>
+<h3 id="安装所需环境"><a href="#安装所需环境" class="headerlink" title="安装所需环境"></a>安装所需环境</h3><ol>
 <li>gcc 安装</li>
 </ol>
 <p>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br></pre></td></tr></table></figure></p>
@@ -570,7 +577,7 @@
 <li>OpenSSL 安装</li>
 </ol>
 <p>OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。<br>nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http），所以需要在 Centos 安装 OpenSSL 库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><ul>
+<h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><ul>
 <li>直接下载.tar.gz安装包，地址：<a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">https://nginx.org/en/download.html</a></li>
 <li><p>使用wget命令下载（推荐）:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://nginx.org/download/nginx-1.14.2.tar.gz</span><br></pre></td></tr></table></figure>
@@ -596,7 +603,8 @@
 <p>在最下面增加一行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/nginx/sbin/nginx</span><br></pre></td></tr></table></figure></p>
 <p>设置执行权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /etc/rc.local</span><br></pre></td></tr></table></figure></p>
 <p>Nginx安装完毕, 打开浏览器访问 <code>http://localhost</code>查看是否安装成功</p>
-<h2 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h2><p>Nginx配置文件nginx.conf大致分为以下几块:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">main</span><br><span class="line">events   &#123;</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br><span class="line">http        &#123;</span><br><span class="line">  ....</span><br><span class="line">  upstream myproject &#123;</span><br><span class="line">    .....</span><br><span class="line">  &#125;</span><br><span class="line">  server  &#123;</span><br><span class="line">    ....</span><br><span class="line">    location &#123;</span><br><span class="line">        ....</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  server  &#123;</span><br><span class="line">    ....</span><br><span class="line">    location &#123;</span><br><span class="line">        ....</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h2><hr>
+<p>Nginx配置文件nginx.conf大致分为以下几块:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">main</span><br><span class="line">events   &#123;</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br><span class="line">http        &#123;</span><br><span class="line">  ....</span><br><span class="line">  upstream myproject &#123;</span><br><span class="line">    .....</span><br><span class="line">  &#125;</span><br><span class="line">  server  &#123;</span><br><span class="line">    ....</span><br><span class="line">    location &#123;</span><br><span class="line">        ....</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  server  &#123;</span><br><span class="line">    ....</span><br><span class="line">    location &#123;</span><br><span class="line">        ....</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>nginx配置文件主要分为六个区域：<br><code>main(全局设置)、events(nginx工作模式)、http(http设置)、</code></p>
 <p><code>sever(主机设置)、location(URL匹配)、upstream(负载均衡服务器设置)。</code></p>
 <ul>
@@ -918,7 +926,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1181,7 +1189,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装所需环境"><span class="nav-number">1.</span> <span class="nav-text">安装所需环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nginx"><span class="nav-number">2.</span> <span class="nav-text">安装Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Nginx"><span class="nav-number">3.</span> <span class="nav-text">配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location匹配规则"><span class="nav-number">4.</span> <span class="nav-text">location匹配规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server-name参数的配置"><span class="nav-number">5.</span> <span class="nav-text">server_name参数的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#return用法"><span class="nav-number">6.</span> <span class="nav-text">return用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx安装https-ssl证书"><span class="nav-number">7.</span> <span class="nav-text">Nginx安装https-ssl证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-自动转到-https"><span class="nav-number">8.</span> <span class="nav-text">http 自动转到 https</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一-yum在线安装"><span class="nav-number">1.</span> <span class="nav-text">方法一: yum在线安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-yum-源-可省-最近yum中有nginx了"><span class="nav-number">1.1.</span> <span class="nav-text">添加 yum 源 (可省, 最近yum中有nginx了)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二-压缩包安装"><span class="nav-number">2.</span> <span class="nav-text">方法二: 压缩包安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装所需环境"><span class="nav-number">2.1.</span> <span class="nav-text">安装所需环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Nginx"><span class="nav-number">2.2.</span> <span class="nav-text">安装Nginx</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Nginx"><span class="nav-number">3.</span> <span class="nav-text">配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location匹配规则"><span class="nav-number">4.</span> <span class="nav-text">location匹配规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server-name参数的配置"><span class="nav-number">5.</span> <span class="nav-text">server_name参数的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#return用法"><span class="nav-number">6.</span> <span class="nav-text">return用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx安装https-ssl证书"><span class="nav-number">7.</span> <span class="nav-text">Nginx安装https-ssl证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-自动转到-https"><span class="nav-number">8.</span> <span class="nav-text">http 自动转到 https</span></a></li></ol></div>
             
 
           </div>
@@ -1214,7 +1222,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">190k</span>
+    <span title="站点总字数">195k</span>
   
 
   
@@ -1223,7 +1231,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:53</span>
+    <span title="站点阅读时长">2:57</span>
   
 </div>
 

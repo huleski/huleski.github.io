@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="FRP作用 FRP是一个内网穿透工具FRP让本地局域网的机器可以暴露到公网，简单的说就是在世界的任何地方，你可以访问家里开着的那台电脑!FRP 支持 TCP、UDP、HTTP、HTTPS， 就是说不仅仅限于本地web服务器可以暴露，整台机器都可以暴露。 1.在办公室访问家里的电脑，反之亦然（可以使用NAS+FRP实现私有云盘） 2.自己电脑上的项目，方便发给客户朋友演示。比如我做了个小网站，发给朋">
-<meta name="keywords" content="frp">
+  <meta name="description" content="nginx可以配置浏览目录服务, 这样用户可以直接在浏览器中查看文件目录, 并且可以下载文件, 非常方便 ngx_http_autoindex_module 模块目录浏览服务由ngx_http_autoindex_module模块提供    命令 默认值 值域 作用域 例子     autoindex off on：开启目录浏览；off：关闭目录浏览 http, server, location">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用frp实现内网穿透">
-<meta property="og:url" content="https://huleski.github.io/2021/05/24/使用frp实现内网穿透/index.html">
+<meta property="og:title" content="nginx配置目录浏览及美化主题">
+<meta property="og:url" content="https://huleski.github.io/2021/11/30/nginx配置目录浏览及美化主题/index.html">
 <meta property="og:site_name" content="Holeski的博客">
-<meta property="og:description" content="FRP作用 FRP是一个内网穿透工具FRP让本地局域网的机器可以暴露到公网，简单的说就是在世界的任何地方，你可以访问家里开着的那台电脑!FRP 支持 TCP、UDP、HTTP、HTTPS， 就是说不仅仅限于本地web服务器可以暴露，整台机器都可以暴露。 1.在办公室访问家里的电脑，反之亦然（可以使用NAS+FRP实现私有云盘） 2.自己电脑上的项目，方便发给客户朋友演示。比如我做了个小网站，发给朋">
+<meta property="og:description" content="nginx可以配置浏览目录服务, 这样用户可以直接在浏览器中查看文件目录, 并且可以下载文件, 非常方便 ngx_http_autoindex_module 模块目录浏览服务由ngx_http_autoindex_module模块提供    命令 默认值 值域 作用域 例子     autoindex off on：开启目录浏览；off：关闭目录浏览 http, server, location">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-06-01T02:15:30.009Z">
+<meta property="og:updated_time" content="2021-11-30T12:07:30.449Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用frp实现内网穿透">
-<meta name="twitter:description" content="FRP作用 FRP是一个内网穿透工具FRP让本地局域网的机器可以暴露到公网，简单的说就是在世界的任何地方，你可以访问家里开着的那台电脑!FRP 支持 TCP、UDP、HTTP、HTTPS， 就是说不仅仅限于本地web服务器可以暴露，整台机器都可以暴露。 1.在办公室访问家里的电脑，反之亦然（可以使用NAS+FRP实现私有云盘） 2.自己电脑上的项目，方便发给客户朋友演示。比如我做了个小网站，发给朋">
+<meta name="twitter:title" content="nginx配置目录浏览及美化主题">
+<meta name="twitter:description" content="nginx可以配置浏览目录服务, 这样用户可以直接在浏览器中查看文件目录, 并且可以下载文件, 非常方便 ngx_http_autoindex_module 模块目录浏览服务由ngx_http_autoindex_module模块提供    命令 默认值 值域 作用域 例子     autoindex off on：开启目录浏览；off：关闭目录浏览 http, server, location">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="https://huleski.github.io/2021/05/24/使用frp实现内网穿透/">
+  <link rel="canonical" href="https://huleski.github.io/2021/11/30/nginx配置目录浏览及美化主题/">
 
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>使用frp实现内网穿透 | Holeski的博客</title>
+  <title>nginx配置目录浏览及美化主题 | Holeski的博客</title>
   
 
 
@@ -397,7 +397,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://huleski.github.io/2021/05/24/使用frp实现内网穿透/">
+    <link itemprop="mainEntityOfPage" href="https://huleski.github.io/2021/11/30/nginx配置目录浏览及美化主题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Holeski">
@@ -414,7 +414,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用frp实现内网穿透
+          <h1 class="post-title" itemprop="name headline">nginx配置目录浏览及美化主题
 
               
             
@@ -440,24 +440,12 @@
                 
               
 
-              <time title="创建时间：2021-05-24 17:23:16" itemprop="dateCreated datePublished" datetime="2021-05-24T17:23:16+08:00">2021-05-24</time>
+              <time title="创建时间：2021-11-30 19:21:52 / 修改时间：20:07:30" itemprop="dateCreated datePublished" datetime="2021-11-30T19:21:52+08:00">2021-11-30</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2021-06-01 10:15:30" itemprop="dateModified" datetime="2021-06-01T10:15:30+08:00">2021-06-01</time>
               
             
           </span>
@@ -474,7 +462,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/frp/" itemprop="url" rel="index"><span itemprop="name">frp</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/nginx/" itemprop="url" rel="index"><span itemprop="name">nginx</span></a></span>
 
                 
                 
@@ -489,7 +477,7 @@
 
           
           
-            <span id="/2021/05/24/使用frp实现内网穿透/" class="leancloud_visitors" data-flag-title="使用frp实现内网穿透">
+            <span id="/2021/11/30/nginx配置目录浏览及美化主题/" class="leancloud_visitors" data-flag-title="nginx配置目录浏览及美化主题">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -521,7 +509,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">2.1k</span>
+                <span title="本文字数">4k</span>
               
 
               
@@ -533,7 +521,7 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -553,32 +541,75 @@
       
 
       
-        <h2 id="FRP作用"><a href="#FRP作用" class="headerlink" title="FRP作用"></a>FRP作用</h2><blockquote>
-<p>FRP是一个内网穿透工具<br>FRP让本地局域网的机器可以暴露到公网，简单的说就是在世界的任何地方，你可以访问家里开着的那台电脑!<br>FRP 支持 TCP、UDP、HTTP、HTTPS， 就是说不仅仅限于本地web服务器可以暴露，整台机器都可以暴露。</p>
-<p>1.在办公室访问家里的电脑，反之亦然（可以使用NAS+FRP实现私有云盘）</p>
-<p>2.自己电脑上的项目，方便发给客户朋友演示。比如我做了个小网站，发给朋友看看未上线版本，发个url给他就好了。</p>
-<p>3.调试一些需要远程调用的程序，远程调用比如微信的API 回调接口。 因为我有了外网地址就不需要部署在公网服务器，直接进行本地调试。</p>
-</blockquote>
-<h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p><a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">下载地址</a>获取压缩包 <code>https://github.com/fatedier/frp/releases/download/v0.33.0/frp_0.33.0_linux_amd64.tar.gz</code></p>
-<p>在安装的时候注意一下, 我们需要在公网服务器上安装服务端, 然后在本地电脑安装客户端, 这个压缩包里面已经同时包含了服务端和客户端, 安装都是一样的(都是Linux环境), 解压即可</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf frp_0.33.0_linux_amd64.tar.gz</span><br><span class="line">mv frp_0.33.0_linux_amd64 /usr/<span class="built_in">local</span>/frp</span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/frp</span><br></pre></td></tr></table></figure>
-<h2 id="文件介绍"><a href="#文件介绍" class="headerlink" title="文件介绍"></a>文件介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">frpc                    # 客户端二进制文件</span><br><span class="line">frpc_full.ini           # 客户端配置文件完整示例</span><br><span class="line">frpc.ini                # 客户端配置文件</span><br><span class="line">frps                    # 服务端二进制文件</span><br><span class="line">frps_full.ini           # 服务端配置文件完整示例</span><br><span class="line">frps.in1                # 服务端配置文件</span><br></pre></td></tr></table></figure>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>服务端需要在安装在有公网的服务器上(例如公网ip:233.233.233.233), 配置文件在安装目录下的<code>frps.ini</code>, 编辑为以下内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bind_port = 7001</span><br><span class="line">vhost_http_port = 7002</span><br><span class="line">vhost_https_port = 7003</span><br></pre></td></tr></table></figure>
-<p>启动服务端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frps -c ./frps.ini &amp;</span><br></pre></td></tr></table></figure>
-<p>或者将frps注册为系统服务, 编辑文件 <code>vim /usr/lib/systemd/system/frps.service</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=frp server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/frp/frps -c /usr/<span class="built_in">local</span>/frp/frps.ini</span><br><span class="line">ExecReload=/bin/<span class="built_in">kill</span> -s HUP <span class="variable">$MAINPID</span></span><br><span class="line">ExecStop=/bin/<span class="built_in">kill</span> -s QUIT <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-<p>然后就可以用系统命令管理服务了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> frps</span><br><span class="line">systemctl start  frps</span><br><span class="line">systemctl status frps</span><br></pre></td></tr></table></figure>
-<p>客户端需要安装在本地需要映射服务的电脑上, 配置文件在安装目录下的<code>frpc.ini</code>, 编辑为以下内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 233.233.233.233</span><br><span class="line">server_port = 7001</span><br><span class="line"></span><br><span class="line">[abc]</span><br><span class="line"><span class="built_in">type</span> = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 2000</span><br><span class="line">remote_port = 2000</span><br></pre></td></tr></table></figure>
-<p>启动客户端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frpc -c ./frpc.ini &amp;</span><br></pre></td></tr></table></figure>
-<p>现在本地服务就能在外网通过<code>233.233.233.233:2000</code>访问到了。</p>
-<p>如果有独立域名, 可以在服务端配置nginx反向代理转发域名到<code>localhost:2000</code>即可通过域名访问。</p>
-<p>将frpc注册为系统服务, 编辑文件 <code>vim /usr/lib/systemd/system/frpc.service</code>, 内容: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Frp Client Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=nobody</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=5s</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/frp/frpc -c /usr/<span class="built_in">local</span>/frp/frpc.ini</span><br><span class="line">ExecReload=/usr/<span class="built_in">local</span>/frp/frpc reload -c /usr/<span class="built_in">local</span>/frp/frpc.ini</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+        <p>nginx可以配置浏览目录服务, 这样用户可以直接在浏览器中查看文件目录, 并且可以下载文件, 非常方便</p>
+<h2 id="ngx-http-autoindex-module-模块"><a href="#ngx-http-autoindex-module-模块" class="headerlink" title="ngx_http_autoindex_module 模块"></a>ngx_http_autoindex_module 模块</h2><p>目录浏览服务由ngx_http_autoindex_module模块提供</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>默认值</th>
+<th>值域</th>
+<th>作用域</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>autoindex</td>
+<td>off</td>
+<td>on：开启目录浏览；<br>off：关闭目录浏览</td>
+<td>http, server, location</td>
+<td>autoindex on; 打开目录浏览功能</td>
+</tr>
+<tr>
+<td>autoindex_format</td>
+<td>html</td>
+<td>html、xml、json、jsonp 分别用这几个风格展示目录</td>
+<td>http, server, location</td>
+<td>autoindex_format html; 以网页的风格展示目录内容。该属性在1.7.9及以上适用</td>
+</tr>
+<tr>
+<td>autoindex_exact_size</td>
+<td>on</td>
+<td>on：展示文件字节数；<br>off：以可读的方式显示文件大小</td>
+<td>http, server, location</td>
+<td>autoindex_exact_size off; 以可读的方式显示文件大小，单位为 KB、MB 或者 GB，autoindex_format为html时有效</td>
+</tr>
+<tr>
+<td>autoindex_localtime</td>
+<td>off</td>
+<td>on、off：是否以服务器的文件时间作为显示的时间</td>
+<td>http, server, location</td>
+<td>autoindex_localtime on; 以服务器的文件时间作为显示的时间,autoindex_format为html时有效</td>
+</tr>
+</tbody>
+</table>
+<p>修改nginx配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       10000;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /home;</span><br><span class="line">        <span class="comment"># 开启目录浏览 </span></span><br><span class="line">        autoindex on; </span><br><span class="line">        <span class="comment"># 以可读的方式显示文件大小</span></span><br><span class="line">        autoindex_exact_size off;</span><br><span class="line">        <span class="comment"># 以服务器的文件时间作为显示的时间</span></span><br><span class="line">        autoindex_localtime on;</span><br><span class="line">        <span class="comment"># 展示中文文件名</span></span><br><span class="line">        charset utf-8,gbk;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行命令 <code>nginx -s reload</code> 重载配置, 打开浏览器访问 <code>http://localhost:10000</code> 就可以在浏览器中访问 <code>/home</code> 目录中的文件了, 但是nginx原始的目录很简陋, 不是正常人看的, 可以美化一下</p>
+<h2 id="安装Nginx-FancyIndex模块"><a href="#安装Nginx-FancyIndex模块" class="headerlink" title="安装Nginx FancyIndex模块"></a>安装Nginx FancyIndex模块</h2><p>先安装所需模块 <code>FancyIndex</code>, 在nginx的源码文件夹下下载插件: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/aperezdc/ngx-fancyindex.git ngx-fancyindex</span><br></pre></td></tr></table></figure>
+<p>查看已安装的nginx完整编译参数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -V</span><br></pre></td></tr></table></figure>
+<p>控制台会打印出参数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx/1.16.1</span><br><span class="line">built by gcc 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC) </span><br><span class="line">built with OpenSSL 1.0.2k-fips  26 Jan 2017</span><br><span class="line">TLS SNI support enabled</span><br><span class="line">configure arguments: --prefix=/usr/share/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib64/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/<span class="built_in">log</span>/nginx/error.log --http-log-path=/var/<span class="built_in">log</span>/nginx/access.log --http-client-body-temp-path=/var/lib/nginx/tmp/client_body --http-proxy-temp-path=/var/lib/nginx/tmp/proxy --http-fastcgi-temp-path=/var/lib/nginx/tmp/fastcgi --http-uwsgi-temp-path=/var/lib/nginx/tmp/uwsgi --http-scgi-temp-path=/var/lib/nginx/tmp/scgi --pid-path=/run/nginx.pid --lock-path=/run/lock/subsys/nginx --user=nginx --group=nginx --with-file-aio --with-ipv6 --with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-stream_ssl_preread_module --with-http_addition_module --with-http_xslt_module=dynamic</span><br><span class="line">...(略)</span><br></pre></td></tr></table></figure>
+<p><code>configure arguments:</code>后面一大串的都是编译参数, 复制下来, 执行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/share/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib64/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/<span class="built_in">log</span>/nginx/error.log --http-log-path=/var/<span class="built_in">log</span>/nginx/access.log --http-client-body-temp-path=/var/lib/nginx/tmp/client_body --http-proxy-temp-path=/var/lib/nginx/tmp/proxy --http-fastcgi-temp-path=/var/lib/nginx/tmp/fastcgi --http-uwsgi-temp-path=/var/lib/nginx/tmp/uwsgi --http-scgi-temp-path=/var/lib/nginx/tmp/scgi --pid-path=/run/nginx.pid --lock-path=/run/lock/subsys/nginx --user=nginx --group=nginx --with-file-aio --with-ipv6 --with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-stream_ssl_preread_module --with-http_addition_module --with-http_xslt_module=dynamic</span><br><span class="line">...(略)   --add-module=ngx-fancyindex-0.4.2</span><br></pre></td></tr></table></figure>
+<p>也就是 <code>./configure</code> 跟着上面复制的一大串再加上 <code>--add-module=ngx-fancyindex-0.4.2</code> 执行就可以了, 如果执行过程中有报错缺少什么依赖组件就网上搜一下, 少什么安装什么, 转好了再执行直到成功</p>
+<p>再执行编译:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure></p>
+<p>再执行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2&gt;&amp;1 ./nginx -V | tr <span class="string">' '</span> <span class="string">'\n'</span>|grep fan</span><br></pre></td></tr></table></figure>
+<p>如果看到输出 <code>ngx-fancyindex</code> 就说明编译好了</p>
+<p>先备份原来的nginx文件(如果有问题可以还原) </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/sbin/nginx 是原执行文件</span></span><br><span class="line">mv /usr/sbin/nginx /usr/sbin/nginx.bak</span><br></pre></td></tr></table></figure>
+<p>把编译目录中<code>objs</code>文件中的nginx移过去就安装完成了:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv objs/nginx /usr/sbin/</span><br></pre></td></tr></table></figure>
+<h2 id="选择Fancy-Index主题"><a href="#选择Fancy-Index主题" class="headerlink" title="选择Fancy Index主题"></a>选择Fancy Index主题</h2><p>在 <code>/home</code> 目录中下载Fancy Index主题:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/lanffy/Nginx-Fancyindex-Theme.git</span><br></pre></td></tr></table></figure>
+<p>修改nginx配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       10000;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /home;</span><br><span class="line">        <span class="comment"># 开启目录浏览 </span></span><br><span class="line">        autoindex on; </span><br><span class="line">        <span class="comment"># 以可读的方式显示文件大小</span></span><br><span class="line">        autoindex_exact_size off;</span><br><span class="line">        <span class="comment"># 以服务器的文件时间作为显示的时间</span></span><br><span class="line">        autoindex_localtime on;</span><br><span class="line">        <span class="comment"># 展示中文文件名</span></span><br><span class="line">        charset utf-8,gbk;</span><br><span class="line">        <span class="comment"># 新增目录美化配置</span></span><br><span class="line">        include /home/Nginx-Fancyindex-Theme/fancyindex.conf;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重启Nginx即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -611,7 +642,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/frp/" rel="tag"><i class="fa fa-tag"></i> frp</a>
+            <a href="/tags/nginx/" rel="tag"><i class="fa fa-tag"></i> nginx</a>
           
         </div>
       
@@ -624,8 +655,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/03/12/docker-compose安装redis/" rel="next" title="docker-compose安装redis">
-                <i class="fa fa-chevron-left"></i> docker-compose安装redis
+              <a href="/2021/07/09/CentOS7调整根目录和home目录的空间大小/" rel="next" title="CentOS7调整根目录和home目录的空间大小">
+                <i class="fa fa-chevron-left"></i> CentOS7调整根目录和home目录的空间大小
               </a>
             
           </div>
@@ -633,10 +664,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/07/08/gitlab版本升级/" rel="prev" title="gitlab版本升级">
-                gitlab版本升级 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -974,7 +1001,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FRP作用"><span class="nav-number">1.</span> <span class="nav-text">FRP作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载安装"><span class="nav-number">2.</span> <span class="nav-text">下载安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件介绍"><span class="nav-number">3.</span> <span class="nav-text">文件介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ngx-http-autoindex-module-模块"><span class="nav-number">1.</span> <span class="nav-text">ngx_http_autoindex_module 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nginx-FancyIndex模块"><span class="nav-number">2.</span> <span class="nav-text">安装Nginx FancyIndex模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择Fancy-Index主题"><span class="nav-number">3.</span> <span class="nav-text">选择Fancy Index主题</span></a></li></ol></div>
             
 
           </div>

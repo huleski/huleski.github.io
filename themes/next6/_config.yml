@@ -218,7 +218,7 @@ avatar:
   # In theme directory (source/images): /images/avatar.gif
   # In site directory (source/uploads): /uploads/avatar.gif
   # You can also use other linking images.
-  url: /images/avatar.jpg
+  url: /images/avatar.png
   # If true, the avatar would be dispalyed in circle.
   rounded: false
   # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
@@ -378,7 +378,7 @@ android_chrome_color: "#222"
 #   image: Images's url, e.g. /uploads/custom-logo.jpg
 custom_logo:
   enabled: false
-  image: /images/avatar.jpg
+  image: /images/avatar.png
 
 # Code Highlight theme
 # Available values: normal | night | night eighties | night blue | night bright

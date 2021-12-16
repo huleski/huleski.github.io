@@ -26,7 +26,7 @@ override: false
 
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
-favicon: 
+favicon:
   small: /images/favicon.png
   medium: /images/favicon.png
   apple_touch_icon: /images/favicon.png
@@ -157,7 +157,7 @@ links:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: /images/avatar.jpg
+avatar: /images/avatar.png
 
 # Table Of Contents in the Sidebar
 toc:

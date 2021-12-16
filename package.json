@@ -5,6 +5,11 @@
   "hexo": {
     "version": "3.8.0"
   },
+  "scripts": {
+    "serve": "hexo s",
+    "clean": "hexo clean",
+    "deploy": "hexo g -d"
+  },
   "dependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",

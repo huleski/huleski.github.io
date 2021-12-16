@@ -13,6 +13,8 @@ date: 2021-03-12 10:56:05
 $ hexo new [layout] <title>
 # 生成文件并部署
 $ hexo g -d
+# 启动服务
+$ hexo server
 ```
 
 预知详情如何, 请看 [Hexo官网文档](https://hexo.io/zh-cn/docs/)

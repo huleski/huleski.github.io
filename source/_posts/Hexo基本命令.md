@@ -14,7 +14,7 @@ $ hexo new [layout] <title>
 # 生成文件并部署
 $ hexo g -d
 # 启动服务
-$ hexo server
+$ hexo s
 ```
 
 预知详情如何, 请看 [Hexo官网文档](https://hexo.io/zh-cn/docs/)

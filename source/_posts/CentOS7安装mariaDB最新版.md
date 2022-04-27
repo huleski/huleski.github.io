@@ -140,31 +140,37 @@ mysql> show variables like "%character%";show variables like "%collation%";
 1. 创建用户命令
 
 ```
-mysql> create user username@'localhost' identified by 'password';
+create user username@'%' identified by 'password';
 ```
 
-2. 授予外网登陆权限 
+2. 授予当前登录用户所有权限给该用户 
 
 ```
-mysql> grant all privileges on *.* to username@'%' identified by 'password';
+grant all privileges on *.* to username@'%';
 ```
 
 3. 授予权限并且可以授权
 
 ```
-mysql> grant all privileges on *.* to username@'hostname' identified by 'password' with grant option;
+grant all privileges on *.* to username@'%' with grant option;
 ```
 
-4. 创建只读用户
+4. 授予dbname只读权限
 
 ```bash
-GRANT SELECT ON dbname.* TO 'username'@'%' IDENTIFIED BY "password";
+GRANT SELECT ON dbname.* TO 'username'@'%';
 ```
 
-5. 刷新权限
+5. 授予table_name表的修改权限
+
+```bash
+GRANT UPDATE ON dbname.table_name TO 'username'@'%';
+```
+
+6. 刷新权限
 
 ```
-mysql> flush privileges;
+flush privileges;
 ```
 
 

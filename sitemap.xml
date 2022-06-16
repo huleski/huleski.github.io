@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://huleski.github.io/2021/03/12/docker-compose%E5%AE%89%E8%A3%85MariaDB/</loc>
+    
+    <lastmod>2022-06-16T08:13:57.102Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://huleski.github.io/2019/02/24/CentOS7%E5%AE%89%E8%A3%85mariaDB%E6%9C%80%E6%96%B0%E7%89%88/</loc>
     
     <lastmod>2022-04-27T09:08:36.767Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>https://huleski.github.io/2021/03/12/docker-compose%E5%AE%89%E8%A3%85redis/</loc>
     
     <lastmod>2021-03-12T11:02:15.720Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://huleski.github.io/2021/03/12/docker-compose%E5%AE%89%E8%A3%85MariaDB/</loc>
-    
-    <lastmod>2021-03-12T10:49:01.888Z</lastmod>
     
   </url>
   

@@ -140,7 +140,7 @@ key_buffer              = 16M
   # 进入镜像
   $ docker exec -it mariadb /bin/bash
   # 登录mariadb
-  > mysql -uroot -pWTAherui@20#
+  > mysql -uroot -p123456
   # 查看编码
   > show variables like '%character%'
   ```

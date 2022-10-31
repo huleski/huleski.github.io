@@ -78,6 +78,21 @@ rsync -avz /var/lib/docker/ /home/data/docker/
 "graph":"/home/data/docker"
 ```
 
+### 设置docker容器日志大小限制
+
+编辑docker配置文件 `vim /etc/docker/daemon.json`,添加log-dirver和log-opts参数。
+
+```json
+{
+    "log-driver":"json-file"
+    "log-opts":{"max-size":"500m","max-file":"3"}
+}
+```
+
+max-size=500m，意味着一个容器日志大小上限是500M，
+
+max-file=3，意味着一个容器有三个日志，分别是id+.json、id+1.json、id+2.json。
+
 ### 镜像加速
 
 鉴于国内网络问题，后续拉取 Docker 镜像十分缓慢，我们可以需要配置加速器来解决。
@@ -94,10 +109,11 @@ Docker国内镜像：
 "registry-mirrors": ["https://hub-mirror.c.163.com"]
 ```
 
-### 开启docker API
+### 开启docker API(开启docker远程访问管理)
 在 `/etc/docker/daemon.json` 文件中添加 
 
 ```json
+// 不限制ip
 "hosts":["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"]
 ```
 
@@ -124,4 +140,16 @@ curl -L "https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-
 
 # 添加可执行权限
 chmod +x /usr/local/bin/docker-compose
+```
+
+### 单容器的日志限制配置
+
+```yml
+nginx:
+    image: nginx:1.12.1
+    restart: always
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "5g"
 ```

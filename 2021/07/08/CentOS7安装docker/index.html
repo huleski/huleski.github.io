@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Holeski的博客">
 <meta property="og:description" content="Docker 官方建议要 CentOS7.0 及以上系统版本，本文介绍 Docker CE 在CentOS7下的安装使用。 Device MapperDocker默认使用AUFS作为存储驱动，但是AUFS并没有被包括在Linux的主线内核中。 1234# 安装yum install -y device-mapper# 重新加载dm_mod内核模块modprobe dm_mod 环境准备123456">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-07-09T02:28:11.454Z">
+<meta property="og:updated_time" content="2022-10-31T03:39:18.351Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7安装docker">
 <meta name="twitter:description" content="Docker 官方建议要 CentOS7.0 及以上系统版本，本文介绍 Docker CE 在CentOS7下的安装使用。 Device MapperDocker默认使用AUFS作为存储驱动，但是AUFS并没有被包括在Linux的主线内核中。 1234# 安装yum install -y device-mapper# 重新加载dm_mod内核模块modprobe dm_mod 环境准备123456">
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-07-09 10:28:11" itemprop="dateModified" datetime="2021-07-09T10:28:11+08:00">2021-07-09</time>
+                <time title="修改时间：2022-10-31 11:39:18" itemprop="dateModified" datetime="2022-10-31T11:39:18+08:00">2022-10-31</time>
               
             
           </span>
@@ -521,7 +521,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">2.4k</span>
+                <span title="本文字数">2.8k</span>
               
 
               
@@ -533,7 +533,7 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -564,6 +564,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建docker容器存放的路径</span></span><br><span class="line">mkdir -p /home/data/docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止docker</span></span><br><span class="line">systemctl stop docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 迁移数据到新目录</span></span><br><span class="line">rsync -avz /var/lib/docker/ /home/data/docker/</span><br></pre></td></tr></table></figure>
 <p>编辑docker配置文件 <code>vim /etc/docker/daemon.json</code>, 指定存储路劲</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"graph":"/home/data/docker"</span><br></pre></td></tr></table></figure>
+<h3 id="设置docker容器日志大小限制"><a href="#设置docker容器日志大小限制" class="headerlink" title="设置docker容器日志大小限制"></a>设置docker容器日志大小限制</h3><p>编辑docker配置文件 <code>vim /etc/docker/daemon.json</code>,添加log-dirver和log-opts参数。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"log-driver"</span>:<span class="string">"json-file"</span></span><br><span class="line">    <span class="string">"log-opts"</span>:&#123;<span class="attr">"max-size"</span>:<span class="string">"500m"</span>,<span class="attr">"max-file"</span>:<span class="string">"3"</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>max-size=500m，意味着一个容器日志大小上限是500M，</p>
+<p>max-file=3，意味着一个容器有三个日志，分别是id+.json、id+1.json、id+2.json。</p>
 <h3 id="镜像加速"><a href="#镜像加速" class="headerlink" title="镜像加速"></a>镜像加速</h3><p>鉴于国内网络问题，后续拉取 Docker 镜像十分缓慢，我们可以需要配置加速器来解决。</p>
 <p>Docker国内镜像：</p>
 <ul>
@@ -573,14 +577,14 @@
 </ul>
 <p>编辑docker配置文件 <code>vim /etc/docker/daemon.json</code>, 加入以下配置</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"registry-mirrors": ["https://hub-mirror.c.163.com"]</span><br></pre></td></tr></table></figure>
-<h3 id="开启docker-API"><a href="#开启docker-API" class="headerlink" title="开启docker API"></a>开启docker API</h3><p>在 <code>/etc/docker/daemon.json</code> 文件中添加 </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"hosts":["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"]</span><br></pre></td></tr></table></figure>
+<h3 id="开启docker-API-开启docker远程访问管理"><a href="#开启docker-API-开启docker远程访问管理" class="headerlink" title="开启docker API(开启docker远程访问管理)"></a>开启docker API(开启docker远程访问管理)</h3><p>在 <code>/etc/docker/daemon.json</code> 文件中添加 </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 不限制ip</span><br><span class="line">"hosts":["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"]</span><br></pre></td></tr></table></figure>
 <p>配置好后docker却异常报错了, 这里需要修改启动文件 <code>/usr/lib/systemd/system/docker.service</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 注释掉改为下面这样</span></span><br><span class="line">ExecStart=/usr/bin/dockerd</span><br></pre></td></tr></table></figure>
 <p>然后执行以下步骤即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl reset-failed docker.service</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
 <h2 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取脚本</span></span><br><span class="line">curl -L <span class="string">"https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加可执行权限</span></span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
-
+<h3 id="单容器的日志限制配置"><a href="#单容器的日志限制配置" class="headerlink" title="单容器的日志限制配置"></a>单容器的日志限制配置</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nginx:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">nginx:1.12.1</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">    logging:</span></span><br><span class="line"><span class="attr">        driver:</span> <span class="string">"json-file"</span></span><br><span class="line"><span class="attr">        options:</span></span><br><span class="line"><span class="attr">            max-size:</span> <span class="string">"5g"</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -978,7 +982,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Device-Mapper"><span class="nav-number">1.</span> <span class="nav-text">Device Mapper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装配置"><span class="nav-number">3.</span> <span class="nav-text">安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改容器默认存储路径"><span class="nav-number">3.1.</span> <span class="nav-text">修改容器默认存储路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像加速"><span class="nav-number">3.2.</span> <span class="nav-text">镜像加速</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启docker-API"><span class="nav-number">3.3.</span> <span class="nav-text">开启docker API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装docker-compose"><span class="nav-number">4.</span> <span class="nav-text">安装docker-compose</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Device-Mapper"><span class="nav-number">1.</span> <span class="nav-text">Device Mapper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装配置"><span class="nav-number">3.</span> <span class="nav-text">安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改容器默认存储路径"><span class="nav-number">3.1.</span> <span class="nav-text">修改容器默认存储路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置docker容器日志大小限制"><span class="nav-number">3.2.</span> <span class="nav-text">设置docker容器日志大小限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像加速"><span class="nav-number">3.3.</span> <span class="nav-text">镜像加速</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启docker-API-开启docker远程访问管理"><span class="nav-number">3.4.</span> <span class="nav-text">开启docker API(开启docker远程访问管理)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装docker-compose"><span class="nav-number">4.</span> <span class="nav-text">安装docker-compose</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单容器的日志限制配置"><span class="nav-number">4.1.</span> <span class="nav-text">单容器的日志限制配置</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1011,7 +1015,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">198k</span>
+    <span title="站点总字数">199k</span>
   
 
   

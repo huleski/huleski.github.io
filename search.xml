@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[docker部署shadowsocksR]]></title>
     <url>%2F2023%2F02%2F17%2Fdocker%E9%83%A8%E7%BD%B2shadowsocksR%2F</url>
-    <content type="text"><![CDATA[前期准备 系统: CentOS7 环境：docker 17.0 一台在 境外/国外 的云服务器 一键部署: 1234567docker run -d --name ssr \ -p 38989:8989 -p 38989:8989/udp malaohu/ssr-with-net-speeder \ -s 0.0.0.0 -p 8989 \ -k 123456 \ -m rc4-md5 \ -o http_simple \ -O auth_sha1_v4 123456解释一下服务器端口：38989密码：123456加密：rc4-md5协议：auth_sha1_v4 这里需要注意，auth_sha1这个协议已经被此软件弃用了，注意有_v4混淆：http_simple 最后, 需要放开云服务器的38989端口访问权限(tcp和udp), 可以访问了]]></content>
+    <content type="text"><![CDATA[前期准备 系统: CentOS7 环境：docker 17.0 一台在 境外/国外 的云服务器 一键部署: 1234567docker run -d --name ssr \ -p 38989:8989 -p 38989:8989/udp malaohu/ssr-with-net-speeder \ -s 0.0.0.0 -p 8989 \ -k 123456 \ -m rc4-md5 \ -o http_simple \ -O auth_sha1_v4 123456解释一下服务器端口：38989密码：123456加密：rc4-md5协议：auth_sha1_v4 这里需要注意，auth_sha1这个协议已经被此软件弃用了，注意有_v4混淆：http_simple 最后, 需要放开云服务器的38989端口访问权限(tcp和udp), 可以访问了 血泪总结(写于搭建SSR后的第3天)阿里云香港服务器公网ip被墙了，服务器已作废，***，退钱！ ####不用用阿里云！ 不要用阿里云！不要用阿里云！#这里不是家！！！ T_T]]></content>
       <categories>
         <category>docker</category>
       </categories>

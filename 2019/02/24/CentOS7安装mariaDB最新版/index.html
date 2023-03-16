@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Holeski的博客">
 <meta property="og:description" content="安装Maria DB来自官网的包源 编辑新增文件:  vim /etc/yum.repos.d/MariaDB.repo 保存以下内容 12345[mariadb]name = MariaDBbaseurl = http://yum.mariadb.org/10.3/centos7-amd64/gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDBgp">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-04-27T09:08:36.767Z">
+<meta property="og:updated_time" content="2023-03-16T10:39:49.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7安装mariaDB最新版">
 <meta name="twitter:description" content="安装Maria DB来自官网的包源 编辑新增文件:  vim /etc/yum.repos.d/MariaDB.repo 保存以下内容 12345[mariadb]name = MariaDBbaseurl = http://yum.mariadb.org/10.3/centos7-amd64/gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDBgp">
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2022-04-27 17:08:36" itemprop="dateModified" datetime="2022-04-27T17:08:36+08:00">2022-04-27</time>
+                <time title="修改时间：2023-03-16 18:39:49" itemprop="dateModified" datetime="2023-03-16T18:39:49+08:00">2023-03-16</time>
               
             
           </span>
@@ -521,7 +521,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">3.3k</span>
+                <span title="本文字数">5.4k</span>
               
 
               
@@ -533,7 +533,7 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                <span title="阅读时长">3 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -554,7 +554,7 @@
 
       
         <h2 id="安装Maria-DB"><a href="#安装Maria-DB" class="headerlink" title="安装Maria DB"></a>安装Maria DB</h2><p>来自<a href="https://downloads.mariadb.org/mariadb/repositories/" target="_blank" rel="noopener">官网的包源</a></p>
-<p>编辑新增文件:  vim /etc/yum.repos.d/MariaDB.repo 保存以下内容</p>
+<p>编辑新增文件:  <code>vim /etc/yum.repos.d/MariaDB.repo</code> 保存以下内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[mariadb]</span><br><span class="line">name = MariaDB</span><br><span class="line">baseurl = http://yum.mariadb.org/10.3/centos7-amd64/</span><br><span class="line">gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
 <p>加入上述内容，然后:wq!保存退出，如果在后面安装的时候很慢可以换<a href="http://mirrors.neusoft.edu.cn/mariadb//mariadb-10.3.15/yum/centos6-amd64/" target="_blank" rel="noopener">镜像地址</a>, 接着要注意重新生成yum源缓存包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure></p>
 <p>移除已安装的mariaDB/MySQL:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum remove $(rpm -qa | grep -i mysql)</span><br><span class="line">yum remove $(rpm -qa | grep -i mari)</span><br></pre></td></tr></table></figure></p>
@@ -564,7 +564,7 @@
 <p>初始化MariaDB完成，接下来测试登录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; mysql -uroot -ppassword</span><br></pre></td></tr></table></figure></p>
 <p>登录成功，查看数据库版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select version();</span><br></pre></td></tr></table></figure></p>
 <p>配置MariaDB的字符集</p>
-<p>编辑文件：vi /etc/my.cnf ，在[mysqld]标签下添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">init_connect=&apos;SET collation_connection = utf8mb4_unicode_ci&apos; </span><br><span class="line">init_connect=&apos;SET NAMES utf8mb4&apos; </span><br><span class="line">character-set-server=utf8mb4 </span><br><span class="line">collation-server=utf8mb4_unicode_ci </span><br><span class="line">skip-character-set-client-handshake</span><br></pre></td></tr></table></figure></p>
+<p>编辑文件：<code>vi /etc/my.cnf</code> ，在[mysqld]标签下添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">init_connect=&apos;SET collation_connection = utf8mb4_unicode_ci&apos; </span><br><span class="line">init_connect=&apos;SET NAMES utf8mb4&apos; </span><br><span class="line">character-set-server=utf8mb4 </span><br><span class="line">collation-server=utf8mb4_unicode_ci </span><br><span class="line">skip-character-set-client-handshake</span><br></pre></td></tr></table></figure></p>
 <p>编辑文件：vi /etc/my.cnf.d/client.cnf ，在[client]下添加 ( 如果没有可以不加 )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-character-set=utf8mb4</span><br></pre></td></tr></table></figure></p>
 <p>编辑文件： vi /etc/my.cnf.d/mysql-clients.cnf ，在[mysql]下添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-character-set=utf8mb4</span><br></pre></td></tr></table></figure></p>
 <p> 全部配置完成，重启mariadb<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mariadb</span><br></pre></td></tr></table></figure></p>
@@ -597,6 +597,39 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
 <p>安装成功。</p>
+<h2 id="可选配置-修改完需要重启"><a href="#可选配置-修改完需要重启" class="headerlink" title="可选配置(修改完需要重启)"></a>可选配置(修改完需要重启)</h2><h3 id="修改端口-编辑-vim-etc-my-cnf-在-mysqld-下添加"><a href="#修改端口-编辑-vim-etc-my-cnf-在-mysqld-下添加" class="headerlink" title="修改端口, 编辑 vim /etc/my.cnf,在[mysqld]下添加:"></a>修改端口, 编辑 <code>vim /etc/my.cnf</code>,在[mysqld]下添加:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">port=3506</span><br></pre></td></tr></table></figure>
+<h3 id="开启SSL加固"><a href="#开启SSL加固" class="headerlink" title="开启SSL加固"></a>开启SSL加固</h3><p>在mysql中查询是否已开启ssl: <code>show variables like &#39;have%ssl%&#39;;</code></p>
+<p>以下操作都在<code>/home</code>目录下(可自定义)</p>
+<ol>
+<li>生成证书, 为后面生成服务器和客户端证书做准备</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成 CA 私钥</span></span><br><span class="line">openssl genrsa 2048 &gt; ca-key.pem</span><br><span class="line"><span class="comment"># 通过 CA 私钥生成数字证书</span></span><br><span class="line">openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>生成服务器证书</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 MySQL 服务器 私钥和请求证书</span></span><br><span class="line">openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem</span><br><span class="line"><span class="comment"># 将生成的私钥转换为 RSA 私钥文件格式</span></span><br><span class="line">openssl rsa -<span class="keyword">in</span> server-key.pem -out server-key.pem</span><br><span class="line"><span class="comment"># 用CA 证书来生成一个服务器端的数字证书</span></span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>生成客户端证书</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建客户端的 RSA 私钥和数字证书</span></span><br><span class="line">openssl req -newkey rsa:2048 -days 3600  -nodes -keyout client-key.pem -out client-req.pem</span><br><span class="line"><span class="comment"># 将生成的私钥转换为 RSA 私钥文件格式</span></span><br><span class="line">openssl rsa -<span class="keyword">in</span> client-key.pem -out client-key.pem</span><br><span class="line"><span class="comment"># 用CA 证书来生成一个客户端的数字证书</span></span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> client-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>修改mysql配置 <code>vim /etc/my.cnf</code>, 在<code>[mysqld]</code>中加入:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启ssl</span></span><br><span class="line">ssl-ca=/home/ca.pem</span><br><span class="line">ssl-cert=/home/server-cert.pem</span><br><span class="line">ssl-key=/home/server-key.pem</span><br></pre></td></tr></table></figure>
+<p>重启mysql, <code>systemctl restart mariadb</code></p>
+<ol start="5">
+<li>设置ssl访问</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to <span class="string">'用户名'</span>@<span class="string">'%'</span> identified by <span class="string">'密码'</span> require ssl;</span><br></pre></td></tr></table></figure>
+<p>此时navicat等客户端工具都连不上mysql了, 需要在连接时配置SSL, 把客户端证书和私钥都配置好就可以连上了</p>
+<h3 id="每日自动备份数据库"><a href="#每日自动备份数据库" class="headerlink" title="每日自动备份数据库"></a>每日自动备份数据库</h3><p>编写shell脚本保存 <code>vim /home/back.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#当前时间格式化输出</span></span><br><span class="line">ctime=$(date <span class="string">'+%Y%m%d%H%M'</span>)</span><br><span class="line"><span class="comment">#使用当前时间的方式命名备份的sql文件</span></span><br><span class="line">name=<span class="variable">$ctime</span><span class="string">".sql"</span></span><br><span class="line"><span class="comment">#备份前先检查存放sql备份的目录里面的文件是否过期（3天），过期则删除掉</span></span><br><span class="line">find /home/sql-back/ -<span class="built_in">type</span> f -mtime +3 | xargs rm -rf</span><br><span class="line"><span class="comment">#开始将数据库转存为sql文件</span></span><br><span class="line">mysqldump -uroot -pxxxxx mysql &gt; <span class="variable">$name</span></span><br><span class="line"><span class="comment">#将转存的sql文件移动到专门用于存放备份的目录中</span></span><br><span class="line">mv ./<span class="variable">$name</span> /home/sql-back/</span><br></pre></td></tr></table></figure>
+<p>find和mv后面的路径请确保真实存在，或者是更换为实际应用场景需要的目录。添加执行权限 <code>chmod +x /home/back.sh</code></p>
+<p>配置定时任务 <code>vim /etc/crontab</code>, 在底部插入内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#我这里设置的是每天2点52分，以root用户执行备份脚本</span></span><br><span class="line"><span class="comment">#分  时  天  月   周   执行用户    执行的动作</span></span><br><span class="line">52 2 * * * root <span class="built_in">cd</span> /home/ &amp;&amp; ./back.sh</span><br></pre></td></tr></table></figure>
+<p>插入内容后重启定时任务的服务: <code>systemctl restart crond</code>. 完成</p>
+<h3 id="开启Binlog-在-mysqld-下添加"><a href="#开启Binlog-在-mysqld-下添加" class="headerlink" title="开启Binlog, 在[mysqld]下添加:"></a>开启Binlog, 在[mysqld]下添加:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 这一行开启Binlog</span><br><span class="line">log-bin=mysql-bin</span><br><span class="line"># 设置格式</span><br><span class="line">binlog-format=ROW </span><br><span class="line"># 配置serverID</span><br><span class="line">server_id=1 </span><br><span class="line"></span><br><span class="line"># 日志30天自动过期清除(最大只能设置99),触发条件是：binlog大小超过500M</span><br><span class="line">expire_logs_days=30</span><br><span class="line">max_binlog_size=500M</span><br></pre></td></tr></table></figure>
+<p>查看是否开启成功: <code>show variables like &#39;%log_bin%&#39;;</code></p>
 
       
     </div>
@@ -999,7 +1032,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Maria-DB"><span class="nav-number">1.</span> <span class="nav-text">安装Maria DB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置数据库"><span class="nav-number">2.</span> <span class="nav-text">配置数据库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Maria-DB"><span class="nav-number">1.</span> <span class="nav-text">安装Maria DB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置数据库"><span class="nav-number">2.</span> <span class="nav-text">配置数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选配置-修改完需要重启"><span class="nav-number">3.</span> <span class="nav-text">可选配置(修改完需要重启)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改端口-编辑-vim-etc-my-cnf-在-mysqld-下添加"><span class="nav-number">3.1.</span> <span class="nav-text">修改端口, 编辑 vim /etc/my.cnf,在[mysqld]下添加:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启SSL加固"><span class="nav-number">3.2.</span> <span class="nav-text">开启SSL加固</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每日自动备份数据库"><span class="nav-number">3.3.</span> <span class="nav-text">每日自动备份数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启Binlog-在-mysqld-下添加"><span class="nav-number">3.4.</span> <span class="nav-text">开启Binlog, 在[mysqld]下添加:</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1032,7 +1065,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">201k</span>
+    <span title="站点总字数">203k</span>
   
 
   
@@ -1041,7 +1074,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:03</span>
+    <span title="站点阅读时长">3:05</span>
   
 </div>
 

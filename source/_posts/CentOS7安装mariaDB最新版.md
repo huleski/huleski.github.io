@@ -12,7 +12,7 @@ date: 2019-02-24 16:26:41
 
 来自[官网的包源](https://downloads.mariadb.org/mariadb/repositories/)
 
-编辑新增文件:  vim /etc/yum.repos.d/MariaDB.repo 保存以下内容
+编辑新增文件:  `vim /etc/yum.repos.d/MariaDB.repo` 保存以下内容
 
 ```
 [mariadb]
@@ -79,7 +79,7 @@ mysql> select version();
 
 配置MariaDB的字符集
 
-编辑文件：vi /etc/my.cnf ，在[mysqld]标签下添加
+编辑文件：`vi /etc/my.cnf` ，在[mysqld]标签下添加
 ```
 init_connect='SET collation_connection = utf8mb4_unicode_ci' 
 init_connect='SET NAMES utf8mb4' 
@@ -173,5 +173,116 @@ GRANT UPDATE ON dbname.table_name TO 'username'@'%';
 flush privileges;
 ```
 
-
 安装成功。
+
+## 可选配置(修改完需要重启)
+
+### 修改端口, 编辑 `vim /etc/my.cnf`,在[mysqld]下添加:
+
+```text
+[mysqld]
+port=3506
+```
+
+### 开启SSL加固
+
+在mysql中查询是否已开启ssl: `show variables like 'have%ssl%';`
+
+以下操作都在`/home`目录下(可自定义)
+
+1. 生成证书, 为后面生成服务器和客户端证书做准备
+
+```bash
+# 生成 CA 私钥
+openssl genrsa 2048 > ca-key.pem
+# 通过 CA 私钥生成数字证书
+openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem
+```
+
+2. 生成服务器证书
+
+```bash
+# 创建 MySQL 服务器 私钥和请求证书
+openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem
+# 将生成的私钥转换为 RSA 私钥文件格式
+openssl rsa -in server-key.pem -out server-key.pem
+# 用CA 证书来生成一个服务器端的数字证书
+openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
+```
+
+3. 生成客户端证书
+
+```bash
+# 创建客户端的 RSA 私钥和数字证书
+openssl req -newkey rsa:2048 -days 3600  -nodes -keyout client-key.pem -out client-req.pem
+# 将生成的私钥转换为 RSA 私钥文件格式
+openssl rsa -in client-key.pem -out client-key.pem
+# 用CA 证书来生成一个客户端的数字证书
+openssl x509 -req -in client-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem
+```
+
+4. 修改mysql配置 `vim /etc/my.cnf`, 在`[mysqld]`中加入:
+
+```bash
+# 开启ssl
+ssl-ca=/home/ca.pem
+ssl-cert=/home/server-cert.pem
+ssl-key=/home/server-key.pem
+```
+
+重启mysql, `systemctl restart mariadb`
+
+5. 设置ssl访问
+
+```bash
+grant all privileges on *.* to '用户名'@'%' identified by '密码' require ssl;
+```
+此时navicat等客户端工具都连不上mysql了, 需要在连接时配置SSL, 把客户端证书和私钥都配置好就可以连上了
+
+### 每日自动备份数据库
+
+编写shell脚本保存 `vim /home/back.sh`
+
+```bash
+#!/bin/bash
+#当前时间格式化输出
+ctime=$(date '+%Y%m%d%H%M')
+#使用当前时间的方式命名备份的sql文件
+name=$ctime".sql"
+#备份前先检查存放sql备份的目录里面的文件是否过期（3天），过期则删除掉
+find /home/sql-back/ -type f -mtime +3 | xargs rm -rf
+#开始将数据库转存为sql文件
+mysqldump -uroot -pxxxxx mysql > $name
+#将转存的sql文件移动到专门用于存放备份的目录中
+mv ./$name /home/sql-back/
+```
+
+find和mv后面的路径请确保真实存在，或者是更换为实际应用场景需要的目录。添加执行权限 `chmod +x /home/back.sh`
+
+配置定时任务 `vim /etc/crontab`, 在底部插入内容：
+
+```bash
+#我这里设置的是每天2点52分，以root用户执行备份脚本
+#分  时  天  月   周   执行用户    执行的动作
+52 2 * * * root cd /home/ && ./back.sh
+```
+
+插入内容后重启定时任务的服务: `systemctl restart crond`. 完成
+
+### 开启Binlog, 在[mysqld]下添加:
+
+```conf
+# 这一行开启Binlog
+log-bin=mysql-bin
+# 设置格式
+binlog-format=ROW 
+# 配置serverID
+server_id=1 
+
+# 日志30天自动过期清除(最大只能设置99),触发条件是：binlog大小超过500M
+expire_logs_days=30
+max_binlog_size=500M
+```
+
+查看是否开启成功: `show variables like '%log_bin%';`
+

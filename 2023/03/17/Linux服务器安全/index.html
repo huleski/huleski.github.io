@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="相关背景 GitLab  是一套基于Ruby开发的开源Git项目管理应用，其提供的功能和Github类似，不同的是GitLab提供一个GitLab CE社区版本，用户可以将其部署在自己的服务器上，这样就可以用于团队内部的项目代码托管仓库。   GitLab CI  是GitLab 提供的持续集成服务(从8.0版本之后，GitLab CI已经集成在GitLab中了)，只要在你的仓库根目录下创建一个.">
-<meta name="keywords" content="GitLab,GitLab-CI">
+  <meta name="description" content="SSH访问控制配置编辑文件 vi /etc/ssh/sshd_config添加下面一行: 12# 只允许192.168.0.1+root用户登录AllowUsers root@192.168.0.1 重启ssh: systemctl restart sshd 设置密码强度策略在/etc/pam.d/password-auth和/etc/pam.d/system-auth文件中修改’password">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用GitLab-Runner搭建GitLab持续集成&#x2F;部署环境">
-<meta property="og:url" content="https://huleski.github.io/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/index.html">
+<meta property="og:title" content="Linux服务器安全">
+<meta property="og:url" content="https://huleski.github.io/2023/03/17/Linux服务器安全/index.html">
 <meta property="og:site_name" content="Holeski的博客">
-<meta property="og:description" content="相关背景 GitLab  是一套基于Ruby开发的开源Git项目管理应用，其提供的功能和Github类似，不同的是GitLab提供一个GitLab CE社区版本，用户可以将其部署在自己的服务器上，这样就可以用于团队内部的项目代码托管仓库。   GitLab CI  是GitLab 提供的持续集成服务(从8.0版本之后，GitLab CI已经集成在GitLab中了)，只要在你的仓库根目录下创建一个.">
+<meta property="og:description" content="SSH访问控制配置编辑文件 vi /etc/ssh/sshd_config添加下面一行: 12# 只允许192.168.0.1+root用户登录AllowUsers root@192.168.0.1 重启ssh: systemctl restart sshd 设置密码强度策略在/etc/pam.d/password-auth和/etc/pam.d/system-auth文件中修改’password">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-21T03:05:19.739Z">
+<meta property="og:updated_time" content="2023-03-17T09:53:02.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用GitLab-Runner搭建GitLab持续集成&#x2F;部署环境">
-<meta name="twitter:description" content="相关背景 GitLab  是一套基于Ruby开发的开源Git项目管理应用，其提供的功能和Github类似，不同的是GitLab提供一个GitLab CE社区版本，用户可以将其部署在自己的服务器上，这样就可以用于团队内部的项目代码托管仓库。   GitLab CI  是GitLab 提供的持续集成服务(从8.0版本之后，GitLab CI已经集成在GitLab中了)，只要在你的仓库根目录下创建一个.">
+<meta name="twitter:title" content="Linux服务器安全">
+<meta name="twitter:description" content="SSH访问控制配置编辑文件 vi /etc/ssh/sshd_config添加下面一行: 12# 只允许192.168.0.1+root用户登录AllowUsers root@192.168.0.1 重启ssh: systemctl restart sshd 设置密码强度策略在/etc/pam.d/password-auth和/etc/pam.d/system-auth文件中修改’password">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="https://huleski.github.io/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/">
+  <link rel="canonical" href="https://huleski.github.io/2023/03/17/Linux服务器安全/">
 
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>使用GitLab-Runner搭建GitLab持续集成/部署环境 | Holeski的博客</title>
+  <title>Linux服务器安全 | Holeski的博客</title>
   
 
 
@@ -397,7 +397,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://huleski.github.io/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/">
+    <link itemprop="mainEntityOfPage" href="https://huleski.github.io/2023/03/17/Linux服务器安全/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Holeski">
@@ -414,7 +414,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用GitLab-Runner搭建GitLab持续集成/部署环境
+          <h1 class="post-title" itemprop="name headline">Linux服务器安全
 
               
             
@@ -440,24 +440,12 @@
                 
               
 
-              <time title="创建时间：2019-02-26 11:22:47" itemprop="dateCreated datePublished" datetime="2019-02-26T11:22:47+08:00">2019-02-26</time>
+              <time title="创建时间：2023-03-17 10:35:36 / 修改时间：17:53:02" itemprop="dateCreated datePublished" datetime="2023-03-17T10:35:36+08:00">2023-03-17</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-04-21 11:05:19" itemprop="dateModified" datetime="2020-04-21T11:05:19+08:00">2020-04-21</time>
               
             
           </span>
@@ -474,7 +462,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/GitLab/" itemprop="url" rel="index"><span itemprop="name">GitLab</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
                 
                 
@@ -489,7 +477,7 @@
 
           
           
-            <span id="/2019/02/26/使用GitLab-Runner搭建GitLab持续集成-部署环境/" class="leancloud_visitors" data-flag-title="使用GitLab-Runner搭建GitLab持续集成/部署环境">
+            <span id="/2023/03/17/Linux服务器安全/" class="leancloud_visitors" data-flag-title="Linux服务器安全">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -521,7 +509,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">5.1k</span>
+                <span title="本文字数">2.1k</span>
               
 
               
@@ -533,7 +521,7 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                <span title="阅读时长">5 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -553,49 +541,24 @@
       
 
       
-        <h2 id="相关背景"><a href="#相关背景" class="headerlink" title="相关背景"></a>相关背景</h2><ol>
-<li><p>GitLab</p>
+        <h3 id="SSH访问控制配置"><a href="#SSH访问控制配置" class="headerlink" title="SSH访问控制配置"></a>SSH访问控制配置</h3><p>编辑文件 <code>vi /etc/ssh/sshd_config</code>添加下面一行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只允许192.168.0.1+root用户登录</span></span><br><span class="line">AllowUsers root@192.168.0.1</span><br></pre></td></tr></table></figure>
+<p>重启ssh: <code>systemctl restart sshd</code></p>
+<h3 id="设置密码强度策略"><a href="#设置密码强度策略" class="headerlink" title="设置密码强度策略"></a>设置密码强度策略</h3><p>在<code>/etc/pam.d/password-auth</code>和<code>/etc/pam.d/system-auth</code>文件中修改’password requisite pam_pwquality.so’那一行为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password requisite pam_pwquality.so try_first_pass type= retry=5 difok=3 minlen=8 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>是一套基于Ruby开发的开源Git项目管理应用，其提供的功能和Github类似，不同的是GitLab提供一个GitLab CE社区版本，用户可以将其部署在自己的服务器上，这样就可以用于团队内部的项目代码托管仓库。</p>
+<p>参数说明：<br>retry=5（登录或修改密码失败时可以重试的次数,默认值是1，如果用户输入的密码强度不够就退出）<br>difok=3（允许新、旧密码相同字符的个数）<br>minlen=8 （最小长度为8）<br>ucredit = -1 （至少包含一位大写字母）<br>lcredit = -1 （至少包含一位小写字母）<br>ocredit = -1 （至少包含一个特殊字符)</p>
 </blockquote>
-</li>
-<li><p>GitLab CI</p>
+<h3 id="设置身份鉴别策略"><a href="#设置身份鉴别策略" class="headerlink" title="设置身份鉴别策略"></a>设置身份鉴别策略</h3><p>设置用户登录失败处理功能，可采取结束会话、限制非法登录次数和自动退出等措施。</p>
+<p><strong>注意: CentOS7中使用pam_tally2模块, CentOS8中使用pam_faillock模块</strong></p>
+<p>下面以CentOS7为例, 编辑文件<code>vim /etc/pam.d/sshd</code>添加以下内容(需要重启ssh):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auth  required  pam_tally2.so   deny=5 even_deny_root unlock_time=600 root_unlock_time=600</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>是GitLab 提供的持续集成服务(从8.0版本之后，GitLab CI已经集成在GitLab中了)，只要在你的仓库根目录下创建一个.gitlab-ci.yml 文件， 并为该项目指派一个Runner，当有合并请求或者Push操作时，你写在.gitlab-ci.yml中的构建脚本就会开始执行。</p>
+<p>deny 设置普通用户和root用户连续错误登陆的最大次数，超过最大次数，则锁定该用户<br>even_deny_root 也限制root用户；<br>unlock_time 设定普通用户锁定后，多少时间后解锁，单位是秒；<br>root_unlock_time 设定root用户锁定后，多少时间后解锁，单位是秒；</p>
 </blockquote>
-</li>
-<li><p>GitLab Runner</p>
-<blockquote>
-<p>是配合GitLab CI进行构建任务的应用程序，GitLab CI负责yml文件中各种阶段流程的执行，而GitLab Runner就是具体的负责执行每个阶段的脚本执行，一般来说GitLab Runner需要安装在单独的机器上通过其提供的注册操作跟GitLab CI进行绑定，当然，你也可以让其和GitLab安装在一起，只是有的情况下，你代码的构建过程对资源消耗十分严重的时候，会拖累GitLab给其他用户提供政策的Git服务。</p>
-</blockquote>
-</li>
-<li><p>持续集成/部署环境</p>
-<blockquote>
-<p>持续集成是程序开发人员在频繁的提交代码之后，能有相应的环境能对其提交的代码自动执行构建(Build)、测试(Test),然后根据测试结果判断新提交的代码能否合并加入主分支当中,而持续部署也就是在持续集成之后自动将代码部署(Deploy)到生成环境上</p>
-</blockquote>
-</li>
-</ol>
-<p>开启GitLab可持续集成功能, 你需要通过如下两步启用GitLab CI功能</p>
-<ol>
-<li>为你的项目配置一个GitLab Runner</li>
-<li>新建一个.gitlab-ci.yml文件在你项目的根目录</li>
-</ol>
-<h2 id="创建GitLab-Runner以及配置"><a href="#创建GitLab-Runner以及配置" class="headerlink" title="创建GitLab Runner以及配置"></a>创建GitLab Runner以及配置</h2><p>拉取官方镜像, alpine版镜像体积比较小, 也可以使用latest版<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gitlab/gitlab-runner:alpine</span><br></pre></td></tr></table></figure></p>
-<p>启动gitlab-runner容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name gitlab-runner --restart always \</span><br><span class="line">  -v /srv/gitlab-runner/config:/etc/gitlab-runner \</span><br><span class="line">  -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">  gitlab/gitlab-runner:alpine</span><br></pre></td></tr></table></figure></p>
-<p>执行下面命令注册一个runner :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it gitlab-runner gitlab-ci-multi-runner register</span><br></pre></td></tr></table></figure></p>
-<p>接下来出现以下内容, 根据提示输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Please enter the gitlab-ci coordinator URL:</span><br><span class="line"># 示例：http://10.12.2.22</span><br><span class="line">Please enter the gitlab-ci token for this runner:</span><br><span class="line"># xxxxxx</span><br><span class="line">Please enter the gitlab-ci description for this runner:</span><br><span class="line"># 示例：test</span><br><span class="line">Please enter the gitlab-ci tags for this runner (comma separated):</span><br><span class="line"># 示例：test</span><br><span class="line">Please enter the executor: docker, parallels, shell, kubernetes, docker-ssh, ssh, virtualbox, docker+machine, docker-ssh+machine:</span><br><span class="line"># ssh</span><br><span class="line">Please enter the SSH server address (e.g. my.server.com):</span><br><span class="line"># 10.12.2.22</span><br><span class="line">Please enter the SSH server port (e.g. 22):</span><br><span class="line"># 22  </span><br><span class="line">Please enter the SSH user (e.g. root):</span><br><span class="line"># root</span><br><span class="line">Please enter the SSH password (e.g. docker.io):</span><br><span class="line"># 123456</span><br><span class="line">Please enter path to SSH identity file (e.g. /home/user/.ssh/id_rsa):</span><br><span class="line"></span><br><span class="line">Runner registered successfully. Feel free to start it, but if it&apos;s running already the config should be automatically reloaded!</span><br></pre></td></tr></table></figure></p>
-<p>说明： </p>
-<ol>
-<li>gitlab ci 的地址以及token，从你要配置该runner到哪个项目，就去gitlab下该项目首页右侧设置—》CI/CD Pipelines—》Specific Runners下可以找到。 </li>
-<li>gitlab-ci tags这个很重要，在项目构建流程yaml文件里面指定tag，就是匹配使用哪个tag的runner，这里我定义了test，回头再配置文件里面就指定这个tag。 </li>
-<li>executor：执行者可以有很多种，这里我们使用ssh, 登录进入后再构建。 </li>
-</ol>
-<p>如果想修改注册信息, 可以编辑文件 <code>vim /srv/gitlab-runner/config/config.toml</code>, 内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">concurrent = 1</span><br><span class="line">check_interval = 0</span><br><span class="line"></span><br><span class="line">[session_server]</span><br><span class="line">  session_timeout = 1800</span><br><span class="line"></span><br><span class="line">[[runners]]</span><br><span class="line">  name = &quot;wta-admin&quot;</span><br><span class="line">  url = &quot;http://10.12.2.22/&quot;</span><br><span class="line">  token = &quot;JKLASJDFIAOSKJ&quot;</span><br><span class="line">  executor = &quot;ssh&quot;</span><br><span class="line">  [runners.ssh]</span><br><span class="line">    user = &quot;root&quot;</span><br><span class="line">    password = &quot;123456&quot;</span><br><span class="line">    host = &quot;10.12.2.22&quot;</span><br><span class="line">    port = &quot;22&quot;</span><br><span class="line">    builds_dir = &quot;/home/runner/builds&quot;   # 设置构建路径</span><br><span class="line">    cache_dir = &quot;/home/runner/caches&quot;    # 设置构建缓存路径</span><br><span class="line"></span><br><span class="line">  [runners.cache]</span><br><span class="line">    [runners.cache.s3]</span><br><span class="line">    [runners.cache.gcs]</span><br></pre></td></tr></table></figure></p>
-<p>修改完记得重启docker<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart gitlab-runner</span><br></pre></td></tr></table></figure></p>
-<p>gitlab-runner已经配置完成。</p>
-<h2 id="在gitlab项目的根目录新建-gitlab-ci-yml文件"><a href="#在gitlab项目的根目录新建-gitlab-ci-yml文件" class="headerlink" title="在gitlab项目的根目录新建.gitlab-ci.yml文件"></a>在gitlab项目的根目录新建.gitlab-ci.yml文件</h2><p>gitlab-ci.yml文件是用来配置GitLab CI进行构建流程的配置文件，其采用YAML语法,所以你需要额外注意要用空格来代替缩进，而不是Tabs。<br>.gitlab-ci.yml文件如下。查看<a href="https://segmentfault.com/a/1190000011890710" target="_blank" rel="noopener">详细配置</a>或<a href="https://docs.gitlab.com/ce/ci/yaml/README.html" target="_blank" rel="noopener">官方配置</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"># 利用caches字段来指定下面将要进行的job任务中需要共享的文件目录,如果没有，</span><br><span class="line"># 每个Job开始的时候，GitLab Runner都会删掉.gitignore里面的文件</span><br><span class="line">cache:</span><br><span class="line">  key: $&#123;CI_BUILD_REF_NAME&#125;</span><br><span class="line">  paths:</span><br><span class="line">    - target</span><br><span class="line"></span><br><span class="line"># 利用stages关键字来定义持续构建过程中的三个阶段: package、build_docker、deploy_docker</span><br><span class="line"># 1. 所有 Stages 会按照顺序运行，即当一个 Stage 完成后，下一个 Stage 才会开始</span><br><span class="line"># 2. 只有当所有 Stages 完成后，该构建任务 (Pipeline) 才会成功</span><br><span class="line"># 3. 如果任何一个 Stage 失败，那么后面的 Stages 不会执行，该构建任务 (Pipeline) 失败</span><br><span class="line">stages:</span><br><span class="line">  - package</span><br><span class="line">  - build_docker</span><br><span class="line">  - deploy_docker</span><br><span class="line"></span><br><span class="line">############################### maven打包 ###############################</span><br><span class="line"># 定义一个叫package的Job任务, package为job名, 可随意命名。下同</span><br><span class="line"># stage字段声明属于package阶段，这个job会第一个执行，执行一些环境的初始化工作。</span><br><span class="line"># script字段指定该任务执行的内容, 由于是CentOS, 此处执行shell语句。下同</span><br><span class="line">package:</span><br><span class="line">  stage: package</span><br><span class="line">  tags:                       #这里的tags一定要属于注册时填的tags中，下面同理</span><br><span class="line">    - test</span><br><span class="line">  script:</span><br><span class="line">    - echo &quot;begining to execute package project&quot;</span><br><span class="line">    - docker stop test &amp;&amp; docker rm test &amp;&amp; docker rmi test:1.0</span><br><span class="line">    - mvn clean install -Dmaven.test.skip=true</span><br><span class="line">    - cp -f target/*.jar /data/</span><br><span class="line">  artifacts:</span><br><span class="line">    paths:</span><br><span class="line">      - target/*.jar    # 将maven构建成功的jar包作为构建产出导出，可在下一个stage的任务中使用 目前没卵用</span><br><span class="line"></span><br><span class="line">############################### 构建镜像 ############################### </span><br><span class="line">build_docker:</span><br><span class="line">  stage: build_docker</span><br><span class="line">  script:</span><br><span class="line">    - echo &quot;begining to execute build project&quot;</span><br><span class="line">    - docker build -t test:1.0 /data/</span><br><span class="line">  tags:</span><br><span class="line">    - test</span><br><span class="line"></span><br><span class="line">############################### 部署运行 ############################### </span><br><span class="line"># only字段指定需要执行的所在分支或者标签</span><br><span class="line">deploy_docker:</span><br><span class="line">  stage: deploy_docker</span><br><span class="line">  script:</span><br><span class="line">    - echo &quot;begining to execute deploy project&quot;</span><br><span class="line">    - docker run -d -p 80:80 --restart always --name=test test:1.0</span><br><span class="line">    - echo &quot;dev部署成功, 嘻嘻嘻......&quot;</span><br><span class="line">  only:</span><br><span class="line">    - dev</span><br><span class="line">  tags:</span><br><span class="line">    - test</span><br><span class="line"></span><br><span class="line">deploy_docker:</span><br><span class="line">  stage: deploy_docker</span><br><span class="line">  script:</span><br><span class="line">    - echo &quot;begining to execute deploy project&quot;</span><br><span class="line">    - docker run -d -p 8080:80 --restart always --name=test test:1.0</span><br><span class="line">    - echo &quot;master部署成功, 嘻嘻嘻......&quot;</span><br><span class="line">  only:</span><br><span class="line">    - master</span><br><span class="line">  tags:</span><br><span class="line">    - test</span><br></pre></td></tr></table></figure>
-<p>创建完成后push到gitlab, 此时打开项目首页的Piplines标签页，会发现一个状态标识为pending的构建任务, gitlab-CI搭建完成</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户登录失败的次数</span></span><br><span class="line">pam_tally2 -u 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解锁指定用户(登录成功后，这个用户登录错误值将清零)</span></span><br><span class="line">pam_tally2 -r -u 用户名</span><br></pre></td></tr></table></figure>
+<h3 id="设置登陆会话超时"><a href="#设置登陆会话超时" class="headerlink" title="设置登陆会话超时"></a>设置登陆会话超时</h3><p>30分钟无操作，自动退出会话。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line">TMOUT=1800 <span class="comment">#30分钟超时</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装防恶意代码软件"><a href="#安装防恶意代码软件" class="headerlink" title="安装防恶意代码软件"></a>安装防恶意代码软件</h3><p>安装Linux病毒查杀软件Clamav<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">yum -y install zlib-devel openssl-devel clamav* clamd*</span><br><span class="line"><span class="comment"># 更新病毒库</span></span><br><span class="line">freshclam</span><br><span class="line"></span><br><span class="line"><span class="comment">#重启freshclam服务</span></span><br><span class="line">systemctl  start  clamav-freshclam.service</span><br><span class="line"><span class="comment">#查看服务状态</span></span><br><span class="line">systemctl status clamav-freshclam.service</span><br><span class="line"><span class="comment">#开机启动程序</span></span><br><span class="line">systemctl <span class="built_in">enable</span> clamav-freshclam.service </span><br><span class="line"><span class="comment">#停止freshclam服务</span></span><br><span class="line">systemctl stop clamav-freshclam.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 扫描 /data 目录指令：</span></span><br><span class="line">clamscan -ri /data  </span><br><span class="line"><span class="comment">#扫描参数：</span></span><br><span class="line"><span class="comment">#-r/--recursive[=yes/no]        递归所有文件        </span></span><br><span class="line"><span class="comment">#--log=FILE/-l FILE             增加扫描报告          </span></span><br><span class="line"><span class="comment">#--copy[路径]                    将受感染的文件复制到[路径]             </span></span><br><span class="line"><span class="comment">#--move [路径]                   将受感染的文件移动到[路径]       </span></span><br><span class="line"><span class="comment">#--remove [路径]                 删除受感染的文件       </span></span><br><span class="line"><span class="comment">#--quiet                        只输出错误消息      </span></span><br><span class="line"><span class="comment">#--infected/-i                  只输出感染文件       </span></span><br><span class="line"><span class="comment">#--suppress-ok-results/-o       跳过扫描OK的文件       </span></span><br><span class="line"><span class="comment">#--bell                         扫描到病毒文件发出警报声音      </span></span><br><span class="line"><span class="comment">#--unzip(unrar)                 解压压缩文件扫描</span></span><br></pre></td></tr></table></figure></p>
+<p>定时杀毒, 编辑 <code>vim /etc/crontab</code>,加上一下内容:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 让服务器每天晚上2点定时更新和杀毒</span></span><br><span class="line">0 2 * * * /usr/bin/freshclam --quiet</span><br><span class="line">30 2 * * * /usr/bin/clamscan  -ri /data --move=/tmp</span><br></pre></td></tr></table></figure></p>
+<p>重启定时任务: <code>systemctl restart crond</code></p>
 
       
     </div>
@@ -629,9 +592,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/GitLab/" rel="tag"><i class="fa fa-tag"></i> GitLab</a>
-          
-            <a href="/tags/GitLab-CI/" rel="tag"><i class="fa fa-tag"></i> GitLab-CI</a>
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           
         </div>
       
@@ -644,8 +605,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/25/centos7安装Nginx及配置详解/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2023/03/08/SSH无密码登录/" rel="next" title="SSH无密码登录">
+                <i class="fa fa-chevron-left"></i> SSH无密码登录
               </a>
             
           </div>
@@ -653,10 +614,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/26/CentOS7安装maven/" rel="prev" title="CentOS7安装maven">
-                CentOS7安装maven <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -998,7 +955,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关背景"><span class="nav-number">1.</span> <span class="nav-text">相关背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建GitLab-Runner以及配置"><span class="nav-number">2.</span> <span class="nav-text">创建GitLab Runner以及配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在gitlab项目的根目录新建-gitlab-ci-yml文件"><span class="nav-number">3.</span> <span class="nav-text">在gitlab项目的根目录新建.gitlab-ci.yml文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH访问控制配置"><span class="nav-number">1.</span> <span class="nav-text">SSH访问控制配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置密码强度策略"><span class="nav-number">2.</span> <span class="nav-text">设置密码强度策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置身份鉴别策略"><span class="nav-number">3.</span> <span class="nav-text">设置身份鉴别策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置登陆会话超时"><span class="nav-number">4.</span> <span class="nav-text">设置登陆会话超时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装防恶意代码软件"><span class="nav-number">5.</span> <span class="nav-text">安装防恶意代码软件</span></a></li></ol></div>
             
 
           </div>

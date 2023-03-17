@@ -53,7 +53,7 @@ SSH密钥会默认保存在 `~/.ssh/id_rsa`文件中．SSH公钥保存在 `~/.ss
 使用`ssh-copy-id`命令将SSH公钥上传到远程Linux服务器
 
 ```bash
-ssh-copy-id username@remote-server
+ssh-copy-id root@HOST
 ```
 
 输入远程用户密码后, SSH公钥就会自动上传了．SSH公钥保存在远程Linux服务器的 `~/.ssh/authorized_keys` 文件中．
@@ -62,7 +62,11 @@ ssh-copy-id username@remote-server
 
 测试一下远程ssh查看系统版本:
 ```bash
-ssh -p 22 username@remote-server "cat /etc/redhat-release"
+ssh -p 22 root@HOST "cat /etc/redhat-release"
 ```
 
 OK! 以后使用scp命令来传送文件时也不需要输入密码了．
+
+```bash
+scp -P 22 /data/test.txt root@HOST:/data/test.txt
+```

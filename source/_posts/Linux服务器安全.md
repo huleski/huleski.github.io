@@ -100,5 +100,8 @@ clamscan -ri /data
 ```
 重启定时任务: `systemctl restart crond`
 
+### 隐藏Nginx软件版本号信息
+在不隐藏的情况下，我们可以通过http响应头查看Nginx的版本号
 
+过在nginx.conf的http段中加入 `server_tokens off` 来隐藏我们的版本号
 

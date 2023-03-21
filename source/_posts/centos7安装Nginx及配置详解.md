@@ -680,3 +680,18 @@ server {
     [....]
 }
 ```
+
+延长nginx日志的存储时间
+-----------------
+nginx是使用日志轮转功能分割日志的, 编辑 `vim /etc/logrotate.d/nginx`,修改rotate参数值，就可以修改日志的存储时间了
+
+```bash
+/var/log/nginx/*.log {
+       ...
+       # 保存60天日志文件
+        rotate 60
+        ...
+}
+```
+让配置生效: `logrotate /etc/logrotate.d/nginx`
+
